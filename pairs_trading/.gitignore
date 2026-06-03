@@ -1,0 +1,12 @@
+.venv/
+data/etf_price_history.csv
+data/etf_universe_liquid.csv
+data/candidate_pairs.csv
+outputs/cointegration_scan.csv
+outputs/rolling_*.csv
+outputs/viability_*.csv
+outputs/rolling_viability_comparison.csv
+outputs/backtest_*.csv
+outputs/backtest_comparison.csv
+outputs/parameter_sweep_*.csv
+outputs/research_summary.md
