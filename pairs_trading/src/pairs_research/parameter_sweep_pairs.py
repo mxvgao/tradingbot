@@ -58,7 +58,9 @@ def add_rolling_gate(signals: pd.DataFrame, rolling_csv: Path) -> pd.DataFrame:
         right_on="end_date",
         direction="backward",
     )
-    merged["rolling_pass"] = merged["passes_window_filter"].fillna(False).astype(bool)
+    merged["rolling_pass"] = (
+        merged["passes_window_filter"].where(merged["passes_window_filter"].notna(), False).astype(bool)
+    )
     return merged.drop(columns=["end_date", "passes_window_filter"])
 
 

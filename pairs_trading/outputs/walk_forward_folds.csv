@@ -1,0 +1,2 @@
+fold_id,train_start,subtrain_end,validation_start,validation_end,train_end,test_start,test_end,train_pairs_tested,train_pairs_passed_coint,selected_pairs
+1,2023-06-08,2024-12-06,2024-12-09,2025-06-11,2025-06-11,2025-06-12,2025-12-10,791,52,5

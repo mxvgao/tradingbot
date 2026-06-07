@@ -16,8 +16,8 @@ except ImportError:
 
 @dataclass(frozen=True)
 class RollingConfig:
-    ticker_a: str = "ITOT"
-    ticker_b: str = "VTI"
+    ticker_a: str = "SCHQ"
+    ticker_b: str = "SPTL"
     window_days: int = 504
     step_days: int = 21
     max_coint_pvalue: float = 0.05
@@ -31,9 +31,12 @@ class RollingConfig:
 
 def rolling_pair_metrics(price_history: pd.DataFrame, config: RollingConfig) -> pd.DataFrame:
     """Run pair diagnostics across rolling windows."""
-    price_matrix = load_price_matrix(price_history)
     ticker_a = config.ticker_a.upper()
     ticker_b = config.ticker_b.upper()
+    pair_history = price_history[
+        price_history["ticker"].isin([ticker_a, ticker_b])
+    ].copy()
+    price_matrix = load_price_matrix(pair_history)
     pair_prices = price_matrix[[ticker_a, ticker_b]].dropna()
 
     rows: list[dict[str, object]] = []
@@ -102,9 +105,12 @@ def estimate_trading_viability(
     lookback_days: int = 504,
 ) -> pd.DataFrame:
     """Estimate whether spread moves are large enough versus rough costs."""
-    price_matrix = load_price_matrix(price_history)
     ticker_a = config.ticker_a.upper()
     ticker_b = config.ticker_b.upper()
+    pair_history = price_history[
+        price_history["ticker"].isin([ticker_a, ticker_b])
+    ].copy()
+    price_matrix = load_price_matrix(pair_history)
     pair_prices = price_matrix[[ticker_a, ticker_b]].dropna().tail(lookback_days)
     metrics = analyze_pair(pair_prices, ticker_a, ticker_b)
 
@@ -152,7 +158,16 @@ def write_rolling_check(
     config: RollingConfig = RollingConfig(),
 ) -> tuple[Path, Path, Path]:
     """Write rolling windows, summary, and viability CSV files."""
-    price_history = pd.read_csv(price_history_csv)
+    price_history = pd.read_csv(
+        price_history_csv,
+        usecols=["date", "ticker", "adj_close", "volume"],
+        dtype={
+            "date": "string",
+            "ticker": "category",
+            "adj_close": "float32",
+            "volume": "float32",
+        },
+    )
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 

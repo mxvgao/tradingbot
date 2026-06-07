@@ -1,0 +1,2 @@
+initial_capital,selected_pairs,total_gross_budget,total_pnl_dollars,total_return,annualized_return,annualized_volatility,sharpe,max_drawdown,avg_active_pairs,max_active_pairs,active_day_pct,avg_gross_exposure_pct,max_gross_exposure_pct,folds,folds_with_selected_pairs,avg_selected_pairs_per_fold
+100000,5,50000,-817.9056944381132,-0.008179056944381147,-0.01621251549156222,0.020107452179731627,-0.8135348895794615,-0.00945102775954998,1.2777777777777777,4,0.8015873015873016,0.12777777777777777,0.4,1,1,5.0

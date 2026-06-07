@@ -44,6 +44,7 @@ def run_batch_backtests(
         summary["adf_pvalue"] = row.adf_pvalue
         summary["half_life_days"] = row.half_life_days
         summary["return_corr"] = row.return_corr
+        summary["spread_std"] = row.spread_std
         summary["group"] = row.group
         summary["subgroup"] = row.subgroup
         summaries.append(summary)
@@ -59,6 +60,7 @@ def run_batch_backtests(
         + comparison["total_return"].fillna(0) * 100
         + comparison["completed_trades"].clip(upper=20) / 20
         + comparison["enough_trades"].astype(int)
+        + comparison["spread_std"].fillna(0).clip(upper=0.04) * 5
     )
     return comparison.sort_values(
         ["positive_return", "enough_trades", "ranking_score", "sharpe"],

@@ -14,8 +14,8 @@ from scan_cointegration import load_price_matrix
 
 @dataclass(frozen=True)
 class BacktestConfig:
-    ticker_a: str = "MUB"
-    ticker_b: str = "VTEB"
+    ticker_a: str = "SCHQ"
+    ticker_b: str = "SPTL"
     formation_days: int = 504
     entry_z: float = 2.0
     exit_z: float = 0.5
@@ -25,6 +25,8 @@ class BacktestConfig:
     max_holding_days: int | None = None
     stop_z: float | None = None
     require_rolling_pass: bool = False
+    require_regime_allowed: bool = False
+    block_reentry_after_max_hold: bool = False
 
 
 def compute_walk_forward_signals(
@@ -93,6 +95,7 @@ def run_backtest(
     equity = config.initial_capital
     cumulative_pnl = 0.0
     prior_row = None
+    blocked_reentry_direction: int | None = None
 
     for row in signals.itertuples(index=False):
         date = row.date
@@ -102,7 +105,13 @@ def run_backtest(
         daily_pnl = 0.0
         trading_cost = 0.0
         rolling_pass = bool(getattr(row, "rolling_pass", True))
-        can_enter = (not config.require_rolling_pass) or rolling_pass
+        regime_allowed = bool(getattr(row, "regime_allowed", True))
+        can_enter = (
+            ((not config.require_rolling_pass) or rolling_pass)
+            and ((not config.require_regime_allowed) or regime_allowed)
+        )
+        if blocked_reentry_direction is not None and abs(zscore) <= config.exit_z:
+            blocked_reentry_direction = None
 
         if open_trade is not None and prior_row is not None:
             shares_a = float(open_trade["shares_a"])
@@ -115,11 +124,17 @@ def run_backtest(
             cumulative_pnl += daily_pnl
 
         if position == 0:
-            if can_enter and zscore >= config.entry_z:
+            if (
+                can_enter
+                and zscore >= config.entry_z
+                and blocked_reentry_direction != -1
+            ):
                 position = -1
                 action = "short_spread_entry"
-                leg_a_notional = -config.gross_notional_per_trade / 2
-                leg_b_notional = config.gross_notional_per_trade / 2
+                hedge_ratio = float(row.hedge_ratio)
+                base_notional = config.gross_notional_per_trade / (1 + abs(hedge_ratio))
+                leg_a_notional = -base_notional
+                leg_b_notional = hedge_ratio * base_notional
                 entry_start_equity = equity
                 trading_cost = config.gross_notional_per_trade * (
                     config.round_trip_cost_bps / 2
@@ -140,11 +155,17 @@ def run_backtest(
                     "shares_b": leg_b_notional / float(row.ticker_b_price),
                     "entry_cost_dollars": trading_cost,
                 }
-            elif can_enter and zscore <= -config.entry_z:
+            elif (
+                can_enter
+                and zscore <= -config.entry_z
+                and blocked_reentry_direction != 1
+            ):
                 position = 1
                 action = "long_spread_entry"
-                leg_a_notional = config.gross_notional_per_trade / 2
-                leg_b_notional = -config.gross_notional_per_trade / 2
+                hedge_ratio = float(row.hedge_ratio)
+                base_notional = config.gross_notional_per_trade / (1 + abs(hedge_ratio))
+                leg_a_notional = base_notional
+                leg_b_notional = -hedge_ratio * base_notional
                 entry_start_equity = equity
                 trading_cost = config.gross_notional_per_trade * (
                     config.round_trip_cost_bps / 2
@@ -187,10 +208,10 @@ def run_backtest(
                 trade_pnl_dollars = (
                     equity - float(open_trade["entry_start_equity"])
                 )
-                if position == 1:
-                    gross_pnl_bps = (spread - float(open_trade["entry_spread"])) * 10_000
-                else:
-                    gross_pnl_bps = (float(open_trade["entry_spread"]) - spread) * 10_000
+                net_pnl_bps = (
+                    trade_pnl_dollars / config.gross_notional_per_trade
+                ) * 10_000
+                gross_pnl_bps = net_pnl_bps + config.round_trip_cost_bps
 
                 action = f"{open_trade['direction']}_exit"
                 trades.append(
@@ -203,7 +224,7 @@ def run_backtest(
                         "days_held": days_held,
                         "gross_pnl_bps": gross_pnl_bps,
                         "cost_bps": config.round_trip_cost_bps,
-                        "net_pnl_bps": gross_pnl_bps - config.round_trip_cost_bps,
+                        "net_pnl_bps": net_pnl_bps,
                         "pnl_dollars": trade_pnl_dollars,
                         "return_on_gross_notional": trade_pnl_dollars / config.gross_notional_per_trade,
                         "exit_ticker_a_price": float(row.ticker_a_price),
@@ -211,6 +232,12 @@ def run_backtest(
                         "exit_cost_dollars": exit_cost,
                     }
                 )
+                if (
+                    config.block_reentry_after_max_hold
+                    and exit_reason == "max_holding_days"
+                    and abs(zscore) > config.exit_z
+                ):
+                    blocked_reentry_direction = position
                 position = 0
                 open_trade = None
 
@@ -223,6 +250,7 @@ def run_backtest(
                 "position": position,
                 "action": action,
                 "rolling_pass": rolling_pass,
+                "regime_allowed": regime_allowed,
                 "daily_pnl": daily_pnl,
                 "trading_cost": trading_cost,
                 "net_daily_pnl": daily_pnl - trading_cost,
@@ -270,6 +298,7 @@ def summarize_backtest(
         "max_holding_days": config.max_holding_days,
         "stop_z": config.stop_z,
         "require_rolling_pass": config.require_rolling_pass,
+        "require_regime_allowed": config.require_regime_allowed,
         "completed_trades": int(len(trades)),
         "win_rate": float(trades["net_pnl_bps"].gt(0).mean()),
         "avg_days_held": float(trades["days_held"].mean()),

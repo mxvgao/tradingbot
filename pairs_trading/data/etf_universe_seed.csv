@@ -1,194 +1,1667 @@
 ticker,name,asset_class,group,subgroup,leveraged_or_inverse,notes
-DBC,Invesco DB Commodity Index Tracking Fund,commodity,broad_commodities,broad,False,
-GSG,iShares S&P GSCI Commodity-Indexed Trust,commodity,broad_commodities,broad,False,
-PDBC,Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF,commodity,broad_commodities,broad,False,
-UNG,United States Natural Gas Fund,commodity,energy,natural_gas,False,
-BNO,United States Brent Oil Fund,commodity,energy,oil,False,
-USO,United States Oil Fund,commodity,energy,oil,False,
-GLD,SPDR Gold Shares,commodity,metals,gold,False,
-IAU,iShares Gold Trust,commodity,metals,gold,False,
-SLV,iShares Silver Trust,commodity,metals,silver,False,
-EFAV,iShares MSCI EAFE Min Vol Factor ETF,equity,factor,minimum_volatility,False,
-SPLV,Invesco S&P 500 Low Volatility ETF,equity,factor,minimum_volatility,False,
-USMV,iShares MSCI USA Min Vol Factor ETF,equity,factor,minimum_volatility,False,
-MTUM,iShares MSCI USA Momentum Factor ETF,equity,factor,momentum,False,
-PDP,Invesco Dorsey Wright Momentum ETF,equity,factor,momentum,False,
-SPMO,Invesco S&P 500 Momentum ETF,equity,factor,momentum,False,
-DGRW,WisdomTree U.S. Quality Dividend Growth Fund,equity,factor,quality,False,
-QUAL,iShares MSCI USA Quality Factor ETF,equity,factor,quality,False,
-SPHQ,Invesco S&P 500 Quality ETF,equity,factor,quality,False,
-IJT,iShares S&P Small-Cap 600 Growth ETF,equity,factor,small_growth,False,
-SLYG,SPDR S&P 600 Small Cap Growth ETF,equity,factor,small_growth,False,
-VBK,Vanguard Small-Cap Growth ETF,equity,factor,small_growth,False,
-IJS,iShares S&P Small-Cap 600 Value ETF,equity,factor,small_value,False,
-SLYV,SPDR S&P 600 Small Cap Value ETF,equity,factor,small_value,False,
-VBR,Vanguard Small-Cap Value ETF,equity,factor,small_value,False,
-RPV,Invesco S&P 500 Pure Value ETF,equity,factor,value_factor,False,
-VLUE,iShares MSCI USA Value Factor ETF,equity,factor,value_factor,False,
-URTH,iShares MSCI World ETF,equity,global_equity,developed_global,False,
-ACWI,iShares MSCI ACWI ETF,equity,global_equity,global,False,
-VT,Vanguard Total World Stock ETF,equity,global_equity,global,False,
-ITA,iShares U.S. Aerospace & Defense ETF,equity,industry,aerospace_defense,False,
-PPA,Invesco Aerospace & Defense ETF,equity,industry,aerospace_defense,False,
-XAR,SPDR S&P Aerospace & Defense ETF,equity,industry,aerospace_defense,False,
-IAT,iShares U.S. Regional Banks ETF,equity,industry,banks,False,
-KBE,SPDR S&P Bank ETF,equity,industry,banks,False,
-KRE,SPDR S&P Regional Banking ETF,equity,industry,banks,False,
-FBT,First Trust NYSE Arca Biotechnology Index Fund,equity,industry,biotechnology,False,
-IBB,iShares Biotechnology ETF,equity,industry,biotechnology,False,
-XBI,SPDR S&P Biotech ETF,equity,industry,biotechnology,False,
-PSI,Invesco Semiconductors ETF,equity,industry,semiconductors,False,
-SMH,VanEck Semiconductor ETF,equity,industry,semiconductors,False,
-SOXX,iShares Semiconductor ETF,equity,industry,semiconductors,False,
-XSD,SPDR S&P Semiconductor ETF,equity,industry,semiconductors,False,
-EFA,iShares MSCI EAFE ETF,equity,international_equity,developed_ex_us,False,
-IEFA,iShares Core MSCI EAFE ETF,equity,international_equity,developed_ex_us,False,
-SCHF,Schwab International Equity ETF,equity,international_equity,developed_ex_us,False,
-VEA,Vanguard FTSE Developed Markets ETF,equity,international_equity,developed_ex_us,False,
-EEM,iShares MSCI Emerging Markets ETF,equity,international_equity,emerging_markets,False,
-IEMG,iShares Core MSCI Emerging Markets ETF,equity,international_equity,emerging_markets,False,
-VWO,Vanguard FTSE Emerging Markets ETF,equity,international_equity,emerging_markets,False,
-IXUS,iShares Core MSCI Total International Stock ETF,equity,international_equity,ex_us,False,
-VEU,Vanguard FTSE All-World ex-US ETF,equity,international_equity,ex_us,False,
-VXUS,Vanguard Total International Stock ETF,equity,international_equity,ex_us,False,
-FCOM,Fidelity MSCI Communication Services Index ETF,equity,sector,communication_services,False,
-IYZ,iShares U.S. Telecommunications ETF,equity,sector,communication_services,False,
-VOX,Vanguard Communication Services ETF,equity,sector,communication_services,False,
-XLC,Communication Services Select Sector SPDR Fund,equity,sector,communication_services,False,
-FDIS,Fidelity MSCI Consumer Discretionary Index ETF,equity,sector,consumer_discretionary,False,
-IYC,iShares U.S. Consumer Discretionary ETF,equity,sector,consumer_discretionary,False,
-VCR,Vanguard Consumer Discretionary ETF,equity,sector,consumer_discretionary,False,
-XLY,Consumer Discretionary Select Sector SPDR Fund,equity,sector,consumer_discretionary,False,
-FSTA,Fidelity MSCI Consumer Staples Index ETF,equity,sector,consumer_staples,False,
-IYK,iShares U.S. Consumer Staples ETF,equity,sector,consumer_staples,False,
-VDC,Vanguard Consumer Staples ETF,equity,sector,consumer_staples,False,
-XLP,Consumer Staples Select Sector SPDR Fund,equity,sector,consumer_staples,False,
-IYE,iShares U.S. Energy ETF,equity,sector,energy,False,
-VDE,Vanguard Energy ETF,equity,sector,energy,False,
-XLE,Energy Select Sector SPDR Fund,equity,sector,energy,False,
-IYF,iShares U.S. Financials ETF,equity,sector,financials,False,
-VFH,Vanguard Financials ETF,equity,sector,financials,False,
-XLF,Financial Select Sector SPDR Fund,equity,sector,financials,False,
-IYH,iShares U.S. Healthcare ETF,equity,sector,healthcare,False,
-VHT,Vanguard Health Care ETF,equity,sector,healthcare,False,
-XLV,Health Care Select Sector SPDR Fund,equity,sector,healthcare,False,
-IYJ,iShares U.S. Industrials ETF,equity,sector,industrials,False,
-VIS,Vanguard Industrials ETF,equity,sector,industrials,False,
-XLI,Industrial Select Sector SPDR Fund,equity,sector,industrials,False,
-FMAT,Fidelity MSCI Materials Index ETF,equity,sector,materials,False,
-IYM,iShares U.S. Basic Materials ETF,equity,sector,materials,False,
-VAW,Vanguard Materials ETF,equity,sector,materials,False,
-XLB,Materials Select Sector SPDR Fund,equity,sector,materials,False,
-IYR,iShares U.S. Real Estate ETF,equity,sector,real_estate,False,
-SCHH,Schwab U.S. REIT ETF,equity,sector,real_estate,False,
-VNQ,Vanguard Real Estate ETF,equity,sector,real_estate,False,
-XLRE,Real Estate Select Sector SPDR Fund,equity,sector,real_estate,False,
-IYW,iShares U.S. Technology ETF,equity,sector,technology,False,
-VGT,Vanguard Information Technology ETF,equity,sector,technology,False,
-XLK,Technology Select Sector SPDR Fund,equity,sector,technology,False,
-FUTY,Fidelity MSCI Utilities Index ETF,equity,sector,utilities,False,
-IDU,iShares U.S. Utilities ETF,equity,sector,utilities,False,
-VPU,Vanguard Utilities ETF,equity,sector,utilities,False,
-XLU,Utilities Select Sector SPDR Fund,equity,sector,utilities,False,
-EWZ,iShares MSCI Brazil ETF,equity,single_country,brazil,False,
-FLBR,Franklin FTSE Brazil ETF,equity,single_country,brazil,False,
-EWC,iShares MSCI Canada ETF,equity,single_country,canada,False,
-FLCA,Franklin FTSE Canada ETF,equity,single_country,canada,False,
-ASHR,Xtrackers Harvest CSI 300 China A-Shares ETF,equity,single_country,china,False,
-FXI,iShares China Large-Cap ETF,equity,single_country,china,False,
-MCHI,iShares MSCI China ETF,equity,single_country,china,False,
-EWG,iShares MSCI Germany ETF,equity,single_country,germany,False,
-FLGR,Franklin FTSE Germany ETF,equity,single_country,germany,False,
-FLIN,Franklin FTSE India ETF,equity,single_country,india,False,
-INDA,iShares MSCI India ETF,equity,single_country,india,False,
-DXJ,WisdomTree Japan Hedged Equity Fund,equity,single_country,japan,False,
-EWJ,iShares MSCI Japan ETF,equity,single_country,japan,False,
-FLJP,Franklin FTSE Japan ETF,equity,single_country,japan,False,
-EWW,iShares MSCI Mexico ETF,equity,single_country,mexico,False,
-FLMX,Franklin FTSE Mexico ETF,equity,single_country,mexico,False,
-EWY,iShares MSCI South Korea ETF,equity,single_country,south_korea,False,
-FLKR,Franklin FTSE South Korea ETF,equity,single_country,south_korea,False,
-EWT,iShares MSCI Taiwan ETF,equity,single_country,taiwan,False,
-FLTW,Franklin FTSE Taiwan ETF,equity,single_country,taiwan,False,
-EWU,iShares MSCI United Kingdom ETF,equity,single_country,united_kingdom,False,
-FLGB,Franklin FTSE United Kingdom ETF,equity,single_country,united_kingdom,False,
-IVV,iShares Core S&P 500 ETF,equity,us_equity,large_blend,False,
-IWB,iShares Russell 1000 ETF,equity,us_equity,large_blend,False,
-MGC,Vanguard Mega Cap ETF,equity,us_equity,large_blend,False,
-SCHX,Schwab U.S. Large-Cap ETF,equity,us_equity,large_blend,False,
-SPLG,SPDR Portfolio S&P 500 ETF,equity,us_equity,large_blend,False,
-SPY,SPDR S&P 500 ETF Trust,equity,us_equity,large_blend,False,
-VOO,Vanguard S&P 500 ETF,equity,us_equity,large_blend,False,
-VV,Vanguard Large-Cap ETF,equity,us_equity,large_blend,False,
-EQAL,Invesco Russell 1000 Equal Weight ETF,equity,us_equity,large_equal_weight,False,
-RSP,Invesco S&P 500 Equal Weight ETF,equity,us_equity,large_equal_weight,False,
-IUSG,iShares Core S&P U.S. Growth ETF,equity,us_equity,large_growth,False,
-IWF,iShares Russell 1000 Growth ETF,equity,us_equity,large_growth,False,
-MGK,Vanguard Mega Cap Growth ETF,equity,us_equity,large_growth,False,
-QQQ,Invesco QQQ Trust,equity,us_equity,large_growth,False,
-SCHG,Schwab U.S. Large-Cap Growth ETF,equity,us_equity,large_growth,False,
-SPYG,SPDR Portfolio S&P 500 Growth ETF,equity,us_equity,large_growth,False,
-VUG,Vanguard Growth ETF,equity,us_equity,large_growth,False,
-IUSV,iShares Core S&P U.S. Value ETF,equity,us_equity,large_value,False,
-IWD,iShares Russell 1000 Value ETF,equity,us_equity,large_value,False,
-MGV,Vanguard Mega Cap Value ETF,equity,us_equity,large_value,False,
-SCHV,Schwab U.S. Large-Cap Value ETF,equity,us_equity,large_value,False,
-SPYV,SPDR Portfolio S&P 500 Value ETF,equity,us_equity,large_value,False,
-VTV,Vanguard Value ETF,equity,us_equity,large_value,False,
-IJH,iShares Core S&P Mid-Cap ETF,equity,us_equity,mid_blend,False,
-IWR,iShares Russell Mid-Cap ETF,equity,us_equity,mid_blend,False,
-MDY,SPDR S&P MidCap 400 ETF Trust,equity,us_equity,mid_blend,False,
-SCHM,Schwab U.S. Mid-Cap ETF,equity,us_equity,mid_blend,False,
-VO,Vanguard Mid-Cap ETF,equity,us_equity,mid_blend,False,
-IJR,iShares Core S&P Small-Cap ETF,equity,us_equity,small_blend,False,
-IWM,iShares Russell 2000 ETF,equity,us_equity,small_blend,False,
-SCHA,Schwab U.S. Small-Cap ETF,equity,us_equity,small_blend,False,
-SLY,SPDR S&P 600 Small Cap ETF,equity,us_equity,small_blend,False,
-SPSM,SPDR Portfolio S&P 600 Small Cap ETF,equity,us_equity,small_blend,False,
-VB,Vanguard Small-Cap ETF,equity,us_equity,small_blend,False,
-VTWO,Vanguard Russell 2000 ETF,equity,us_equity,small_blend,False,
-ITOT,iShares Core S&P Total U.S. Stock Market ETF,equity,us_equity,total_market,False,
-IWV,iShares Russell 3000 ETF,equity,us_equity,total_market,False,
-SCHB,Schwab U.S. Broad Market ETF,equity,us_equity,total_market,False,
-SPTM,SPDR Portfolio S&P 1500 Composite Stock Market ETF,equity,us_equity,total_market,False,
-VTI,Vanguard Total Stock Market ETF,equity,us_equity,total_market,False,
-HYG,iShares iBoxx $ High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,
-JNK,SPDR Bloomberg High Yield Bond ETF,fixed_income,credit,high_yield,False,
-SPHY,SPDR Portfolio High Yield Bond ETF,fixed_income,credit,high_yield,False,
-USHY,iShares Broad USD High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,
-IGIB,iShares 5-10 Year Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,
-LQD,iShares iBoxx $ Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,
-USIG,iShares Broad USD Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,
-VCIT,Vanguard Intermediate-Term Corporate Bond ETF,fixed_income,credit,investment_grade,False,
-IGSB,iShares 1-5 Year Investment Grade Corporate Bond ETF,fixed_income,credit,short_investment_grade,False,
-SPSB,SPDR Portfolio Short Term Corporate Bond ETF,fixed_income,credit,short_investment_grade,False,
-VCSH,Vanguard Short-Term Corporate Bond ETF,fixed_income,credit,short_investment_grade,False,
-EMB,iShares J.P. Morgan USD Emerging Markets Bond ETF,fixed_income,em_bonds,usd_em_sovereign,False,
-PCY,Invesco Emerging Markets Sovereign Debt ETF,fixed_income,em_bonds,usd_em_sovereign,False,
-VWOB,Vanguard Emerging Markets Government Bond ETF,fixed_income,em_bonds,usd_em_sovereign,False,
-STIP,iShares 0-5 Year TIPS Bond ETF,fixed_income,inflation_linked,short_tips,False,
-VTIP,Vanguard Short-Term Inflation-Protected Securities ETF,fixed_income,inflation_linked,short_tips,False,
-SCHP,Schwab U.S. TIPS ETF,fixed_income,inflation_linked,tips,False,
-TIP,iShares TIPS Bond ETF,fixed_income,inflation_linked,tips,False,
-MUB,iShares National Muni Bond ETF,fixed_income,municipal,national_muni,False,
-TFI,SPDR Nuveen Bloomberg Municipal Bond ETF,fixed_income,municipal,national_muni,False,
-VTEB,Vanguard Tax-Exempt Bond ETF,fixed_income,municipal,national_muni,False,
-AGG,iShares Core U.S. Aggregate Bond ETF,fixed_income,us_bonds,aggregate,False,
-BND,Vanguard Total Bond Market ETF,fixed_income,us_bonds,aggregate,False,
-SCHZ,Schwab U.S. Aggregate Bond ETF,fixed_income,us_bonds,aggregate,False,
-EDV,Vanguard Extended Duration Treasury ETF,fixed_income,us_bonds,extended_treasury,False,
-ZROZ,PIMCO 25+ Year Zero Coupon U.S. Treasury Index ETF,fixed_income,us_bonds,extended_treasury,False,
-IEF,iShares 7-10 Year Treasury Bond ETF,fixed_income,us_bonds,intermediate_treasury,False,
-SPTI,SPDR Portfolio Intermediate Term Treasury ETF,fixed_income,us_bonds,intermediate_treasury,False,
-VGIT,Vanguard Intermediate-Term Treasury ETF,fixed_income,us_bonds,intermediate_treasury,False,
-SPTL,SPDR Portfolio Long Term Treasury ETF,fixed_income,us_bonds,long_treasury,False,
-TLT,iShares 20+ Year Treasury Bond ETF,fixed_income,us_bonds,long_treasury,False,
-VGLT,Vanguard Long-Term Treasury ETF,fixed_income,us_bonds,long_treasury,False,
-SCHO,Schwab Short-Term U.S. Treasury ETF,fixed_income,us_bonds,short_treasury,False,
-SHY,iShares 1-3 Year Treasury Bond ETF,fixed_income,us_bonds,short_treasury,False,
-SPTS,SPDR Portfolio Short Term Treasury ETF,fixed_income,us_bonds,short_treasury,False,
-VGSH,Vanguard Short-Term Treasury ETF,fixed_income,us_bonds,short_treasury,False,
-GOVT,iShares U.S. Treasury Bond ETF,fixed_income,us_bonds,treasury,False,
-BIL,SPDR Bloomberg 1-3 Month T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,
-SGOV,iShares 0-3 Month Treasury Bond ETF,fixed_income,us_bonds,ultra_short_treasury,False,
-SHV,iShares Short Treasury Bond ETF,fixed_income,us_bonds,ultra_short_treasury,False,
+BCD,abrdn Bloomberg All Commodity Longer Dated Strategy K-1 Free ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+BCI,abrdn Bloomberg All Commodity Strategy K-1 Free ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+CCNR,ALPS/CoreCommodity Natural Resources ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+CCOM,Simplify Chinese Commodities Strategy No K-1 ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+CERY,State Street SPDR Bloomberg Enhanced Roll Yield Commodity Strategy No K-1 ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+CMCI,VanEck CMCI Commodity Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+CMDT,PIMCO Commodity Strategy Active Exchange-Traded Fund,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+CMDY,iShares Bloomberg Roll Select Commodity Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+COM,Direxion Auspice Broad Commodity Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+COMB,GraniteShares Bloomberg Commodity Broad Strategy No K-1 ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+COMD,Global X Commodity Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+COMT,iShares GSCI Commodity Dynamic Roll Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+DBC,Invesco DB Commodity Index Tracking Fund,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+DCMT,DoubleLine Commodity Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+FTGC,First Trust Global Tactical Commodity Strategy Fund,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+GCC,WisdomTree EnhancedContinuous Commodity Index Fund,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+GSG,iShares GSCI Commodity-Indexed Trust Fund,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+HARD,Simplify Commodities Strategy No K-1 ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+HGER,Harbor Commodity All-Weather Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+NBCM,Neuberger Commodity Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+PDBA,Invesco Agriculture Commodity Strategy No K-1 ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+PDBC,Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+PIT,VanEck Commodity Strategy ETF,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+SDCI,USCF SummerHaven Dynamic Commodity Strategy No K-1 Fund,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+USCI,United States Commodity Index Fund ETV,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+USE,USCF Energy Commodity Strategy Absolute Return Fund,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+ZSC,USCF Sustainable Commodity Strategy Fund,commodity,broad_commodities,broad,False,nasdaq_trader_heuristic
+BNO,"United States Brent Oil Fund, LP ETV",commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+CRAK,VanEck Oil Refiners ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+DBE,Invesco DB Energy Fund,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+DBO,Invesco DB Oil Fund,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+FCG,First Trust Natural Gas ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+FTXN,First Trust Nasdaq Oil & Gas ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+GASZ,Corgi Natural Gas Power & Turbines ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+IEO,iShares U.S. Oil & Gas Exploration & Production ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+IEZ,iShares U.S. Oil Equipment & Services ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+LNGX,Global X U.S. Natural Gas ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+OIH,VanEck Oil Services ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+OILK,ProShares K-1 Free Crude Oil ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+OILT,Texas Capital Texas Oil Index ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+PBOG,Portfolio Building Block Integrated Oil and Gas and Exploration and Production Index ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+PXJ,Invesco Oil & Gas Services ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+UNG,United States Natural Gas Fund LP,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+UNL,United States 12 Month Natural Gas Fund,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+USL,United States 12 Month Oil,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+USNG,Amplify Samsung U.S. Natural Gas Infrastructure ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+USO,United States Oil Fund,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+USOI,"ETRACS Crude Oil Shares Covered Call ETNs due April 24, 2037",commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+USOY,Defiance Oil Enhanced Options Income ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+WTIB,USCF Oil Plus Bitcoin Strategy Fund,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+XES,State Street SPDR S&P Oil & Gas Equipment & Services ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+XOP,State Street SPDR S&P Oil & Gas Exploration & Production ETF,commodity,energy,energy_commodity,False,nasdaq_trader_heuristic
+AAAU,Goldman Sachs Physical Gold ETF Shares,commodity,metals,gold,False,nasdaq_trader_heuristic
+AUAU,Global X Gold Miners ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+AUMI,Themes Gold Miners ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+BGLD,FT Vest Gold Strategy Quarterly Buffer ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+BTGD,STKd 100% Bitcoin & 100% Gold ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+CEF,Sprott Physical Gold and Silver Trust Units,commodity,metals,gold,False,nasdaq_trader_heuristic
+FGDL,Franklin Responsibly Sourced Gold ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GBUG,Sprott Active Gold & Silver Miners ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GDE,WisdomTree Efficient Gold Plus Equity Strategy Fund,commodity,metals,gold,False,nasdaq_trader_heuristic
+GDMN,WisdomTree Efficient Gold Plus Gold Miners Strategy Fund,commodity,metals,gold,False,nasdaq_trader_heuristic
+GDOC,Goldman Sachs Future Health Care Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GDX,VanEck Gold Miners ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GDXJ,VanEck Junior Gold Miners ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GDXW,Roundhill Gold Miners WeeklyPay ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GDXY,YieldMax Gold Miners Option Income Strategy ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GEM,Goldman Sachs ActiveBeta Emerging Markets Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GGUS,Goldman Sachs MarketBeta Russell 1000 Growth Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GIEQ,Goldman Sachs Data Enhanced International Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GIND,Goldman Sachs India Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GINN,Goldman Sachs Innovate Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GLD,SPDR Gold Shares,commodity,metals,gold,False,nasdaq_trader_heuristic
+GLDI,"ETRACS Gold Shares Covered Call ETNs due February 2, 2033",commodity,metals,gold,False,nasdaq_trader_heuristic
+GLDM,SPDR Gold MiniShares Trust,commodity,metals,gold,False,nasdaq_trader_heuristic
+GLDN,Nicholas Gold Income ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GLDW,Roundhill Gold WeeklyPay ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GLDY,Defiance Gold Enhanced Options Income ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GOAU,US Global GO Gold and Precious Metal Miners ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GOEX,Global X Gold Explorers ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GOLY,Strategy Shares Gold Enhanced Yield ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GPIQ,Goldman Sachs Nasdaq-100 Premium Income ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GPIX,Goldman Sachs S&P 500 Premium Income ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GPRF,Goldman Sachs Access U.S. Preferred Stock and Hybrid Securities ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSC,Goldman Sachs Small Cap Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSEE,Goldman Sachs MarketBeta Emerging Markets Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSEU,Goldman Sachs ActiveBeta Europe Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSEW,Goldman Sachs Equal Weight U.S. Large Cap Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSGO,Goldman Sachs Growth Opportunities ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSID,Goldman Sachs MarketBeta International Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSIE,Goldman Sachs ActiveBeta International Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSJY,Goldman Sachs ActiveBeta Japan Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSLC,Goldman Sachs ActiveBeta U.S. Large Cap Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSUS,Goldman Sachs MarketBeta U.S. Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GSWO,Goldman Sachs ActiveBeta World Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GTEK,Goldman Sachs Future Tech Leaders Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GTOP,Goldman Sachs Technology Opportunities ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GTPE,Goldman Sachs MSCI World Private Equity Return Tracker ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GUSA,Goldman Sachs MarketBeta U.S. 1000 Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GUSE,Goldman Sachs Enhanced U.S. Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GVIP,Goldman Sachs Hedge Industry VIP ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GVLE,Goldman Sachs Value Opportunities ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GVUS,Goldman Sachs MarketBeta Russell 1000 Value Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+GXUS,Goldman Sachs MarketBeta Total International Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+HYP,Golden Eagle Dynamic Hypergrowth ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+IAU,iShares Gold Trust Shares,commodity,metals,gold,False,nasdaq_trader_heuristic
+IAUI,NEOS Gold High Income ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+IAUM,iShares Gold Trust Micro Shares,commodity,metals,gold,False,nasdaq_trader_heuristic
+IGLD,FT Vest Gold Strategy Target Income ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+ISBG,IncomeSTKd 1x Bitcoin & 1x Gold Premium ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+JUST,Goldman Sachs JUST U.S. Large Cap Equity ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+KGLD,Kurv Gold Enhanced Income ETF,commodity,metals,gold,False,nasdaq_trader_heuristic
+DBB,Invesco DB Base Metals Fund,commodity,metals,metals,False,nasdaq_trader_heuristic
+DBP,Invesco DB Precious Metals Fund,commodity,metals,metals,False,nasdaq_trader_heuristic
+EMET,VanEck Copper and Electrification Metals ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+EVMT,Invesco Electric Vehicle Metals Commodity Strategy No K-1 ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+FMTL,First Trust Indxx Critical Metals ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+GLTR,abrdn Physical Precious Metals Basket Shares ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+ICOP,iShares Copper and Metals Mining ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+ION,ProShares S&P Global Core Battery Metals ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+ISTM,iShares Strategic Metals ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+LIMI,Themes Lithium & Battery Metal Miners ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+METL,Sprott Active Metals & Miners ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+MINY,YieldMax Strategic Metals & Mining Portfolio Option Income ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+PICK,iShares MSCI Global Select Metals & Mining Producers Fund,commodity,metals,metals,False,nasdaq_trader_heuristic
+REMX,VanEck Rare Earth and Strategic Metals ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+WDIG,WisdomTree Efficient Rare Earth Plus Strategic Metals Fund,commodity,metals,metals,False,nasdaq_trader_heuristic
+XME,State Street SPDR S&P Metals & Mining ETF,commodity,metals,metals,False,nasdaq_trader_heuristic
+ZSB,USCF Sustainable Battery Metals Strategy Fund,commodity,metals,metals,False,nasdaq_trader_heuristic
+AGMI,Themes Silver Miners ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+KSLV,Kurv Silver Enhanced Income ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+PSLV,Sprott Physical Silver Trust ETV,commodity,metals,silver,False,nasdaq_trader_heuristic
+SIL,Global X Silver Miners ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+SILJ,Amplify Junior Silver Miners ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+SIVR,abrdn Physical Silver Shares ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+SLJY,Amplify SILJ Junior Silver Miners Covered Call ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+SLV,iShares Silver Trust,commodity,metals,silver,False,nasdaq_trader_heuristic
+SLVO,"ETRACS Silver Shares Covered Call ETNs due April 21, 2033",commodity,metals,silver,False,nasdaq_trader_heuristic
+SLVP,iShares MSCI Global Silver and Metals Miners ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+SLVR,Sprott Silver Miners & Physical Silver ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+SLVX,Nicholas Silver Income ETF,commodity,metals,silver,False,nasdaq_trader_heuristic
+ADIV,Guinness Atkinson Asia Pacific Dividend Builder ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+ADVE,Matthews Asia Dividend Active ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+BAMD,Brookstone Dividend Stock ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+BEDY,BNY Mellon Enhanced Dividend and Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+BGDV,Bahl & Gaynor Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+CGDG,Capital Group Dividend Growers ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+COWS,Amplify Cash Flow Dividend Leaders ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DES,WisdomTree U.S. SmallCap Dividend Fund,equity,factor,dividend,False,nasdaq_trader_heuristic
+DFE,WisdomTree Europe SmallCap Dividend Fund,equity,factor,dividend,False,nasdaq_trader_heuristic
+DHS,WisdomTree U.S. High Dividend Fund,equity,factor,dividend,False,nasdaq_trader_heuristic
+DIVB,iShares Core Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DIVE,Dana Concentrated Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DIVG,Invesco S&P 500 High Dividend Growers ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DIVN,Horizon Dividend Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DIVO,Amplify CWP Enhanced Dividend Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DIVS,Guinness Atkinson Dividend Builder ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DIVY,Sound Equity Dividend Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DIVZ,Polen Dividend Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DLN,WisdomTree U.S. LargeCap Dividend Fund,equity,factor,dividend,False,nasdaq_trader_heuristic
+DON,WisdomTree U.S. MidCap Dividend Fund,equity,factor,dividend,False,nasdaq_trader_heuristic
+DTD,WisdomTree U.S. Total Dividend Fund,equity,factor,dividend,False,nasdaq_trader_heuristic
+DURA,VanEck Durable High Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DVDN,Kingsbarn Dividend Opportunity ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DVND,Touchstone Dividend Select ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DVVY,Invesco Diversified Dividend Opportunities ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DVY,iShares Select Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+DVYA,iShares Asia / Pacific Dividend 30 Index Fund Exchange Traded Fund,equity,factor,dividend,False,nasdaq_trader_heuristic
+ELCV,Strategy Shares Eventide High Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+EUDV,ProShares MSCI Europe Dividend Growers ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+FDD,First Trust STOXX European Select Dividend Index Fund,equity,factor,dividend,False,nasdaq_trader_heuristic
+FDIV,MarketDesk Focused U.S. Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+FDRR,Fidelity Dividend ETF for Rising Rates,equity,factor,dividend,False,nasdaq_trader_heuristic
+FDV,Federated Hermes U.S. Strategic Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+FDVV,Fidelity High Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+FTDS,First Trust Dividend Strength ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+FVD,First Trust VL Dividend,equity,factor,dividend,False,nasdaq_trader_heuristic
+GAUD,Guinness Atkinson US Dividend Builder ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+GEND,Genter Capital Dividend Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+HDV,iShares Core High Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+HIDV,AB US High Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+JDIV,JPMorgan Dividend Leaders ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+JHDV,John Hancock U.S. High Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+KDVD,Keeley Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+KNG,FT Vest S&P 500 Dividend Aristocrats Target Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+KNGZ,First Trust S&P 500 Diversified Dividend Aristocrats ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+LEAD,Siren DIVCON Leaders Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+MBOX,Freedom Day Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+MDPL,Monarch Dividend Plus Index ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+NOBL,ProShares S&P 500 Dividend Aristocrats ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+NUDV,Nuveen ESG Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+PFM,Invesco Dividend Achievers ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+QDPL,Pacer Metaurus US Large Cap Dividend Multiplier 400 ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+QSIX,Pacer Metaurus Nasdaq 100 Dividend Multiplier 600 ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+RDVI,FT Vest Rising Dividend Achievers Target Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+RDVY,First Trust Rising Dividend Achievers ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+REGL,ProShares S&P MidCap 400 Dividend Aristocrats ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+RFDA,ALPS Dynamic US Dividend Advantage ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+RIET,Hoya Capital High Dividend Yield ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+RJDI,RJ Eagle GCM Dividend Select Income ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+SCDV,Bahl & Gaynor Small Cap Dividend ETF,equity,factor,dividend,False,nasdaq_trader_heuristic
+ACGO,Hartford Alpha Capture Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+ACGR,American Century Large Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+ACSG,American Century Small Cap Growth Insights ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+AGRW,Allspring LT Large Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+AOTG,AOT Growth and Innovation ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+ARWG,Archer Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BAMG,Brookstone Growth Stock ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BASG,Brown Advisory Sustainable Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BDIV,AAM Brentview Dividend Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BDVG,IMGP Berkshire Dividend Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BGIG,Bahl & Gaynor Income Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BGRO,iShares Large Cap Growth Active ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BKCG,BNY Mellon Concentrated Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BLGR,Bluemonte Large Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BUFG,FT Vest Buffered Allocation Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+BUL,Pacer US Cash Cows Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CAFG,Pacer US Small Cap Cash Cows Growth Leaders ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CAGE,Calamos Autocallable Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CAML,Congress Large Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CARK,CastleArk Large Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CGGG,Capital Group U.S. Large Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CGGR,Capital Group Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CLCG,Crossmark Large Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+COII,REX COIN Growth & Income ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+COWG,Pacer US Large Cap Cash Cows Growth Leaders ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CSMD,Congress SMid Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+CWII,REX CRWV Growth & Income ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+DARP,Grizzle Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+DDNQ,Innovator Growth-100 Dual Directional 5 Buffer ETF - Quarterly,equity,factor,growth,False,nasdaq_trader_heuristic
+DGRO,iShares Core Dividend Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+DGRS,WisdomTree U.S. SmallCap Quality Dividend Growth Fund,equity,factor,growth,False,nasdaq_trader_heuristic
+DGRW,WisdomTree U.S. Quality Dividend Growth Fund,equity,factor,growth,False,nasdaq_trader_heuristic
+DUSG,U.S. Small Cap Growth Portfolio: ETF Class Shares,equity,factor,growth,False,nasdaq_trader_heuristic
+DVGR,DAC 3D Dividend Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+EAFG,Pacer Developed Markets Cash Cows Growth Leaders ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+EASY,Liberty One Defensive Dividend Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+EGUS,iShares ESG Aware MSCI USA Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+ESLG,Eventide Large Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+EUDG,WisdomTree Europe Quality Dividend Growth Fund,equity,factor,growth,False,nasdaq_trader_heuristic
+FAD,First Trust Multi Cap Growth AlphaDEX Fund,equity,factor,growth,False,nasdaq_trader_heuristic
+FBCG,Fidelity Blue Chip Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FDG,American Century Focused Dynamic Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FELG,Fidelity Enhanced Large Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FEMG,Fidelity Enhanced Mid Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FFLG,Fidelity Fundamental Large Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FFOG,Franklin Focused Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FGSI,FT Vest Growth Strength & Target Income ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FLCG,Federated Hermes MDT Large Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FNY,First Trust Mid Cap Growth AlphaDEX Fund,equity,factor,growth,False,nasdaq_trader_heuristic
+FRIZ,Franklin Dividend Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FSEG,Fidelity Enhanced Small Cap Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FSGS,First Trust SMID Growth Strength ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FTC,First Trust Large Cap Growth AlphaDEX Fund,equity,factor,growth,False,nasdaq_trader_heuristic
+FTGS,First Trust Growth Strength ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+FYC,First Trust Small Cap Growth AlphaDEX Fund,equity,factor,growth,False,nasdaq_trader_heuristic
+GARY,Mango Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+GDIV,Harbor Dividend Growth Leaders ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+GFLW,VictoryShares Free Cash Flow Growth ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+GGRW,Gabelli Growth Innovators ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+GIF,REX Growth & Income Universe ETF,equity,factor,growth,False,nasdaq_trader_heuristic
+ESMV,iShares ESG Optimized MSCI USA Min Vol Factor ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+FDLO,Fidelity Low Volatility Factor ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+LGLV,State Street SPDR US Large Cap Low Volatility Index ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+LOWV,AB US Low Volatility Equity ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+LVHD,Franklin U.S. Low Volatility High Dividend Index ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+MVFD,Monarch Volume Factor Dividend Tree Index ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+ONEV,State Street SPDR Russell 1000 Low Volatility Focus ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+QQLV,Invesco QQQ Low Volatility ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+SELV,SEI Enhanced Low Volatility U.S. Large Cap ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+SMLV,State Street SPDR US Small Cap Low Volatility Index ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+SMMV,iShares MSCI USA Small-Cap Min Vol Factor ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+SPHD,Invesco S&P 500 High Dividend Low Volatility ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+SPLV,Invesco S&P 500 Low Volatility ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+THLV,THOR Equal Weight Low Volatility ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+USMV,iShares MSCI USA Min Vol Factor ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+XMLV,Invesco S&P MidCap Low Volatility ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+XSHD,Invesco S&P SmallCap High Dividend Low Volatility ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+XSLV,Invesco S&P SmallCap Low Volatility ETF,equity,factor,minimum_volatility,False,nasdaq_trader_heuristic
+AMOM,QRAFT AI-Enhanced U.S. Large Cap Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+DDIV,First Trust Dorsey Wright Momentum & Dividend ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+DVOL,First Trust Dorsey Wright Momentum & Low Volatility ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+DWAS,Invesco Dorsey Wright SmallCap Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+EZMO,AlphaDroid Broad Markets Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+FDMO,Fidelity Momentum Factor ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+FMTM,MarketDesk Focused U.S. Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+IMTM,iShares MSCI Intl Momentum Factor ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+JMOM,JPMorgan U.S. Momentum Factor ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+MFMO,Motley Fool Momentum Factor ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+MMTM,State Street SPDR S&P 1500 Momentum Tilt ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+MTUM,iShares MSCI USA Momentum Factor ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+ONEO,State Street SPDR Russell 1000 Momentum Focus ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+PDP,Invesco Dorsey Wright Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+PEZ,Invesco Dorsey Wright Consumer Cyclicals Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+PIZ,Invesco Dorsey Wright Developed Markets Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+QMOM,Alpha Architect U.S. Quantitative Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+QQQA,ProShares Nasdaq-100 Dorsey Wright Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+ROMO,Strategy Shares Newfound/ReSolve Robust Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+SAMM,Strategas Macro Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+SEIM,SEI Enhanced U.S. Large Cap Momentum Factor ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+SMOM,Symmetry Panoramic Sector Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+SPMO,Invesco S&P 500 Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+VFMO,Vanguard U.S. Momentum Factor ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+XMMO,Invesco S&P MidCap Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+XSMO,Invesco S&P SmallCap Momentum ETF,equity,factor,momentum,False,nasdaq_trader_heuristic
+AVUQ,Avantis U.S. Quality ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+FQAL,Fidelity Quality Factor ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+GARP,iShares MSCI USA Quality GARP ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+GENT,Genter Capital Taxable Quality Intermediate ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+GQI,Natixis Gateway Quality Income ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+IQLT,iShares MSCI Intl Quality Factor ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+JOET,Virtus Terranova U.S. Quality Momentum ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+JQUA,JPMorgan U.S. Quality Factor ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+LCOW,Pacer S&P 500 Quality FCF Aristocrats ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+MCOW,Pacer S&P MidCap 400 Quality FCF Aristocrats ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+OUSA,ALPS O'Shares U.S. Quality Dividend ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+OUSM,ALPS O'Shares U.S. Small-Cap Quality Dividend ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+PSET,Principal Quality ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+QARP,Xtrackers Russell 1000 US Quality at a Reasonable Price ETF ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+QDEF,FlexShares Quality Dividend Defensive Index Fund,equity,factor,quality,False,nasdaq_trader_heuristic
+QDF,FlexShares Quality Dividend Index Fund,equity,factor,quality,False,nasdaq_trader_heuristic
+QFHD,Pacer S&P 500 Quality FCF High Dividend ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+QFRD,Pacer S&P 500 Quality FCF R&D Leaders,equity,factor,quality,False,nasdaq_trader_heuristic
+QIDX,Indexperts Quality Earnings Focused ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+QLC,FlexShares US Quality Large Cap Index Fund,equity,factor,quality,False,nasdaq_trader_heuristic
+QLTY,GMO U.S. Quality ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+QLV,FlexShares US Quality Low Volatility Index Fund,equity,factor,quality,False,nasdaq_trader_heuristic
+QUAL,iShares MSCI USA Quality Factor ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+QUSA,VistaShares Target 15 USA Quality Income ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+ROE,Astoria US Equal Weight Quality Kings ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+SCOW,Pacer S&P SmallCap 600 Quality FCF Aristocrats ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+SEIQ,SEI Enhanced U.S. Large Cap Quality Factor ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+SPHQ,Invesco S&P 500 Quality ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+SQLT,iShares MSCI USA Small-Cap Quality Factor ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+SQS,Sapient Quality Select ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+SRHQ,SRH U.S. Quality GARP ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+VFQY,Vanguard U.S. Quality Factor ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+XMHQ,Invesco S&P MidCap Quality ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+XSHQ,Invesco S&P SmallCap Quality ETF,equity,factor,quality,False,nasdaq_trader_heuristic
+ABEQ,Absolute Select Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+ACSV,American Century Small Cap Value Insights ETF,equity,factor,value,False,nasdaq_trader_heuristic
+ACVF,American Conservative Values ETF,equity,factor,value,False,nasdaq_trader_heuristic
+ACVU,Hartford Alpha Capture Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+AIVL,WisdomTree U.S. AI Enhanced Value Fund,equity,factor,value,False,nasdaq_trader_heuristic
+ASLV,Allspring Special Large Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+AVGV,Avantis All Equity Markets Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+AVLV,Avantis U.S. Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+AVMV,Avantis U.S. Mid Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+AVUV,Avantis U.S. Small Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+BAMV,Brookstone Value Stock ETF,equity,factor,value,False,nasdaq_trader_heuristic
+BASV,Brown Advisory Sustainable Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+BKDV,BNY Mellon Dynamic Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+BLCV,iShares Large Cap Value Active ETF,equity,factor,value,False,nasdaq_trader_heuristic
+BSMC,Brandes U.S. Small-Mid Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+BSVO,EA Bridgeway Omni Small-Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+BUSA,Brandes U.S. Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+BVAL,Bluemonte Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+CAMX,Cambiar Aggressive Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+CGDV,Capital Group Dividend Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+CGVV,Capital Group U.S. Large Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+CLCV,Crossmark Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+COPY,"Tweedy, Browne Insider + Value ETF",equity,factor,value,False,nasdaq_trader_heuristic
+DEEP,Acquirers Small and Micro Deep Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+DFAT,Dimensional U.S. Targeted Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+DFLV,Dimensional US Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+DFSV,Dimensional US Small Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+DFUV,Dimensional US Marketwide Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+DIVL,Madison Dividend Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+DSTL,Distillate U.S. Fundamental Stability & Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+DVLU,First Trust Dorsey Wright Momentum & Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+ECML,Euclidean Fundamental Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+EPMV,Harbor Mid Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+EPSV,Harbor SMID Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+ESLV,Eventide Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+EVUS,iShares ESG Aware MSCI USA Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FAB,First Trust Multi Cap Value AlphaDEX Fund,equity,factor,value,False,nasdaq_trader_heuristic
+FBCV,Fidelity Blue Chip Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FELV,Fidelity Enhanced Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FEMV,Fidelity Enhanced Mid Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FFLV,Fidelity Fundamental Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FLCV,Federated Hermes MDT Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FLV,American Century Focused Large Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FNK,First Trust Mid Cap Value AlphaDEX Fund,equity,factor,value,False,nasdaq_trader_heuristic
+FSEV,Fidelity Enhanced Small Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FTA,First Trust Large Cap Value AlphaDEX Fund,equity,factor,value,False,nasdaq_trader_heuristic
+FVAL,Fidelity Value Factor ETF,equity,factor,value,False,nasdaq_trader_heuristic
+FYT,First Trust Small Cap Value AlphaDEX Fund,equity,factor,value,False,nasdaq_trader_heuristic
+GMOV,GMO US Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+GVLU,Gotham 1000 Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+HWSM,Hotchkis & Wiley SMID Cap Diversified Value Fund,equity,factor,value,False,nasdaq_trader_heuristic
+IJJ,iShares S&P Mid-Cap 400 Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+IJS,iShares S&P SmallCap 600 Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+ILCV,iShares Morningstar Large-Cap  Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+IMCV,iShares Morningstar Mid-Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+ISCV,iShares Morningstar Small-Cap Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+ITAN,Sparkline Intangible Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+IUSV,iShares Core S&P U.S. Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+IVE,iShares S&P 500 Value ETF,equity,factor,value,False,nasdaq_trader_heuristic
+IVLU,iShares MSCI Intl Value Factor ETF,equity,factor,value,False,nasdaq_trader_heuristic
+AAVM,Alpha Architect Global Factor Equity ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+ACWV,iShares MSCI Global Min Vol Factor ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+AGNG,Global X Aging Population ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+AGQI,First Trust Active Global Quality Income ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+ALTY,Global X Alternative Income ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+AQLT,iShares MSCI Global Quality Factor ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+AQWA,Global X Clean Water ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+ARGT,Global X MSCI Argentina ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+ASEA,Global X FTSE Southeast Asia ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+ASGM,Virtus AlphaSimplex Global Macro ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+AUSF,Global X Adaptive U.S. Factor ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+AVOS,Avos Global Equities ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+AZTD,Aztlan Global Stock Selection DM SMID ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BCCC,Global X Bitcoin Covered Call ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BCGD,Baron Global Durable Advantage ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BCGS,Bancreek Global Select ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BGGG,Baillie Gifford Long Term Global Growth ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BILD,Nomura Global Listed Infrastructure ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BINT,Bluemonte Global Equity ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BITS,Global X Blockchain & Bitcoin Strategy ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BKCH,Global X Blockchain ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BKGI,BNY Mellon Global Infrastructure Income ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BLDX,Impax Global Sustainable Infrastructure ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BLES,Inspire Global Hope ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BOAT,SonicShares Global Shipping ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+BTRN,Global X Bitcoin Trend Strategy ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CATH,Global X S&P 500 Catholic Values ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CDIG,City Different Investments Global Equity ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CEFA,Global X S&P Catholic Values Developed ex-U.S. ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CGGE,Capital Group Global Equity ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CGGO,Capital Group Global Growth Equity ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CGV,Conductor Global Equity Value ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CGW,Invesco S&P Global Water Index ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CHRI,Global X S&P 500 Christian Values ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+COAL,Range Global Coal Index ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+COLO,Global X MSCI Colombia ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+COPX,Global X Copper Miners ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CTEC,Global X ClimateTech ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CUT,Invesco MSCI Global Timber ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+CVGD,CresAlta Global Dividend ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DBAW,Xtrackers MSCI All World ex US Hedged Equity ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DEW,WisdomTree Global High Dividend Fund,equity,global_equity,global,False,nasdaq_trader_heuristic
+DFAW,Dimensional World Equity ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DFAX,Dimensional World ex U.S. Core Equity 2 ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DGCB,Dimensional Global Credit ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DGLO,First Trust RBA Deglobalization ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DGT,State Street SPDR Global Dow ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DIV,Global X Super Dividend ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DIVD,Altrius Global Dividend ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DJIA,Global X Dow 30 Covered Call ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DNL,WisdomTree Global ex-U.S. Quality Growth Fund,equity,global_equity,global,False,nasdaq_trader_heuristic
+DRIV,Global X Autonomous & Electric Vehicles ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DTCR,Global X Data Center & Digital Infrastructure ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DVAL,BrandywineGLOBAL-Dynamic US Large Cap Value ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DWAW,AdvisorShares Dorsey Wright FSM All Cap World ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DWLD,Davis Select Worldwide ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+DYLG,Global X Dow 30 Covered Call & Growth ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+EBIZ,Global X E-commerce ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+EDGQ,Global X Nasdaq-100 Income Edge ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+EDGX,Global X U.S. 500 Income Edge ETF,equity,global_equity,global,False,nasdaq_trader_heuristic
+ARKX,ARK Space & Defense Innovation ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+ARMY,Tema International Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+AV,Corgi Aerospace & Commercial Aviation ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+DUTY,U.S. Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+EUAD,Select STOXX Europe Aerospace & Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+GCAD,Gabelli Commercial Aerospace and Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+ITA,iShares U.S. Aerospace & Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+KDEF,PLUS Korea Defense Industry Index ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+MISL,First Trust Indxx Aerospace & Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+NATO,Themes Transatlantic Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+PPA,Invesco Aerospace & Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+SHLD,Global X Defense Tech ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+TSSD,Truth Social American Security & Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+WDAF,WisdomTree Asia Defense Fund,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+WDEF,WisdomTree Europe Defense Fund,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+WDGF,WisdomTree Global Defense Fund,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+WEPN,Nicholas Defense and Rare Earth Income ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+XAR,State Street SPDR S&P Aerospace & Defense ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+XDEF,Xtrackers Europe Defense Technologies ETF,equity,industry,aerospace_defense,False,nasdaq_trader_heuristic
+AIFD,TCW Artificial Intelligence ETF,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+AIQU,MicroSectors 3? Long Artificial Intelligence (AI) ETNs,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+AIS,VistaShares Artificial Intelligence Supercycle ETF,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+DRGN,Themes China Generative Artificial Intelligence ETF,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+FAI,First Trust Bloomberg Artificial Intelligence ETF,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+JHAI,Janus Henderson Global Artificial Intelligence ETF,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+THNQ,ROBO Global Artificial Intelligence ETF,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+WISE,Themes Generative Artificial Intelligence ETF,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+WTAI,WisdomTree Artificial Intelligence and Innovation Fund,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+XAIX,Xtrackers Artificial Intelligence and Big Data ETF,equity,industry,artificial_intelligence,False,nasdaq_trader_heuristic
+FTXO,First Trust Nasdaq Bank ETF,equity,industry,banks,False,nasdaq_trader_heuristic
+GSIB,Themes Global Systemically Important Banks ETF,equity,industry,banks,False,nasdaq_trader_heuristic
+IAT,iShares U.S. Regional Banks ETF,equity,industry,banks,False,nasdaq_trader_heuristic
+KBE,State Street SPDR S&P Bank ETF,equity,industry,banks,False,nasdaq_trader_heuristic
+KBWB,Invesco KBW Bank ETF,equity,industry,banks,False,nasdaq_trader_heuristic
+KRE,State Street SPDR S&P Regional Banking ETF,equity,industry,banks,False,nasdaq_trader_heuristic
+KYC,Corgi Digital Banking & Fintech Infrastructure ETF,equity,industry,banks,False,nasdaq_trader_heuristic
+PBEU,Portfolio Building Block European Banks Index ETF,equity,industry,banks,False,nasdaq_trader_heuristic
+BBC,Virtus Biotech Clinical Trials ETF,equity,industry,biotechnology,False,nasdaq_trader_heuristic
+BBH,VanEck Biotech ETF,equity,industry,biotechnology,False,nasdaq_trader_heuristic
+BBP,Virtus Biotech ETF,equity,industry,biotechnology,False,nasdaq_trader_heuristic
+BIOY,GraniteShares YieldBOOST Biotech ETF,equity,industry,biotechnology,False,nasdaq_trader_heuristic
+FBT,First Trust Amex Biotech Index Fund,equity,industry,biotechnology,False,nasdaq_trader_heuristic
+PBPH,Portfolio Building Block World Pharma and Biotech Index ETF,equity,industry,biotechnology,False,nasdaq_trader_heuristic
+XBI,State Street SPDR S&P Biotech ETF,equity,industry,biotechnology,False,nasdaq_trader_heuristic
+CLOD,Themes Cloud Computing ETF,equity,industry,cloud,False,nasdaq_trader_heuristic
+CLOU,Global X Cloud Computing ETF,equity,industry,cloud,False,nasdaq_trader_heuristic
+FCLD,Fidelity Cloud Computing ETF,equity,industry,cloud,False,nasdaq_trader_heuristic
+SKYY,First Trust Cloud Computing ETF,equity,industry,cloud,False,nasdaq_trader_heuristic
+WCLD,WisdomTree Cloud Computing Fund,equity,industry,cloud,False,nasdaq_trader_heuristic
+BBB,CYBER HORNET S&P 500 and Bitcoin 75/25 Strategy ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+BUG,Global X Cybersecurity ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+CIBR,First Trust NASDAQ Cybersecurity ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+EEE,CYBER HORNET S&P 500 and Ethereum 75/25 Strategy ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+HACK,Amplify Cybersecurity ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+HAKY,Amplify HACK Cybersecurity Covered Call ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+IHAK,iShares Cybersecurity and Tech ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+PSWD,Xtrackers Cybersecurity Select Equity ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+SPAM,Themes Cybersecurity ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+SSS,CYBER HORNET S&P 500 and Solana 75/25 Strategy ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+WCBR,WisdomTree Cybersecurity Fund,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+XA,Corgi AI Cybersecurity ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+XXX,CYBER HORNET S&P 500 and XRP 75/25 Strategy ETF,equity,industry,cybersecurity,False,nasdaq_trader_heuristic
+IAK,iShares U.S. Insurance ETF,equity,industry,insurance,False,nasdaq_trader_heuristic
+KBWP,Invesco KBW Property & Casualty Insurance ETF,equity,industry,insurance,False,nasdaq_trader_heuristic
+KIE,State Street SPDR S&P Insurance ETF,equity,industry,insurance,False,nasdaq_trader_heuristic
+ARKW,ARK Next Generation Internet ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+EMQQ,EMQQ The Emerging Markets Internet ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+FDN,First Trust DJ Internet Index Fund,equity,industry,internet,False,nasdaq_trader_heuristic
+FDND,FT Vest Dow Jones Internet & Target Income ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+FDNI,First Trust Dow Jones International Internet ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+FMQQ,FMQQ The Next Frontier Internet ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+INQQ,INQQ The India Internet ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+KWEB,KraneShares CSI China Internet ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+OGIG,ALPS O'Shares Global Internet Giants ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+PNQI,Invesco Nasdaq Internet ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+SNSR,Global X Internet of Things ETF,equity,industry,internet,False,nasdaq_trader_heuristic
+IHI,iShares U.S. Medical Devices ETF,equity,industry,medical_devices,False,nasdaq_trader_heuristic
+MDEV,First Trust Indxx Medical Devices ETF,equity,industry,medical_devices,False,nasdaq_trader_heuristic
+KCOP,Kurv Copper & Mining Enhanced Income ETF,equity,industry,mining,False,nasdaq_trader_heuristic
+WGMI,CoinShares Bitcoin Mining ETF,equity,industry,mining,False,nasdaq_trader_heuristic
+FTXH,First Trust Nasdaq Pharmaceuticals ETF,equity,industry,pharmaceuticals,False,nasdaq_trader_heuristic
+IHE,iShares U.S. Pharmaceutical ETF,equity,industry,pharmaceuticals,False,nasdaq_trader_heuristic
+PJP,Invesco Pharmaceuticals ETF,equity,industry,pharmaceuticals,False,nasdaq_trader_heuristic
+PPH,VanEck Pharmaceutical ETF,equity,industry,pharmaceuticals,False,nasdaq_trader_heuristic
+XPH,State Street SPDR S&P Pharmaceuticals ETF,equity,industry,pharmaceuticals,False,nasdaq_trader_heuristic
+EMTY,ProShares Decline of the Retail Store ETF,equity,industry,retail,False,nasdaq_trader_heuristic
+IBUY,Amplify Online Retail ETF,equity,industry,retail,False,nasdaq_trader_heuristic
+ONLN,ProShares Online Retail ETF,equity,industry,retail,False,nasdaq_trader_heuristic
+RKNG,Defiance Retail Kings ETF,equity,industry,retail,False,nasdaq_trader_heuristic
+RTH,VanEck Retail ETF,equity,industry,retail,False,nasdaq_trader_heuristic
+XRT,State Street SPDR S&P Retail ETF,equity,industry,retail,False,nasdaq_trader_heuristic
+BOTT,Themes Humanoid Robotics ETF,equity,industry,robotics,False,nasdaq_trader_heuristic
+BOTZ,Global X Robotics & Artificial Intelligence ETF,equity,industry,robotics,False,nasdaq_trader_heuristic
+HUMN,Roundhill Humanoid Robotics ETF,equity,industry,robotics,False,nasdaq_trader_heuristic
+IBOT,VanEck Robotics ETF,equity,industry,robotics,False,nasdaq_trader_heuristic
+KOID,KraneShares Global Humanoid Robotics and Physical AI Index ETF,equity,industry,robotics,False,nasdaq_trader_heuristic
+ROBO,ROBO Global Robotics and Automation Index ETF,equity,industry,robotics,False,nasdaq_trader_heuristic
+ROBT,First Trust Nasdaq Artificial Intelligence and Robotics ETF,equity,industry,robotics,False,nasdaq_trader_heuristic
+CHPS,Xtrackers Semiconductor Select Equity ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+CHPX,Global X AI Semiconductor & Quantum ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+CHPY,YieldMax Semiconductor Portfolio Option Income ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+EUV,Corgi Lithography & Semiconductor Photonics ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+FTXL,First Trust Nasdaq Semiconductor ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+PSI,Invesco Semiconductors ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+SEMY,GraniteShares YieldBOOST Semiconductor ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+SHOC,Strive U.S. Semiconductor ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+SMH,VanEck Semiconductor ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+SMHX,VanEck Fabless Semiconductor ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+SOXQ,Invesco PHLX Semiconductor ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+SOXX,iShares PHLX SOX Semiconductor Sector Index Fund,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+SOXY,YieldMax Target 12 Semiconductor Option Income ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+XSD,State Street SPDR S&P Semiconductor ETF,equity,industry,semiconductors,False,nasdaq_trader_heuristic
+AOTS,AOT Software Platform ETF,equity,industry,software,False,nasdaq_trader_heuristic
+IGPT,Invesco AI and Next Gen Software ETF,equity,industry,software,False,nasdaq_trader_heuristic
+IGV,iShares Expanded Tech-Software Sector ETF,equity,industry,software,False,nasdaq_trader_heuristic
+XSW,State Street SPDR S&P Software & Services ETF,equity,industry,software,False,nasdaq_trader_heuristic
+ABLG,Abacus FCF International Leaders ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AIVI,WisdomTree International AI Enhanced Value Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+APIE,ActivePassive International Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+ARLI,AllianzIM International Equity Buffer15 Uncapped Apr ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+ASCI,abrdn International Small Cap Active ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AVDE,Avantis International Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AVDS,Avantis International Small Cap Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AVDV,Avantis International Small Cap Value ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AVIV,Avantis International Large Cap Value ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AVNM,Avantis All International Markets Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AVNV,Avantis All International Markets Value ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AVSD,Avantis Responsible International Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BAIV,Brown Advisory International Value Select ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BBIN,JPMorgan BetaBuilders International Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BCIL,Bancreek International Large Cap ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BGCG,Baillie Gifford International Concentrated Growth ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BGIA,Baillie Gifford International Alpha ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BIDD,iShares International Dividend Active ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BINV,Brandes International ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BKCI,BNY Mellon Concentrated International ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BKIE,BNY Mellon International Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BRIE,MFS Blended Research International Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BUFI,AB International Buffer ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+BUFY,FT Vest Laddered International Moderate Buffer ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+CGIC,Capital Group International Core Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+CGIE,Capital Group International Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+CGXU,Capital Group International Focus Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+CORO,iShares International Country Rotation Active ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+CVIE,Calvert International Responsible Index ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+CWI,State Street SPDR MSCI ACWI ex-US ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DBEF,Xtrackers MSCI EAFE Hedged Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DDLS,WisdomTree Dynamic International SmallCap Equity Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DDWM,WisdomTree Dynamic International Equity Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DEEF,Xtrackers FTSE Developed ex US Multifactor ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DFAI,Dimensional International Core Equity Market ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DFIC,Dimensional International Core Equity 2 ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DFIS,Dimensional International Small Cap ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DFIV,Dimensional International Value ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DFSI,Dimensional International Sustainability Core 1 ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DIHP,Dimensional International High Profitability ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DIM,WisdomTree International MidCap Dividend Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DINT,Davis Select International ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DISV,Dimensional International Small Cap Value ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DIVI,Franklin International Core Dividend Tilt Index ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DLS,WisdomTree International SmallCap Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DMXF,iShares ESG Advanced MSCI EAFE ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DOL,WisdomTree True Developed International Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DSTX,Distillate International Fundamental Stability & Value ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DTAN,Sparkline International Intangible Value ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DTH,WisdomTree International High Dividend Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DUKX,Ocean Park International ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DWM,WisdomTree International Equity Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DWMF,WisdomTree International Multifactor Fund,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DWX,State Street SPDR S&P International Dividend ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+DXIV,Dimensional International Vector Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+EASG,Xtrackers MSCI EAFE Selection Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+EDGI,3EDGE Dynamic International Equity ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+EFA,iShares MSCI EAFE ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+EFAA,Invesco MSCI EAFE Income Advantage ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+EFAD,ProShares MSCI EAFE Dividend Growers ETF,equity,international_equity,developed_ex_us,False,nasdaq_trader_heuristic
+AGEM,abrdn Emerging Markets Dividend Active ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+AVEE,Avantis Emerging Markets Small Cap Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+AVEM,Avantis Emerging Markets Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+AVES,Avantis Emerging Markets Value ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+AVSE,Avantis Responsible Emerging Markets Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+BBEM,JPMorgan BetaBuilders Emerging Markets Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+BCEM,Baron Emerging Markets Select ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+BGEG,Baillie Gifford Emerging Markets ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+BKEM,BNY Mellon Emerging Markets Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+BREE,MFS Blended Research Emerging Markets Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+BUFE,FT Vest Laddered Emerging Markets Buffer ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+CEW,WisdomTree Emerging Currency Strategy Fund,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DBEM,Xtrackers MSCI Emerging Markets Hedged Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DEHP,Dimensional Emerging Markets High Profitability ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DEM,WisdomTree Emerging Markets High Dividend Fund,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DFAE,Dimensional Emerging Core Equity Market ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DFEM,Dimensional Emerging Markets Core Equity 2 ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DFEV,Dimensional Emerging Markets Value ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DFSE,Dimensional Emerging Markets Sustainability Core 1 ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DGRE,WisdomTree Emerging Markets Quality Dividend Growth Fund,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DGS,WisdomTree Emerging Market SmallCap Fund,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DIEM,Franklin Emerging Market Core Dividend Tilt Index ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+DVYE,iShares Emerging Markets Dividend Index Fund Exchange Traded Fund,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EAPR,Innovator Emerging Markets Power Buffer ETF April,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EBUF,Innovator Emerging Markets 10 Buffer ETF - Quarterly,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+ECON,Columbia Research Enhanced Emerging Economies ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+ECOW,Pacer Emerging Markets Cash Cows 100 ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EDIV,State Street SPDR S&P Emerging Markets Dividend ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EDOG,ALPS Emerging Sector Dividend Dogs ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EELV,Invesco S&P Emerging Markets Low Volatility ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EEM,iShares MSCI Emerging Index Fund,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EEMA,iShares MSCI Emerging Markets Asia ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EEMO,Invesco S&P Emerging Markets Momentum ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EEMS,iShares MSCI Emerging Markets Small Cap ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EEMV,iShares MSCI Emerging Markets Min Vol Factor ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EEMX,State Street SPDR MSCI Emerging Markets Fossil Fuel Reserves Free ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EFFE,Harbor Osmosis Emerging Markets Resource Efficient ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EJAN,Innovator Emerging Markets Power Buffer ETF January,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EJUL,Innovator Emerging Markets Power Buffer ETF July,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+ELD,WisdomTree Emerging Markets Local Debt Fund,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMC,Global X Emerging Markets Great Consumer ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMCR,Xtrackers Emerging Markets Carbon Reduction and Climate Improvers ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMCS,Xtrackers MSCI Emerging Markets Select ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMDM,First Trust Bloomberg Emerging Market Democracies ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMDV,ProShares MSCI Emerging Markets Dividend Growers ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMEM,Sophus Capital Emerging Market ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMEQ,Nomura Focused Emerging Markets Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMES,Harbor Emerging Markets Select ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMFI,Pictet Emerging Markets Debt ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMGF,iShares Emerging Markets Equity Factor ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMIF,iShares Emerging Markets Infrastructure ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMJN,Corgi Emerging Markets Equities 15% Structured Buffer ETF - June Series,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMKT,Lazard Emerging Markets Opportunities ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMMF,WisdomTree Emerging Markets Multifactor Fund,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMMY,Corgi Emerging Markets Equities 15% Structured Buffer ETF - May Series,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMOP,AB Emerging Markets Opportunities ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMSC,Sophus Capital Emerging Market Small Cap ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EMSF,Matthews Emerging Markets Sustainable Future Active ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EOCT,Innovator Emerging Markets Power Buffer ETF - October,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+EPEM,Harbor Emerging Markets Equity ETF,equity,international_equity,emerging_markets,False,nasdaq_trader_heuristic
+CHIQ,Global X MSCI China Consumer Discretionary ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+DVXY,WEBs Consumer Discretionary XLY Defined Volatility ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+FDIS,Fidelity MSCI Consumer Discretionary Index ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+GXPD,Global X PureCap MSCI Consumer Discretionary ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+IYC,iShares U.S. Consumer Discretionary ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+PSCD,Invesco S&P SmallCap Consumer Discretionary ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+RSPD,Invesco S&P 500 Equal Weight Consumer Discretionary ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+RXI,iShares Global Consumer Discretionary ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+TRUD,VanEck Consumer Discretionary TruSector ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+XLY,State Street Consumer Discretionary Select Sector SPDR ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+XLYI,State Street Consumer Discretionary Select Sector SPDR Premium Income ETF,equity,sector,consumer_discretionary,False,nasdaq_trader_heuristic
+DVXP,WEBs Consumer Staples XLP Defined Volatility ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+FSTA,Fidelity MSCI Consumer Staples Index ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+GXPS,Global X PureCap MSCI Consumer Staples ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+IYK,iShares U.S. Consumer Staples ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+KXI,iShares Global Consumer Staples ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+PSCC,Invesco S&P SmallCap Consumer Staples ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+PSL,Invesco Dorsey Wright Consumer Staples Momentum ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+RSPS,Invesco S&P 500 Equal Weight Consumer Staples ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+TRUO,VanEck Consumer Staples TruSector ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+VDC,Vanguard Consumer Staples ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+XLP,State Street Consumer Staples Select Sector SPDR ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+XLSI,State Street Consumer Staples Select Sector SPDR Premium Income ETF,equity,sector,consumer_staples,False,nasdaq_trader_heuristic
+ACES,ALPS Clean Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+BESF,Bastion Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+BREW,Corgi Coffee & Energy Drinks ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+DRLL,Strive U.S. Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+DVXE,WEBs Energy XLE Defined Volatility ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+EINC,VanEck Energy Income ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+EIPI,FT Energy Income Partners Enhanced Income ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+EIPX,FT Energy Income Partners Strategy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+EMLP,First Trust North American Energy Infrastructure Fund,equity,sector,energy,False,nasdaq_trader_heuristic
+ENFR,Alerian Energy Infrastructure ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+FAN,First Trust Global Wind Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+FENY,Fidelity MSCI Energy Index ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+FRNW,Fidelity Clean Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+FXN,First Trust Energy AlphaDEX Fund,equity,sector,energy,False,nasdaq_trader_heuristic
+GXPE,Global X PureCap MSCI Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+IBAT,iShares Energy Storage & Materials ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+ICLN,iShares Global Clean Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+IXC,iShares Global Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+IYE,iShares U.S. Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+KNRG,Simplify Kayne Anderson Energy and Infrastructure Credit ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+MLPD,Global X MLP & Energy Infrastructure Covered Call ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+MLPI,NEOS MLP & Energy Infrastructure High Income ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+MLPX,Global X MLP & Energy Infrastructure ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+NBET,Neuberger Energy Transition & Infrastructure ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+NDIV,Amplify Energy & Natural Resources Covered Call ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+NVIR,Horizon Kinetics Energy and Remediation ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+PBD,Invesco Global Clean Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+PBW,Invesco WilderHill Clean Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+PIPE,Invesco SteelPath MLP & Energy Infrastructure ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+PSCE,Invesco S&P SmallCap Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+PWER,Nomura Energy Transition ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+PXE,Invesco Energy Exploration & Production ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+PXI,Invesco Dorsey Wright Energy Momentum ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+QCLN,First Trust NASDAQ Clean Edge Green Energy Index Fund,equity,sector,energy,False,nasdaq_trader_heuristic
+RNRG,Global X Renewable Energy Producers ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+RNWZ,TrueShares Eagle Global Renewable Energy Income ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+RSPG,Invesco S&P 500 Equal Weight Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+SMOG,VanEck Low Carbon Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+SOLR,Guinness Atkinson Sustainable Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+SPXE,ProShares S&P 500 Ex-Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+TNGY,Tortoise Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+TSES,Truth Social American Energy Security ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+UMI,USCF Midstream Energy Income Fund ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+USAI,Pacer American Energy Infrastructure ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+VCLN,Virtus Duff & Phelps Clean Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+VDE,Vanguard Energy ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+WATS,Corgi Battery Energy Storage Systems ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+WEEI,Westwood Salient Enhanced Energy Income ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+XLE,State Street Energy Select Sector SPDR ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+XLEI,State Street Energy Select Sector SPDR Premium Income ETF,equity,sector,energy,False,nasdaq_trader_heuristic
+BCFN,Baron Financials ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+DFNL,Davis Select Financial ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+DVXF,WEBs Financial XLF Defined Volatility ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+EUFN,iShares MSCI Europe Financials ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+FDIQ,Invesco Bloomberg Financial Data Providers ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+FINY,GraniteShares YieldBOOST Financials ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+FNCL,Fidelity MSCI Financials Index ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+FXO,First Trust Financials AlphaDEX,equity,sector,financials,False,nasdaq_trader_heuristic
+GABF,Gabelli ETFs Trust Gabelli Financial Services Opportunities ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+IXG,iShares Global Financial ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+IYF,iShares U.S. Financial ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+IYG,iShares U.S. Financial Services ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+KBWD,Invesco KBW High Dividend Yield Financial ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+PFI,Invesco Dorsey Wright Financial Momentum ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+PFXF,VanEck Preferred Securities ex Financials ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+PGF,Invesco Financial Preferred ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+PSCF,Invesco S&P SmallCap Financials ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+RSPF,Invesco S&P 500 Equal Weight Financial ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+SPXN,ProShares S&P 500 Ex-Financials ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+TFNS,T. Rowe Price Financials ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+TRUF,VanEck Financials TruSector ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+VFH,Vanguard Financials ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+XLF,State Street Financial Select Sector SPDR ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+XLFI,State Street Financial Select Sector SPDR Premium Income ETF,equity,sector,financials,False,nasdaq_trader_heuristic
+BMED,iShares Health Innovation Active ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+DVXV,WEBs Health Care XLV Defined Volatility ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+EKG,First Trust Nasdaq Lux Digital Health Solutions ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+FHLC,Fidelity MSCI Health Care Index ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+FXH,First Trust Health Care AlphaDEX,equity,sector,healthcare,False,nasdaq_trader_heuristic
+HEAL,Global X HealthTech ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+HRTS,Tema Heart & Health ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+IBRN,iShares Neuroscience and Healthcare ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+IDNA,iShares Genomics Immunology and Healthcare ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+IHF,iShares U.S. Health Care Providers ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+IXJ,iShares Global Healthcare ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+IYH,iShares U.S. Healthcare ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+JDOC,JPMorgan Healthcare Leaders ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+KURE,KraneShares MSCI All China Health Care Index ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+LGHT,Langar Global HealthTech ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+MEDI,Harbor Health Care ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+PINK,Simplify Health Care ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+PSCH,Invesco S&P SmallCap Health Care ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+PTH,Invesco Dorsey Wright Healthcare Momentum ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+RSPH,Invesco S&P 500 Equal Weight Health Care ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+SPXV,ProShares S&P 500 Ex-Health Care ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+TMED,T. Rowe Price Health Care ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+TRUH,VanEck Healthcare TruSector ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+VHT,Vanguard Health Care ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+XHE,State Street SPDR S&P Health Care Equipment ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+XHS,State Street SPDR S&P Health Care Services ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+XLV,State Street Health Care Select Sector SPDR ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+XLVI,State Street Health Care Select Sector SPDR Premium Income ETF,equity,sector,healthcare,False,nasdaq_trader_heuristic
+AIRR,First Trust RBA American Industrial Renaissance ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+DIA,State Street SPDR Dow Jones Industrial Average ETF Trust,equity,sector,industrials,False,nasdaq_trader_heuristic
+DJD,Invesco Dow Jones Industrial Average Dividend ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+DVIN,WEBs Industrials XLI Defined Volatility ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+EFRA,iShares Environmental Infrastructure and Industrials ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+EXI,iShares Global Industrials ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+FIDU,Fidelity MSCI Industrials Index ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+FXR,First Trust Industrials AlphaDEX,equity,sector,industrials,False,nasdaq_trader_heuristic
+HVAC,AdvisorShares HVAC and Industrials ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+IDEF,iShares Defense Industrials Active ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+INDS,Pacer Industrial Real Estate ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+IYJ,iShares U.S. Industrials ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+PRN,Invesco Dorsey Wright Industrials Momentum ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+PSCI,Invesco S&P SmallCap Industrials ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+RSPN,Invesco S&P 500 Equal Weight Industrials Portfolio,equity,sector,industrials,False,nasdaq_trader_heuristic
+SHPP,Pacer Industrials and Logistics ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+TRUI,VanEck Industrials TruSector ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+VIS,Vanguard Industrials ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+XLI,State Street Industrial Select Sector SPDR ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+XLII,State Street Industrial Select Sector SPDR Premium Income ETF,equity,sector,industrials,False,nasdaq_trader_heuristic
+DVXB,WEBs Materials XLB Defined Volatility ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+EART,Global X Rare Earth & Critical Materials ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+FMAT,Fidelity MSCI Materials Index ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+FXZ,First Trust Materials AlphaDEX Fund,equity,sector,materials,False,nasdaq_trader_heuristic
+IYM,iShares U.S. Basic Materials ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+MXI,iShares Global Materials ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+PSCM,Invesco S&P SmallCap Materials ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+PYZ,Invesco Dorsey Wright Basic Materials Momentum ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+RSPM,Invesco S&P 500 Equal Weight Materials ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+SETM,Sprott Critical Materials ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+TINT,ProShares Smart Materials ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+VAW,Vanguard Materials ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+XLB,State Street Materials Select Sector SPDR ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+XLBI,State Street Materials Select Sector SPDR Premium Income ETF,equity,sector,materials,False,nasdaq_trader_heuristic
+AVRE,Avantis Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+BBRE,JPMorgan BetaBuilders MSCI U.S. REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+BLDG,Cambria Global Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+BYRE,Principal Real Estate Active Opportunities ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+CLIM,Climate Global - Climate Resilient REIT Index ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+CRED,Columbia Research Enhanced Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+CSRE,Cohen & Steers Real Estate Active ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+DCRE,DoubleLine Commercial Real Estate Debt ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+DESK,VanEck Office and Commercial REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+DFAR,Dimensional US Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+DFGR,Dimensional Global Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+DPRE,Virtus Duff & Phelps Real Estate Income ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+DVRE,WEBs Real Estate XLRE Defined Volatility ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+ERET,iShares Environmentally Aware Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+FPRO,Fidelity Real Estate Investment ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+FREL,Fidelity MSCI Real Estate Index ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+FRI,First Trust S&P REIT Index Fund,equity,sector,real_estate,False,nasdaq_trader_heuristic
+GQRE,FlexShares Global Quality Real Estate Index Fund,equity,sector,real_estate,False,nasdaq_trader_heuristic
+HAUS,Residential REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+HAUZ,Xtrackers International Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+ICF,iShares Select U.S. REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+IDGT,iShares U.S. Digital Infrastructure and Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+IFGL,iShares International Developed Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+IYR,iShares U.S. Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+IYRI,NEOS Real Estate High Income ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+JRE,Janus Henderson U.S. Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+KBWY,Invesco KBW Premium Yield Equity REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+LPRE,Long Pond Real Estate Select ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+MORT,VanEck Mortgage REIT Income ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+NETL,Colterpoint Net Lease Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+PFFR,InfraCap REIT Preferred ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+PPTY,U.S. Diversified Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+PSR,Invesco Active U.S. Real Estate Fund,equity,sector,real_estate,False,nasdaq_trader_heuristic
+RDOG,ALPS REIT Dividend Dogs ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+REAI,Intelligent Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+REET,iShares Global REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+REIT,ALPS Active REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+REM,iShares Mortgage Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+REZ,iShares Residential and Multisector Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+RITA,ETFB Green SRI REITs ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+RNTY,YieldMax Target 12 Real Estate Option Income ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+RSPR,Invesco S&P 500 Equal Weight Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+RWO,State Street SPDR Dow Jones Global Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+RWR,State Street SPDR Dow Jones REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+RWX,State Street SPDR Dow Jones International Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+SCHH,Schwab U.S. REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+SPRE,SP Funds S&P Global REIT Sharia ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+SRET,Global X SuperDividend REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+SRHR,SRH REIT Covered Call ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+SRVR,Pacer Data & Infrastructure Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+TSRS,Truth Social American Red State REITs ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+USRT,iShares Core U.S. REIT ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+VGSR,Vert Global Sustainable Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+VNQ,Vanguard Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+VNQI,Vanguard Global ex-U.S. Real Estate ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+WTRE,WisdomTree New Economy Real Estate Fund,equity,sector,real_estate,False,nasdaq_trader_heuristic
+XLRE,State Street Real Estate Select Sector SPDR ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+XLRI,State Street Real Estate Select Sector SPDR Premium Income ETF,equity,sector,real_estate,False,nasdaq_trader_heuristic
+AGIX,KraneShares Public-Private AI & Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+AIQ,Global X Artificial Intelligence & Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+ARKQ,ARK Autonomous Technology & Robotics ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+BATT,Amplify Lithium & Battery Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+BCTK,Baron Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+BLOK,Amplify Blockchain Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+CABZ,"Roundhill Robotaxi, Autonomous Vehicles & Technology ETF",equity,sector,technology,False,nasdaq_trader_heuristic
+CARZ,First Trust S-Network Future Vehicles & Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+CHAT,Roundhill Generative AI & Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+CQQQ,Invesco China Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+DTRE,First Trust Alerian Disruptive Technology Real Estate ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+DVXK,WEBs Technology XLK Defined Volatility ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+FDTX,Fidelity Disruptive Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+FTEC,Fidelity MSCI Information Technology Index ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+FXL,First Trust Technology AlphaDEX,equity,sector,technology,False,nasdaq_trader_heuristic
+GGTL,Gabelli Global Technology Leaders ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+GNOM,Global X Genomics & Biotechnology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+GXPT,Global X PureCap MSCI Information Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+HTEC,ROBO Global Healthcare Technology and Innovation ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+IBB,iShares Biotechnology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+IBBQ,Invesco Nasdaq Biotechnology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+ITEQ,Amplify BlueStar Israel Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+IYW,iShares U.S. Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+IZRL,ARK Israel Innovative Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+KEMQ,KraneShares Emerging Markets Consumer Technology Index ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+KGRN,KraneShares MSCI China Clean Technology Index ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+KQQQ,Kurv Technology Titans Select ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+LRNZ,"TrueShares Technology, AI & Deep Learning ETF",equity,sector,technology,False,nasdaq_trader_heuristic
+MARS,Roundhill Space & Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+MOTO,Guinness Atkinson Smart Transportation & Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+PBE,Invesco Biotechnology & Genome ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+PSCT,Invesco S&P SmallCap Information Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+PTF,Invesco Dorsey Wright Technology Momentum ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+QJN,Corgi Growth & Technology 10% Structured Buffer ETF - June Series,equity,sector,technology,False,nasdaq_trader_heuristic
+QMY,Corgi Growth & Technology 10% Structured Buffer ETF - May Series,equity,sector,technology,False,nasdaq_trader_heuristic
+QQJN,Corgi Growth & Technology 15% Structured Buffer ETF - June Series,equity,sector,technology,False,nasdaq_trader_heuristic
+QQMY,Corgi Growth & Technology 15% Structured Buffer ETF - May Series,equity,sector,technology,False,nasdaq_trader_heuristic
+QQXT,First Trust NASDAQ-100 Ex-Technology Sector Index Fund,equity,sector,technology,False,nasdaq_trader_heuristic
+QTEC,First Trust NASDAQ-100-Technology Sector Index Fund,equity,sector,technology,False,nasdaq_trader_heuristic
+RSPT,Invesco S&P 500 Equal Weight Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+SEMI,Columbia Select Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+SMRF,"ALPS Nautilus SMR, Nuclear & Technology ETF",equity,sector,technology,False,nasdaq_trader_heuristic
+SPTE,SP Funds S&P Global Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+SPXT,ProShares S&P 500 Ex-Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+STBQ,Amplify Stablecoin Technology Leaders ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TDIV,First Trust NASDAQ Technology Dividend Index Fund,equity,sector,technology,False,nasdaq_trader_heuristic
+TDV,ProShares S&P Technology Dividend Aristocrats ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TDVI,FT Vest Technology Dividend Target Income ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TECY,GraniteShares YieldBOOST Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TEK,iShares Technology Opportunities Active ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TINY,ProShares Nanotechnology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TKNQ,Amplify Tokenization Technology Leaders ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TRUT,VanEck Technology TruSector ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TTEQ,T. Rowe Price Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+TYLG,Global X Information Technology Covered Call & Growth ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+USMD,CoreValues America First Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+WAR,U.S. Global Technology and Aerospace & Defense ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+XITK,State Street SPDR FactSet Innovative Technology ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+XLK,State Street Technology Select Sector SPDR ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+XLKI,State Street Technology Select Sector SPDR Premium Income ETF,equity,sector,technology,False,nasdaq_trader_heuristic
+DVUT,WEBs Utilities XLU Defined Volatility ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+FUTY,Fidelity MSCI Utilities Index ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+FXU,First Trust Utilities AlphaDEX Fund,equity,sector,utilities,False,nasdaq_trader_heuristic
+IDU,iShares U.S. Utilities ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+JXI,iShares Global Utilities ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+PUI,Invesco Dorsey Wright Utilities Momentum ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+RSPU,Invesco S&P 500 Equal Weight Utilities ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+UTES,Virtus Reaves Utilities ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+VPU,Vanguard Utilities ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+XLU,State Street Utilities Select Sector SPDR ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+XLUI,State Street Utilities Select Sector SPDR Premium Income ETF,equity,sector,utilities,False,nasdaq_trader_heuristic
+EWA,iShares MSCI Australia Index Fund,equity,single_country,australia,False,nasdaq_trader_heuristic
+FLAU,Franklin FTSE Australia ETF,equity,single_country,australia,False,nasdaq_trader_heuristic
+FXA,Invesco CurrencyShares Australian Dollar Trust,equity,single_country,australia,False,nasdaq_trader_heuristic
+BRAZ,Global X Brazil Active ETF,equity,single_country,brazil,False,nasdaq_trader_heuristic
+BRF,VanEck Brazil Small-Cap ETF,equity,single_country,brazil,False,nasdaq_trader_heuristic
+EWZ,iShares MSCI Brazil ETF,equity,single_country,brazil,False,nasdaq_trader_heuristic
+EWZS,iShares MSCI Brazil Small-Cap ETF,equity,single_country,brazil,False,nasdaq_trader_heuristic
+FLBR,Franklin FTSE Brazil ETF,equity,single_country,brazil,False,nasdaq_trader_heuristic
+BBCA,JPMorgan BetaBuilders Canada ETF,equity,single_country,canada,False,nasdaq_trader_heuristic
+EWC,iShares MSCI Canada Index Fund,equity,single_country,canada,False,nasdaq_trader_heuristic
+FLCA,Franklin FTSE Canada ETF,equity,single_country,canada,False,nasdaq_trader_heuristic
+ASHR,Xtrackers Harvest CSI 300 China A-Shares ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+ASHS,Xtrackers Harvest CSI 500 China A-Shares Small Cap ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+AVXC,Avantis Emerging Markets ex-China Equity ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+BCHI,GMO Beyond China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+CAS,Simplify China A Shares PLUS Income ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+CGRO,CoreValues Alpha Greater China Growth ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+CNQQ,Rayliant-ChinaAMC Transformative China Tech ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+CNYA,iShares MSCI China A ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+CXSE,WisdomTree China ex-State-Owned Enterprises Fund,equity,single_country,china,False,nasdaq_trader_heuristic
+DEXC,Dimensional Emerging Markets ex China Core Equity ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+ECNS,iShares MSCI China Small-Cap ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+EMM,Global X Emerging Markets ex-China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+EMXC,iShares MSCI Emerging Markets ex China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+FCA,First Trust China AlphaDEX Fund,equity,single_country,china,False,nasdaq_trader_heuristic
+FLCH,Franklin FTSE China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+FXI,iShares China Large-Cap ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+GXC,State Street SPDR S&P China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+JCHI,JPMorgan Active China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+KBA,KraneShares Bosera MSCI China A 50 Connect Index ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+KCAI,KraneShares China Alpha Index ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+KEMX,KraneShares MSCI Emerging Markets ex China Index ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+MAGC,Roundhill China Magnificent Seven ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+MCH,Matthews China Active ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+MCHI,iShares MSCI China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+MCHS,Matthews China Innovators Active ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+MEMX,Matthews Emerging Markets ex China Active ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+NBCE,Neuberger China Equity ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+PCCE,Polen Capital China Growth ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+PEMX,Putnam Emerging Markets ex-China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+REXC,Sprott Rare Earths Ex-China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+STXE,Strive Emerging Markets Ex-China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+TCHI,iShares MSCI China Multisector Tech ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+TEMX,Touchstone Sands Capital Emerging Markets ex-China Growth ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+VEXC,Vanguard Emerging Markets Ex-China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+XCEM,Columbia EM Core ex-China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+XCNY,State Street SPDR S&P Emerging Markets ex-China ETF,equity,single_country,china,False,nasdaq_trader_heuristic
+EWQ,iShares MSCI France Index Fund,equity,single_country,france,False,nasdaq_trader_heuristic
+DAX,Global X DAX Germany ETF,equity,single_country,germany,False,nasdaq_trader_heuristic
+EWG,iShares MSCI Germany Index Fund,equity,single_country,germany,False,nasdaq_trader_heuristic
+FGM,First Trust Germany AlphaDEX Fund,equity,single_country,germany,False,nasdaq_trader_heuristic
+FLGR,Franklin FTSE Germany ETF,equity,single_country,germany,False,nasdaq_trader_heuristic
+DGIN,VanEck Digital India ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+EPI,WisdomTree India Earnings Fund,equity,single_country,india,False,nasdaq_trader_heuristic
+FLIN,Franklin FTSE India ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+GLIN,VanEck India Growth Leaders ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+IMVP,Invesco India ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+INCO,Columbia India Consumer ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+IND,Xtrackers Nifty 500 India ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+INDA,iShares MSCI India ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+INDE,Matthews India Active ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+INDH,WisdomTree India Hedged Equity Fund,equity,single_country,india,False,nasdaq_trader_heuristic
+INDQ,Pacer ActiveAlpha India Quality ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+INDY,iShares India 50 ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+INDZ,VanEck India Select ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+IOPP,Simplify Tara India Opportunities ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+NDIA,Global X India Active ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+NFTY,First Trust India Nifty 50 Equal Weight ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+SMIN,Ishares MSCI India Small Cap ETF,equity,single_country,india,False,nasdaq_trader_heuristic
+EIDO,iShares MSCI Indonesia ETF,equity,single_country,indonesia,False,nasdaq_trader_heuristic
+IDX,VanEck Indonesia Index ETF,equity,single_country,indonesia,False,nasdaq_trader_heuristic
+EWI,iShares MSCI Italy ETF,equity,single_country,italy,False,nasdaq_trader_heuristic
+AAXJ,iShares MSCI All Country Asia ex Japan ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+BBAX,JPMorgan BetaBuilders Developed Asia Pacific-ex Japan ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+BBJP,JPMorgan BetaBuilders Japan ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+DBJP,Xtrackers MSCI Japan Hedged Equity ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+DFJ,WisdomTree Japan SmallCap Fund,equity,single_country,japan,False,nasdaq_trader_heuristic
+DXJ,WisdomTree Japan Hedged Equity Fund,equity,single_country,japan,False,nasdaq_trader_heuristic
+EPP,iShares MSCI Pacific Ex-Japan Index Fund,equity,single_country,japan,False,nasdaq_trader_heuristic
+EWJ,iShares MSCI Japan Index Fund,equity,single_country,japan,False,nasdaq_trader_heuristic
+EWJV,iShares MSCI Japan Value ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+FJP,First Trust Japan AlphaDEX Fund,equity,single_country,japan,False,nasdaq_trader_heuristic
+FLAX,Franklin FTSE Asia ex Japan ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+FLJH,Franklin FTSE Japan Hedged ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+FLJP,Franklin FTSE Japan ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+FPA,First Trust Asia Pacific Ex-Japan AlphaDEX Fund,equity,single_country,japan,False,nasdaq_trader_heuristic
+FXY,Invesco CurrencyShares Japanese Yen Trust,equity,single_country,japan,False,nasdaq_trader_heuristic
+HEWJ,iShares Currency Hedged MSCI Japan ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+JAPN,Horizon Kinetics Japan Owner Operator ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+JPAN,Matthews Japan Active ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+JPY,Lazard Japanese Equity ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+MJSC,MUFG Japan Small Cap Active ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+NBJP,Neuberger Japan Equity ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+OPPJ,WisdomTree Japan Opportunities Fund,equity,single_country,japan,False,nasdaq_trader_heuristic
+RAYJ,Rayliant SMDAM Japan Equity ETF,equity,single_country,japan,False,nasdaq_trader_heuristic
+SCJ,iShares MSCI Japan Sm Cap,equity,single_country,japan,False,nasdaq_trader_heuristic
+EWW,iShares MSCI Mexico ETF,equity,single_country,mexico,False,nasdaq_trader_heuristic
+FLMX,Franklin FTSE Mexico ETF,equity,single_country,mexico,False,nasdaq_trader_heuristic
+EWY,iShares MSCI South Korea ETF,equity,single_country,south_korea,False,nasdaq_trader_heuristic
+FLKR,Franklin FTSE South Korea ETF,equity,single_country,south_korea,False,nasdaq_trader_heuristic
+KMCA,PLUS Korea Manufacturing Core Alliance Index ETF,equity,single_country,south_korea,False,nasdaq_trader_heuristic
+MKOR,Matthews Korea Active ETF,equity,single_country,south_korea,False,nasdaq_trader_heuristic
+EWP,iShares MSCI Spain ETF,equity,single_country,spain,False,nasdaq_trader_heuristic
+EWL,iShares MSCI Switzerland ETF,equity,single_country,switzerland,False,nasdaq_trader_heuristic
+FLSW,Franklin FTSE Switzerland ETF,equity,single_country,switzerland,False,nasdaq_trader_heuristic
+FSZ,First Trust Switzerland AlphaDEX Fund,equity,single_country,switzerland,False,nasdaq_trader_heuristic
+EWT,iShares MSCI Taiwan ETF,equity,single_country,taiwan,False,nasdaq_trader_heuristic
+FLTW,Franklin FTSE Taiwan ETF,equity,single_country,taiwan,False,nasdaq_trader_heuristic
+THD,iShares MSCI Thailand ETF,equity,single_country,thailand,False,nasdaq_trader_heuristic
+EWU,iShares MSCI United Kingdom ETF,equity,single_country,united_kingdom,False,nasdaq_trader_heuristic
+EWUS,iShares MSCI United Kingdom Small Cap ETF,equity,single_country,united_kingdom,False,nasdaq_trader_heuristic
+FKU,First Trust United Kingdom AlphaDEX Fund,equity,single_country,united_kingdom,False,nasdaq_trader_heuristic
+FLGB,Franklin FTSE United Kingdom ETF,equity,single_country,united_kingdom,False,nasdaq_trader_heuristic
+KPHO,KraneShares Dragon Capital Growth of Vietnam Index ETF,equity,single_country,vietnam,False,nasdaq_trader_heuristic
+VNAM,Global X MSCI Vietnam ETF,equity,single_country,vietnam,False,nasdaq_trader_heuristic
+VNM,VanEck Vietnam ETF,equity,single_country,vietnam,False,nasdaq_trader_heuristic
+ABIG,Argent Large Cap ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+ACLC,American Century Large Cap Equity ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+AFLG,First Trust Active Factor Large Cap ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+AINT,FINQ DOLLAR NEUTRAL U.S. Large Cap AI-Managed Equity ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+AIUP,FINQ FIRST U.S. Large Cap AI-Managed Equity ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+ALTL,Pacer Lunt Large Cap Alternator ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+APRP,PGIM S&P 500 Buffer 12 ETF - April,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+APRT,AllianzIM U.S. Large Cap Buffer10 Apr ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+APRW,AllianzIM U.S. Large Cap Buffer20 Apr ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+AUGP,PGIM S&P 500 Buffer 12 ETF - August,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+AUGT,AllianzIM U.S. Large Cap Buffer10 Aug ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+AUGW,AllianzIM U.S. Large Cap Buffer20 Aug ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+AVLC,Avantis U.S. Large Cap Equity ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BALI,iShares U.S. Large Cap Premium Income Active ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BBHL,BBH Select Large Cap ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BCUS,Bancreek U.S. Large Cap ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BKLC,BNY Mellon US Large Cap Core Equity ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BLCR,iShares Large Cap Core Active ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BLUC,Bluemonte Large Cap Core ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BROL,Baron Risk Optimized Large Cap ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BUFP,PGIM Laddered S&P 500 Buffer 12 ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+BUYB,ProShares S&P 500 Buyback Aristocrats ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CDEI,"Calvert US Large-Cap Diversity, Equity and Inclusion Index ETF",equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CDL,VictoryShares US Large Cap High Div Volatility Wtd ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSA,Calamos S&P 500 Structured Alt Protection ETF  August,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSD,Calamos S&P 500 Structured Alt Protection ETF December,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSF,Calamos S&P 500 Structured Alt Protection ETF February,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSJ,Calamos S&P 500 Structured Alt Protection ETF  July,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSL,Calamos Laddered S&P 500 Structured Alt Protection ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSM,Calamos S&P 500 Structured Alt Protection ETF  May,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSN,Calamos S&P 500 Structured Alt Protection ETF November,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSO,Calamos S&P 500 Structured Alt Protection ETF - October,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSP,Calamos S&P 500 Structured Alt Protection ETF - April,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSR,Calamos S&P 500 Structured Alt Protection ETF - March,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPST,Calamos S&P 500 Structured Alt Protection ETF  September,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSU,Calamos S&P 500 Structured Alt Protection ETF June,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CPSY,Calamos S&P 500 Structured Alt Protection ETF January,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CSM,ProShares Large Cap Core Plus,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+CVLC,Calvert US Large-Cap Core Responsible Index ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DECP,PGIM S&P 500 Buffer 12 ETF - December,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DECT,AllianzIM U.S. Large Cap Buffer10 Dec ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DECW,AllianzIM U.S. Large Cap Buffer20 Dec ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DEMZ,Democratic Large Cap Core ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DFVX,Dimensional US Large Cap Vector ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DHLX,Diamond Hill Large Cap Concentrated ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DMAX,iShares Large Cap Max Buffer Dec ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DSPY,Tema S&P 500 Historical Weight ETF Strategy,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+DUBS,Aptus Large Cap Enhanced Yield ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+EFIV,State Street SPDR S&P 500 ESG ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+EMOT,First Trust S&P 500 Economic Moat ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+ENHU,iShares Enhanced Large Cap Core Active ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+EQAL,Invesco Russell 1000 Equal Weight ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+EXEQ,Wedbush ReturnOnLeadership U.S. Large-Cap ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+FB,ProShares S&P 500 Dynamic Buffer ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+FCFY,First Trust S&P 500 Diversified Free Cash Flow ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+FEBP,PGIM S&P 500 Buffer 12 ETF - February,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+FEBT,AllianzIM U.S. Large Cap Buffer10 Feb ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+FEBW,AllianzIM U.S. Large Cap Buffer20 Feb ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+FELC,Fidelity Enhanced Large Cap Core ETF,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+FEUS,FlexShares ESG & Climate US Large Cap Core Index Fund,equity,us_equity,large_blend,False,nasdaq_trader_heuristic
+ABCS,Alpha Blue Capital US Small-Mid Cap Dynamic ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+AFMC,First Trust Active Factor Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+AMID,Argent Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+AVMC,Avantis U.S. Mid Cap Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+BBHM,BBH Select Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+BBMC,JPMorgan BetaBuilders U.S. Mid Cap Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+BCSM,Baron SMID Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+BKMC,BNY Mellon US Mid Cap Core Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+BRSM,MFS Blended Research Small-Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+CGMM,Capital Group U.S. Small and Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+CVMC,Calvert US Mid-Cap Core Responsible Index ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+CVSM,CresAlta Small and Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+CZA,Invesco Zacks Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+EPMB,Harbor Mid Cap Core ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+EPSB,Harbor SMID Cap Core ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+FEMD,First Eagle Mid Cap Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+FFSM,Fidelity Fundamental Small-Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+FLQM,Franklin U.S. Mid Cap Multifactor Index ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+FMDE,Fidelity Enhanced Mid Cap Core ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+FNX,First Trust Mid Cap Core AlphaDEX Fund,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+FRTY,Alger Mid Cap 40 ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+FSCS,First Trust SMID Capital Strength ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+GRNJ,Fundstrat Granny Shots US Small- & Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+GRPM,Invesco S&P MidCap 400 GARP ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+IJH,iShares Core S&P Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+IMCB,iShares Morningstar Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+IQSM,NYLI Candriam U.S. Mid Cap Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+ISMD,Inspire Small/Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+IVOO,Vanguard S&P Mid-Cap 400 ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+IWR,iShares Russell Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+JHMM,John Hancock Multifactor Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+JMEE,JPMorgan Small & Mid Cap Enhanced Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+JPME,JPMorgan Diversified Return U.S. Mid Cap Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+KMID,Virtus KAR Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+MDY,State Street SPDR S&P MIDCAP 400 ETF Trust,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+MGMT,Ballast Small/Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+MIDE,Xtrackers S&P MidCap 400 Scored & Screened ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+MMID,MFS Active Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+MSSM,Morgan Stanley Pathway Small-Mid Cap Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+NBSM,Neuberger Small-Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+OASC,OneAscent Enhanced Small and Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+PJFM,PGIM Jennison Focused Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+PTMC,Pacer Trendpilot US Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+QVMM,Invesco S&P MidCap 400 QVM Multi-factor ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+REMC,Columbia Research Enhanced Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+RNIN,Bushido Capital US SMID Cap Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+RSMC,Rockefeller U.S. Small-Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+RWK,Invesco S&P MidCap 400 Revenue ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+SCHM,Schwab U.S. Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+SMCP,SMART Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+SMDX,Intech S&P Small-Mid Cap Diversified Alpha ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+SMIZ,Zacks Small/Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+SMOX,Horizon Small/Mid Cap Core Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+SPMD,State Street SPDR Portfolio S&P 400 Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+TMSL,T. Rowe Price Small-Mid Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+TPLC,Timothy Plan US Large/Mid Cap Core ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+TSME,Thrivent Small-Mid Cap Equity ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+VO,Vanguard Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+XJH,iShares ESG Select Screened S&P Mid-Cap ETF,equity,us_equity,mid_blend,False,nasdaq_trader_heuristic
+ABLS,Abacus FCF Small Cap Leaders ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+AFSC,abrdn Focused U.S. Small Cap Active ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+AFSM,First Trust Active Factor Small Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+AIMS,Acuitas Small Cap Active ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+ALIL,Argent Focused Small Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+AVSC,Avantis U.S Small Cap Equity ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+BBSC,JPMorgan BetaBuilders U.S. Small Cap Equity ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+BKSE,BNY Mellon US Small Cap Core Equity ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+BUFS,FT Vest Laddered Small Cap Moderate Buffer ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+CALF,Pacer US Small Cap Cash Cows ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+CPRA,Calamos Russell 2000 Structured Alt Protection ETF - April,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+CPRJ,Calamos Russell 2000 Structured Alt Protection ETF  July,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+CPRO,Calamos Russell 2000 Structured Alt Protection ETF - October,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+CPRY,Calamos Russell 2000 Structured Alt Protection ETF January,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+CSB,VictoryShares US Small Cap High Div Volatility Wtd ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+DFAS,Dimensional U.S. Small Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+EBIT,Harbor AlphaEdge Small Cap Earners ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+ESML,iShares ESG Aware MSCI USA Small-Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+ESSC,Eventide Small Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+FESM,Fidelity Enhanced Small Cap Core ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+FLQS,Franklin U.S. Small Cap Multifactor Index ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+FSCC,Federated Hermes MDT Small Cap Core ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+FSML,Franklin Small Cap Enhanced ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+FTKI,First Trust Small Cap BuyWrite Income ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+FYX,First Trust Small Cap Core AlphaDEX Fund,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+GRPZ,Invesco S&P SmallCap 600 GARP ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+GSSC,GS ActiveBeta U.S. Small Cap Equity ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+HAPS,Harbor Human Capital Factor US Small Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+IEUS,iShares MSCI Europe Small-Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+IJR,iShares Core S&P Small-Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+ISCB,iShares Morningstar Small-Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+ITWO,ProShares Russell 2000 High Income ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+IWM,iShares Russell 2000 Index Fund,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+IWMI,NEOS Russell 2000 High Income ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+IWMW,iShares Russell 2000 BuyWrite ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+JHSC,John Hancock Multifactor Small Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+JPSE,JPMorgan Diversified Return U.S. Small Cap Equity ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KAPR,Innovator U.S. Small Cap Power Buffer ETF - April,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KAUG,Innovator US Small Cap Power Buffer ETF - August,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KBFR,Innovator U.S. Small Cap Managed 10 Buffer ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KDEC,Innovator U.S. Small Cap Power Buffer ETF - December,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KFEB,Innovator U.S. Small Cap Power Buffer ETF - February,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KJAN,Innovator U.S. Small Cap Power Buffer ETF - January,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KJUL,Innovator U.S. Small Cap Power Buffer ETF - July,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KJUN,Innovator U.S. Small Cap Power Buffer ETF - June,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KMAR,Innovator U.S. Small Cap Power Buffer ETF - March,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KMAY,Innovator U.S. Small Cap Power Buffer ETF - May,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KNOV,Innovator U.S. Small Cap Power Buffer ETF - November,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KOCT,Innovator U.S. Small Cap Power Buffer ETF - October,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+KSEP,Innovator U.S. Small Cap Power Buffer ETF - September,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+LITL,Simplify Piper Sandler US Small-Cap PLUS Income ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+MMSC,First Trust Multi-Manager Small Cap Opportunities ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+NUSC,Nuveen ESG Small-Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+OMFS,Invesco Russell 2000 Dynamic Multifactor ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+OVS,Overlay Shares Small Cap Equity ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+PSC,Principal U.S. Small-Cap ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+QBKF,AllianzIM U.S. Small Cap Buffer15 ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+QBKV,AllianzIM U.S. Small Cap Buffer5 ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+QVMS,Invesco S&P SmallCap 600 QVM Multi-factor ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+RB,ProShares Russell 2000 Dynamic Buffer ETF,equity,us_equity,small_blend,False,nasdaq_trader_heuristic
+BLUX,Bluemonte Dynamic Total Market ETF,equity,us_equity,total_market,False,nasdaq_trader_heuristic
+FNDB,Schwab Fundamental U.S. Broad Market ETF,equity,us_equity,total_market,False,nasdaq_trader_heuristic
+IWV,iShares Russell 3000 Fund,equity,us_equity,total_market,False,nasdaq_trader_heuristic
+MNZL,Manzil Russell Halal USA Broad Market ETF,equity,us_equity,total_market,False,nasdaq_trader_heuristic
+SCHB,Schwab U.S. Broad Market ETF,equity,us_equity,total_market,False,nasdaq_trader_heuristic
+VTHR,Vanguard Russell 3000 ETF,equity,us_equity,total_market,False,nasdaq_trader_heuristic
+AAA,Alternative Access First Priority CLO Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+ABXB,Abacus Flexible Bond Leaders ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+ACVT,Advent Convertible Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+ADFI,Anfield Dynamic Fixed Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AFIF,Anfield Universal Fixed Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AFIX,Allspring Broad Market Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AGG,iShares Core U.S. Aggregate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AGGA,EA Astoria Dynamic Core US Fixed Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AGGH,Simplify Aggregate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AGGS,Harbor Disciplined Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AGGY,WisdomTree Yield Enhanced U.S. Aggregate Bond Fund,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AGRH,iShares Interest Rate Hedged U.S. Aggregate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AGZ,iShares  Agency Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AGZD,WisdomTree Interest Rate Hedged U.S. Aggregate Bond Fund,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+APCB,ActivePassive Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AVIG,Avantis Core Fixed Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BAMB,Brookstone Intermediate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BBAG,JPMorgan BetaBuilders U.S. Aggregate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BDBT,Bluemonte Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BEMB,iShares J.P. Morgan Broad USD Emerging Markets Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BFIX,Build Bond Innovation ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BGRN,iShares USD Green Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BIV,Vanguard Intermediate-Term Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BKAG,BNY Mellon Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BKFI,BNY Mellon Active Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BLTD,Bluemonte Long Term Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BLV,Vanguard Long-Term Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BND,Vanguard Total Bond Market ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BNDC,FlexShares Core Select Bond Fund,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BNDI,NEOS Enhanced Income Aggregate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BNDP,Vanguard Core-Plus Bond Index ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BNDS,Infrastructure Capital Bond Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BNDW,Vanguard Total World Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BNDX,Vanguard Total International Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BNDY,Horizon Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BOND,PIMCO Active Bond Exchange-Traded Fund Exchange-Traded Fund,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BOXA,Alpha Architect Aggregate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BREM,iShares Emerging Markets Bond Active ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BRIB,FIS Bright Portfolios Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BTOT,iShares Total USD Fixed Income Market ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BTYB,VistaShares BitBonds 5 Yr Enhanced Weekly Distribution ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+BYLD,iShares Yield Optimized Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CAFX,Congress Intermediate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CBON,VanEck China Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CFIT,Cambria Fixed Income Trend ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CGCB,Capital Group Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CGIB,Capital Group International Bond ETF (USD-Hedged),fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CMBS,iShares CMBS Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CORB,AB Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CPAG,F/m Compoundr U.S. Aggregate Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CPLB,NYLI MacKay Core Plus Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CPLS,AB Core Plus Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CRUX,Columbia Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+CRXP,Columbia Core Plus Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+DBND,DoubleLine Opportunistic Core Bond ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+DFCF,Dimensional Core Fixed Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+DFGP,Dimensional Global Core Plus Fixed Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+DFGX,Dimensional International Core Fixed Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+DFSB,Dimensional Global Sustainability Fixed Income ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+DIAL,Columbia Diversified Fixed Income Allocation ETF,fixed_income,bonds,broad_bond,False,nasdaq_trader_heuristic
+AHYB,American Century Select High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+ANGL,VanEck Fallen Angel High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+AOHY,Angel Oak High Yield Opportunities ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+BBHY,JPMorgan BetaBuilders USD High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+BHYB,Xtrackers USD High Yield BB-B ex Financials ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+BKHY,BNY Mellon High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+BRHY,iShares High Yield Active ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+CDX,Simplify High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+CGHY,Capital Group High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+CHYG,Corgi 0-5 Year High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+CPHY,F/m Compoundr High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+EMHY,iShares J.P. Morgan EM High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+EUHY,iShares Euro High Yield Corporate Bond USD Hedged ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+EVHY,Eaton Vance High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+FDHY,Fidelity Enhanced High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+FLHY,Franklin High Yield Corporate ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+FSYD,Fidelity Sustainable High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+GHYB,Goldman Sachs Access High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+GHYG,iShares US & Intl High Yield Corp Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+GTOQ,Invesco High Yield Systematic Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYBX,TCW High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYDB,iShares High Yield Systematic Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYDW,Xtrackers Low Beta High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYEM,VanEck Emerging Markets High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYFI,AB High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYG,iShares iBoxx $ High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYGH,iShares Interest Rate Hedged High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYGM,Amplify HYG High Yield 10% Target Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYGV,FlexShares High Yield Value-Scored Bond Index Fund,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYGW,iShares High Yield Corporate Bond BuyWrite Strategy ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYHG,ProShares High Yield Interest Rate Hedged,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYLB,Xtrackers USD High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYLS,First Trust Tactical High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYS,PIMCO 0-5 Year High Yield Corporat Bond Index Exchange-Traded Fund,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYSA,BondBloxx USD High Yield Bond Sector Rotation ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYTI,FT Vest High Yield & Target Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYTR,Counterpoint High Yield Trend ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYUP,Xtrackers High Beta High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYXF,iShares ESG Advanced High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+HYZD,WisdomTree Interest Rate Hedged High Yield Bond Fund,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IBHF,iShares iBonds 2026 Term High Yield and Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IBHG,iShares iBonds 2027 Term High Yield and Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IBHH,iShares iBonds 2028 Term High Yield and Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IBHI,iShares iBonds 2029 Term High Yield and Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IBHJ,iShares iBonds 2030 Term High Yield and Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IBHK,iShares iBonds 2031 Term High Yield and Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IBHL,iShares iBonds 2032 Term High Yield and Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IBHM,iShares iBonds 2033 Term High Yield and Income ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+IHY,VanEck International High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+JHHY,John Hancock High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+JNK,State Street SPDR Bloomberg High Yield Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+JPHY,JPMorgan Active High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+LDRH,iShares iBonds 1-5 Year High Yield and Income Ladder ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+LEND,SEI High Yield Bond & Alternative Credit ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+MHY,Man Active High Yield ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+MYHA,State Street My2027 High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+MYHB,State Street My2028 High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+MYHC,State Street My2029 High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+MYHD,State Street My2030 High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+MYHE,State Street My2031 High Yield Corporate Bond ETF,fixed_income,credit,high_yield,False,nasdaq_trader_heuristic
+BBBI,BondBloxx BBB Rated 5-10 Year Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+BBBL,BondBloxx BBB Rated 10+ Year Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+BBBS,BondBloxx BBB Rated 1-5 Year Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+BBCB,JPMorgan BetaBuilders USD Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+CCRP,Columbia Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+CEMB,iShares J.P. Morgan EM Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+CIVG,Corgi 1-5 Year Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+CLOO,NYLI Investment Grade CLO ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+CORP,PIMCO Investment Grade Corporate Bond Index Exchange-Traded Fund,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+EMCB,WisdomTree Emerging Markets Corporate Bond Fund,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+EPRF,Innovator S&P Investment Grade Preferred ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+EUIG,iShares Euro Investment Grade Corporate Bond USD Hedged ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+EYEG,AB Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FCOR,Fidelity Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FEIG,FlexShares ESG & Climate Investment Grade Corporate Core Index Fund,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FIGB,Fidelity Investment Grade Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FIIG,First Trust Intermediate Duration Investment Grade Corporate ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FLCO,Franklin Investment Grade Corporate ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FLRN,State Street SPDR Bloomberg Investment Grade Floating Rate ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FSEC,Fidelity Investment Grade Securitized ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FSIG,First Trust Limited Duration Investment Grade Corporate ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+FTCB,First Trust Core Investment Grade ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+GIGB,Goldman Sachs Access Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+GIGL,Goldman Sachs Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+GXIG,Global X Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+HBDC,Hilton BDC Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+HYBB,iShares BB Rated Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IBD,Inspire Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IBND,State Street SPDR Bloomberg International Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IG,Principal Investment Grade Corporate Active ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IGBH,iShares Interest Rate Hedged Long-Term Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IGCB,TCW Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IGEB,iShares Investment Grade Systematic Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IGHG,ProShares Investment Grade-Interest Rate Hedged,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IGIB,iShares 5-10 Year Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IGLB,iShares 10  Year Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IGSB,iShares 1-5 Year Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+IIGD,Invesco Investment Grade Defensive ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+INVG,GMO Systematic Investment Grade Credit ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+JHCB,John Hancock Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+JLQD,Janus Henderson Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+KORP,American Century Diversified Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+LKOR,FlexShares Credit-Scored US Long Corporate Bond Index Fund,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+LQD,iShares iBoxx $ Investment Grade Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+LQDB,iShares BBB Rated Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+LQDH,iShares Interest Rate Hedged Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+LQDM,Amplify LQD Investment Grade 12% Target Income ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+LQDW,iShares Investment Grade Corporate Bond BuyWrite Strategy ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+LQTI,FT Vest Investment Grade & Target Income ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MBBB,VanEck Moody's Analytics BBB Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MIG,VanEck Moody's Analytics IG Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCF,State Street My2026 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCG,State Street My2027 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCH,State Street My2028 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCI,State Street My2029 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCJ,State Street My2030 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCK,State Street My2031 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCL,State Street My2032 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCM,State Street My2033 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+MYCN,State Street My2034 Corporate Bond ETF,fixed_income,credit,investment_grade,False,nasdaq_trader_heuristic
+AVIE,Avantis Inflation Focused Equity ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+CPII,American Beacon Ionic Inflation Protection ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+DFIP,Dimensional Inflation-Protected Securities ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+FCPI,Fidelity Stocks for Inflation ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+FTIF,First Trust Bloomberg Inflation Sensitive Equity ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+GDT,WisdomTree Efficient TIPS Plus Gold Fund,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+GTIP,Goldman Sachs Access Inflation Protected USD Bond ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+HIDE,Alpha Architect High Inflation and Deflation ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIC,iShares iBonds Oct 2026 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBID,iShares iBonds Oct 2027 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIE,iShares iBonds Oct 2028 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIF,iShares iBonds Oct 2029 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIG,iShares iBonds Oct 2030 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIH,iShares iBonds Oct 2031 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBII,iShares iBonds Oct 2032 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIJ,iShares iBonds Oct 2033 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIK,iShares iBonds Oct 2034 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIL,iShares iBonds Oct 2035 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IBIM,iShares iBonds Oct 2036 Term TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+ICPI,iShares 0-1 Year TIPS Bond ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+INFL,Horizon Kinetics Inflation Beneficiaries ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IRVH,Global X Interest Rate Volatility & Inflation Hedge ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+IVOL,Quadratic Interest Rate Volatility and Inflation Hedge ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+JCPI,JPMorgan Inflation Managed Bond ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+LDRI,iShares iBonds 1-5 Year TIPS Ladder ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+LIAE,LifeX 2050 Inflation-Protected Longevity Income ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+LIAM,LifeX 2055 Inflation-Protected Longevity Income ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+LIAU,LifeX 2060 Inflation-Protected Longevity Income ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+LIBD,LifeX 2065 Inflation-Protected Longevity Income ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+LQDI,iShares Inflation Hedged Corporate Bond ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+LTPZ,Pimco 15  Year U.S. TIPS Index Exchange-Traded Fund,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+MHIG,Milliman Healthcare Inflation Guard ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+MHIP,Milliman Healthcare Inflation Plus ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+PBTP,Invesco 0-5 Yr US TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+PCPI,PIMCO Inflation PLUS Active Exchange-Traded Fund,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+RINF,ProShares Inflation Expectations ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+RIZE,Principal Inflation Protection ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+SCHP,Schwab U.S. TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+SPIP,State Street SPDR Portfolio TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+STIP,iShares 0-5 Year TIPS Bond ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+STPZ,PIMCO 1-5 Year U.S. TIPS Index Exchange-Traded Fund,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TDTF,FlexShares iBoxx 5 Year Target Duration TIPS Index Fund,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TDTT,FlexShares iBoxx 3 Year Target Duration TIPS Index Fund,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TIP,iShares TIPS Bond ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TIPA,Northern Trust 2030 Inflation-Linked Distributing Ladder ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TIPB,Northern Trust 2035 Inflation-Linked Distributing Ladder ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TIPC,Northern Trust 2045 Inflation-Linked Distributing Ladder ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TIPD,Northern Trust 2055 Inflation-Linked Distributing Ladder ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TIPX,State Street SPDR Bloomberg 1a??10 Year TIPS ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+TIPZ,PIMCO Broad U.S. TIPS Index Exchange-Traded Fund,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+VTP,Vanguard Total Inflation-Protected Securities ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+WIP,State Street SPDR FTSE International Government Inflation-Protected Bond ETF,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+WTIP,WisdomTree Inflation Plus Fund,fixed_income,inflation_linked,tips,False,nasdaq_trader_heuristic
+APMU,ActivePassive Intermediate Municipal Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+AVMU,Avantis Core Municipal Fixed Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+BAB,Invesco Taxable Municipal Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+BKMI,BNY Mellon Municipal Intermediate ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+BMOP,BNY Mellon Municipal Opportunities ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+CAM,AB California Intermediate Municipal ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+CATF,American Century California Municipal Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+CGHM,Capital Group Municipal High-Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+CGMU,Capital Group Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+CMF,iShares California Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+DFCA,Dimensional California Municipal Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+DFNM,Dimensional National Municipal Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+DIPR,Corgi Space & Satellite Communications ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+DVXC,WEBs Communication Services XLC Defined Volatility ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+EVIM,Eaton Vance Intermediate Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+EVYM,Eaton Vance High Income Municipal ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FCAL,First Trust California Municipal High income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FCOM,Fidelity MSCI Communication Services Index ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FDCF,Fidelity Disruptive Communications ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FLMB,Franklin Municipal Green Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FLMI,Franklin Dynamic Municipal Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FMB,First Trust Managed Municipal ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FMHI,First Trust Municipal High Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FMNY,First Trust New York Municipal High Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FMUB,Fidelity Municipal Bond Opportunities ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FMUN,Fidelity Systematic Municipal Bond Index ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTCA,Franklin California Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTMA,Franklin Massachusetts Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTMH,Franklin Municipal High Yield ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTMN,Franklin Minnesota Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTMU,Franklin Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTNJ,Franklin New Jersey Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTNY,Franklin New York Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTOH,Franklin Ohio Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+FTPA,Franklin Pennsylvania Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+GCAL,Goldman Sachs Dynamic California Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+GENM,Genter Capital Municipal Quality Intermediate ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+GMNY,Goldman Sachs Dynamic New York Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+GMUB,Goldman Sachs Municipal Income ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+GXPC,Global X PureCap MSCI Communication Services ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+HIMU,iShares High Yield Muni Active ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+HMOP,Hartford Municipal Opportunities ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+HTAX,Nomura National High-Yield Municipal Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+HYD,VanEck High Yield Muni ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+HYMB,State Street SPDR Nuveen ICE High Yield Municipal Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMO,iShares iBonds Dec 2026 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMP,iShares iBonds Dec 2027 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMQ,iShares iBonds Dec 2028 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMR,iShares iBonds Dec 2029 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMS,iShares iBonds Dec 2030 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMT,iShares iBonds Dec 2031 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMU,iShares iBonds Dec 2032 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMV,iShares iBonds Dec 2033 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMW,iShares iBonds Dec 2034 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IBMX,iShares iBonds Dec 2035 Term Muni Bond ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+INMU,iShares Intermediate Muni Income Active ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+INTM,Invesco Intermediate Municipal ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IROC,Invesco Rochester High Yield Municipal ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+ITM,VanEck Intermediate Muni ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+IVRS,iShares Future Metaverse Tech and Communications ETF,fixed_income,municipal,national_muni,False,nasdaq_trader_heuristic
+BBLB,JPMorgan BetaBuilders U.S. Treasury Bond 20+ Year ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+LLDR,Global X Long-Term Treasury Ladder ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+LTTI,FT Vest 20+ Year Treasury & Target Income ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+SCHQ,Schwab Long-Term U.S. Treasury ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+SPTL,State Street SPDR Portfolio Long Term Treasury ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+TLT,iShares 20+ Year Treasury Bond ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+TLTI,NEOS Enhanced Income 20+ Year Treasury Bond ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+TLTW,iShares 20+ Year Treasury Bond BuyWrite Strategy ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+VGLT,Vanguard Long-Term Treasury ETF,fixed_income,us_bonds,long_treasury,False,nasdaq_trader_heuristic
+BBSB,JPMorgan BetaBuilders U.S. Treasury Bond 1-3 Year ETF,fixed_income,us_bonds,short_treasury,False,nasdaq_trader_heuristic
+CUST,Corgi 1-3 Year Treasury Bond ETF,fixed_income,us_bonds,short_treasury,False,nasdaq_trader_heuristic
+ISHG,iShares 1-3 Year International Treasury Bond ETF,fixed_income,us_bonds,short_treasury,False,nasdaq_trader_heuristic
+LDRT,iShares iBonds 1-5 Year Treasury Ladder ETF,fixed_income,us_bonds,short_treasury,False,nasdaq_trader_heuristic
+SHY,iShares 1-3 Year Treasury Bond ETF,fixed_income,us_bonds,short_treasury,False,nasdaq_trader_heuristic
+USSH,WisdomTree 1-3 Year Laddered Treasury Fund,fixed_income,us_bonds,short_treasury,False,nasdaq_trader_heuristic
+BBIB,JPMorgan BetaBuilders U.S. Treasury Bond 3-10 Year ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+BUCK,Simplify Treasury Option Income ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+BWX,State Street SPDR Bloomberg International Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+CIEI,Corgi 3-7 Year Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+EDV,Vanguard Extended Duration Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+FLGV,Franklin U.S. Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+GBIL,Goldman Sachs Access Treasury 0-1 Year ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+GOVM,iShares 1-10 Year Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+GOVT,iShares U.S. Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+GOVZ,iShares 25  Year Treasury STRIPS Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBGA,iShares iBonds Dec 2044 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBGB,iShares iBonds Dec 2045 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBGC,iShares iBonds Dec 2046 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBGK,iShares iBonds Dec 2054 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBGL,iShares iBonds Dec 2055 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBGM,iShares iBonds Dec 2056 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTG,iShares iBonds Dec 2026 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTH,iShares iBonds Dec 2027 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTI,iShares iBonds Dec 2028 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTJ,iShares iBonds Dec 2029 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTK,iShares iBonds Dec 2030 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTL,iShares iBonds Dec 2031 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTM,iShares iBonds Dec 2032 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTO,iShares iBonds Dec 2033 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTP,iShares iBonds Dec 2034 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTQ,iShares iBonds Dec 2035 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IBTR,iShares iBonds Dec 2036 Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IEF,iShares 7-10 Year Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IEI,iShares 3-7 Year Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+IGOV,iShares International Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+JMMF,JPMorgan 100% U.S. Treasury Securities Money Market ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+MLDR,Global X Intermediate-Term Treasury Ladder ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+SCHR,Schwab Intermediate-Term U.S. Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+SHV,iShares 0-1 Year Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+SPTB,State Street SPDR Portfolio Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+SPTI,State Street SPDR Portfolio Intermediate Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+SWAN,Amplify BlackSwan Growth & Treasury Core ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TBJL,Innovator 20  Year Treasury Bond 9 Buffer ETF - July,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TFJL,Innovator 20  Year Treasury Bond 5 Floor ETF - July,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TFLO,iShares Treasury Floating Rate Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TLH,iShares 10-20 Year Treasury Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TLTP,Amplify TLT U.S. Treasury 12% Option Income ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TLTX,Global X Treasury Bond Enhanced Income ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TROT,Invesco MSCI Treasury Duration Rotation ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TRSY,Xtrackers US 0-1 Year Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TSYW,Roundhill Treasury Bond WeeklyPay ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+TYA,Simplify Intermediate Term Treasury Futures Strategy ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+UFIV,US Treasury 5 Year Note ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+USFR,WisdomTree Floating Rate Treasury Fund,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+USIN,WisdomTree 7-10 Year Laddered Treasury Fund,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+USVN,US Treasury 7 Year Note ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+UTEN,US Treasury 10 Year Note ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+UTHY,US Treasury 30 Year Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+UTRE,US Treasury 3 Year Note ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+UTWO,US Treasury 2 Year Note ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+UTWY,US Treasury 20 Year Bond ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+VGIT,Vanguard Intermediate-Term Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+VTG,Vanguard Total Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+XFIV,BondBloxx Bloomberg Five Year Target Duration US Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+XHLF,BondBloxx Bloomberg Six Month Target Duration US Treasury ETF,fixed_income,us_bonds,treasury,False,nasdaq_trader_heuristic
+BIL,State Street SPDR Bloomberg 1-3 Month T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+BILS,State Street SPDR Bloomberg 3-12 Month T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+CBIL,Corgi 3-12 Month T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+CGOV,Corgi 0-3 Month T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+CLIP,Global X 1-3 Month T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+CSHI,NEOS Enhanced Income 1-3 Month T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+GOVI,Invesco Equal Weight 0-30 Year Treasury ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+OBIL,US Treasury 12 Month Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+SGOV,iShares 0-3 Month Treasury Bond ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+TBIL,F/m US Treasury 3 Month Bill Fund,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+TLDR,The Laddered T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+VBIL,Vanguard 0-3 Month Treasury Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+WEEK,Roundhill Weekly T-Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic
+XBIL,US Treasury 6 Month Bill ETF,fixed_income,us_bonds,ultra_short_treasury,False,nasdaq_trader_heuristic

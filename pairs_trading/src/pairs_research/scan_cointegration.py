@@ -19,6 +19,8 @@ class CointegrationConfig:
     max_half_life_days: float = 45
     min_hedge_ratio: float = 0.25
     max_hedge_ratio: float = 4.0
+    min_spread_std: float = 0.002
+    max_return_corr: float = 0.995
 
 
 def load_price_matrix(price_history: pd.DataFrame) -> pd.DataFrame:
@@ -28,11 +30,18 @@ def load_price_matrix(price_history: pd.DataFrame) -> pd.DataFrame:
     if missing:
         raise ValueError(f"Missing price history columns: {sorted(missing)}")
 
-    prices = price_history.copy()
+    prices = price_history.copy(deep=False)
     prices["date"] = pd.to_datetime(prices["date"])
-    prices["ticker"] = prices["ticker"].str.upper()
+    if prices["ticker"].dtype.name != "category":
+        prices["ticker"] = prices["ticker"].astype("category")
     prices["adj_close"] = pd.to_numeric(prices["adj_close"], errors="coerce")
-    return prices.pivot(index="date", columns="ticker", values="adj_close").sort_index()
+    return prices.pivot_table(
+        index="date",
+        columns="ticker",
+        values="adj_close",
+        aggfunc="last",
+        observed=True,
+    ).sort_index()
 
 
 def estimate_hedge_ratio(log_y: pd.Series, log_x: pd.Series) -> tuple[float, float]:
@@ -125,12 +134,15 @@ def scan_pairs(
         & results["half_life_days"].le(config.max_half_life_days)
         & results["hedge_ratio"].abs().ge(config.min_hedge_ratio)
         & results["hedge_ratio"].abs().le(config.max_hedge_ratio)
+        & results["spread_std"].ge(config.min_spread_std)
+        & results["return_corr"].le(config.max_return_corr)
     ).fillna(False)
 
     results["rank_score"] = (
         results["coint_pvalue"].rank(method="min")
         + results["adf_pvalue"].rank(method="min")
         + (results["half_life_days"] - 10).abs().rank(method="min")
+        + (results["spread_std"] - 0.02).abs().rank(method="min")
     )
 
     return results.sort_values(
@@ -147,7 +159,16 @@ def write_cointegration_scan(
 ) -> Path:
     """Read candidate pairs and prices, then write ranked scan results."""
     candidate_pairs = pd.read_csv(candidate_pairs_csv)
-    price_history = pd.read_csv(price_history_csv)
+    price_history = pd.read_csv(
+        price_history_csv,
+        usecols=["date", "ticker", "adj_close", "volume"],
+        dtype={
+            "date": "string",
+            "ticker": "category",
+            "adj_close": "float32",
+            "volume": "float32",
+        },
+    )
     results = scan_pairs(candidate_pairs, price_history, config)
 
     output_path = Path(output_csv)

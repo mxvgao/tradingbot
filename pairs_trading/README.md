@@ -1,267 +1,165 @@
-# ETF Pairs Trading Research
+# ETF Pairs Trading Research MVP
 
-Goal: find liquid ETF pairs with stable cointegration, then test whether the relationship survives realistic out-of-sample trading assumptions.
+This project is an ETF pairs-trading research engine. It builds a liquid ETF universe, generates economically related pair candidates, runs statistical screens, ranks recent opportunities, and tests selected pairs out-of-sample.
 
-## Suggested Workflow
+The MVP goal is not to claim a production-ready trading strategy. The goal is to show a credible quant research workflow that can find, test, reject, and explain ETF pair opportunities.
 
-### 1. Build the ETF universe
+## Current Finding
 
-Start with a broad ETF list, then enrich it with metadata:
+The project found that ETF pair relationships are highly regime-dependent.
 
-- ticker
-- fund name
-- issuer
-- asset class
-- category/theme
-- expense ratio
-- AUM
-- average dollar volume
-- inception date
+Full-sample 10-year cointegration is very selective, while recent validation winners can still fail in the next walk-forward test window. The strongest current individual result is `BNO/XOP`, but broader selected portfolios are not yet robust enough for production trading.
 
-Good first universe sources:
+## Quick Run
 
-- ETF.com or VettaFi exports for ETF metadata
-- Nasdaq/NYSE ETF listings
-- yfinance for quick price and volume history
-
-Do not start by testing every ETF against every other ETF. That creates too many weak statistical discoveries.
-
-### 2. Filter for tradability
-
-Keep ETFs that are easy to trade:
-
-- sufficient daily history, ideally 3-5 years or more
-- average dollar volume above a chosen threshold
-- no obvious stale pricing
-- no major missing-data gaps
-- avoid ETNs, leveraged ETFs, inverse ETFs, and ultra-niche products at first
-
-Reasonable first filters:
-
-- at least 756 trading days of history
-- average dollar volume above $10M
-- median daily volume above 100k shares
-- price above $5
-
-### 3. Group ETFs before testing pairs
-
-Cointegration is more plausible within related economic exposures:
-
-- broad US equity: SPY, IVV, VOO, VTI
-- sectors: XLF, VFH, IYF
-- international regions: EFA, IEFA, VEA
-- bonds by duration/credit: IEF, GOVT, VGIT
-- commodities themes
-- factor ETFs: value, growth, momentum, low volatility
-
-Use strict same-category pairs first. Later, test related groups like regional equity vs country ETFs.
-
-### 4. Run the statistical screen
-
-For each candidate pair:
-
-1. Align adjusted-close prices.
-2. Work in log prices.
-3. Run Engle-Granger cointegration test.
-4. Estimate hedge ratio with OLS.
-5. Compute spread:
-
-   ```text
-   spread = log_price_y - hedge_ratio * log_price_x
-   ```
-
-6. Run ADF test on the spread.
-7. Estimate half-life from mean reversion regression.
-
-Keep only pairs where:
-
-- Engle-Granger p-value < 0.05, ideally < 0.01
-- ADF p-value on spread < 0.05
-- half-life is between 3 and 30 trading days
-- hedge ratio is economically reasonable
-- price history has enough overlapping data
-
-### 5. Require rolling stability
-
-A pair that only works over the full sample is usually not enough. Re-run the tests over rolling windows:
-
-- 252 trading days
-- 504 trading days
-- 756 trading days
-
-Track:
-
-- percent of windows passing the cointegration test
-- hedge ratio stability
-- half-life stability
-- spread volatility stability
-
-This is where many attractive-looking pairs should get rejected.
-
-### 6. Backtest out-of-sample
-
-Use a walk-forward structure:
-
-- formation window: estimate hedge ratio and spread stats
-- trading window: trade using only previously-known estimates
-- rebalance estimates on a schedule
-
-Example:
-
-- 504-day formation window
-- 63-day trading window
-- enter when z-score exceeds 2.0
-- exit near 0.5 or 0.0
-- stop if z-score blows out or half-life deteriorates
-
-Include:
-
-- commissions
-- bid/ask slippage
-- borrow/short assumptions if shorting is involved
-- position sizing
-- max exposure limits
-
-## First Implementation Milestones
-
-1. Create a manually curated starter ETF universe.
-2. Download adjusted prices and volume.
-3. Calculate liquidity filters.
-4. Group tickers by theme.
-5. Run same-group cointegration scan.
-6. Export ranked candidate pairs to CSV.
-7. Add rolling-window validation.
-8. Add walk-forward backtest.
-
-## Suggested Folder Layout
+Use the existing downloaded 10-year yfinance data:
 
 ```text
-pairs_trading/
-  data/                 raw and cached ETF data
-  notebooks/            exploratory research
-  outputs/              scans, charts, backtest results
-  src/pairs_research/   reusable research code
+python pairs_trading/src/pairs_research/run_pipeline.py --skip-download --skip-universe --walk-forward-max-folds 1 --walk-forward-latest --disable-hmm --recent-max-candidates 75
 ```
 
-## Practical Notes
-
-Use this project as a research funnel. The statistical tests should find candidates, not final trades. The backtest should be treated as an attempt to disprove each pair before trusting it.
-
-## First Filter Pass
-
-The simple filter expects a price history CSV with:
+Fresh 10-year run:
 
 ```text
-date,ticker,adj_close,volume
+python pairs_trading/src/pairs_research/run_pipeline.py --price-period 10y --walk-forward-max-folds 1 --walk-forward-latest --disable-hmm --recent-max-candidates 75
 ```
 
-Create it with:
+The fresh run downloads a large price file and can take a while.
+
+## Pipeline
 
 ```text
-python -m pip install -r pairs_trading/requirements.txt
-python pairs_trading/src/pairs_research/download_prices.py
+ETF universe
+-> liquidity filter
+-> candidate pair generation
+-> full-sample cointegration scan
+-> recent opportunity ranking
+-> rolling diagnostics
+-> pair backtests
+-> portfolio allocation
+-> walk-forward validation
+-> MVP report
 ```
 
-It writes:
+## Main Outputs
 
 ```text
+data/etf_universe_seed.csv
 data/etf_universe_liquid.csv
 data/candidate_pairs.csv
+outputs/cointegration_scan.csv
+outputs/recent_opportunity_rankings.csv
+outputs/backtest_comparison.csv
+outputs/portfolio_summary.csv
+outputs/walk_forward_selected_pairs.csv
+outputs/walk_forward_pair_results.csv
+outputs/walk_forward_summary.csv
+outputs/mvp_report.md
+outputs/charts/
 ```
 
-ETF-level filters:
+## Methodology
 
-```text
-history_days >= 756
-median_dollar_volume_60d >= 10000000
-median_price_60d >= 5
-missing_price_pct <= 0.02
-```
+Universe construction uses Nasdaq Trader ETF listings with heuristic ETF-name classification. The current default universe includes broad equity, sector, industry, factor, country, bond, credit, commodity, metals, and energy ETFs.
 
-Pair-level filters:
+Candidate generation avoids testing every ETF against every other ETF. It creates pairs from:
 
 ```text
 same subgroup
-overlap_days >= 756
+related subgroup
+same group with high return correlation
+sector vs industry
+commodity vs producer
+country vs region
+factor vs broad market
+credit vs equity-sensitive themes
 ```
 
-Run the first statistical screen with:
+The statistical screen uses:
 
 ```text
-python pairs_trading/src/pairs_research/scan_cointegration.py
+Engle-Granger cointegration
+ADF test on the spread
+OLS hedge ratio
+spread half-life
+spread volatility
+return correlation sanity checks
 ```
 
-It writes:
+Recent opportunity ranking uses the long price history for context, but ranks pairs using a current subtrain/validation window. This is meant to answer:
 
 ```text
-outputs/cointegration_scan.csv
+Which pairs look tradable now?
 ```
 
-First-pass cointegration filters:
+instead of:
 
 ```text
-coint_pvalue < 0.05
-adf_pvalue < 0.05
-1 <= half_life_days <= 45
-0.25 <= abs(hedge_ratio) <= 4.0
+Which pairs looked cointegrated over the entire 10-year sample?
 ```
 
-Run a rolling stability and rough viability check for the leading pair with:
+Walk-forward validation tests selected pair/rule combinations out-of-sample using only information available before the test window.
+
+## Risk Controls
+
+The current walk-forward engine supports:
 
 ```text
-python pairs_trading/src/pairs_research/rolling_pair_check.py
+hedge-ratio-sized legs
+transaction cost assumptions
+max holding period
+stop-z exit
+no immediate same-direction re-entry after failed max-hold exits
+duplicate ticker exposure limits
+group concentration limits
+optional HMM regime filter
 ```
 
-It writes:
+The optional HMM uses spread change, z-score change, rolling spread volatility, absolute z-score, and hedge-ratio change to filter regimes. It is fit only on subtrain data and then applied to validation/test windows without lookahead.
+
+## Latest MVP Result
+
+In the latest one-window 10-year run:
 
 ```text
-outputs/rolling_ITOT_VTI.csv
-outputs/rolling_ITOT_VTI_summary.csv
-outputs/viability_ITOT_VTI.csv
+Universe ETFs:             1,666
+Candidate pairs:           791
+Full-sample coint passed:  7
+Recent opportunity rows:   8
+Latest walk-forward return: negative
+Best selected test pair:   BNO/XOP
 ```
 
-Run the barebones walk-forward pairs backtest with:
+The best current individual pair result:
 
 ```text
-python pairs_trading/src/pairs_research/backtest_pair.py
+BNO/XOP
+test return: about +0.95%
+test Sharpe: about 2.18
 ```
 
-Default pair:
+The selected portfolio was dragged down by weaker pairs, which suggests the next improvement is not more breadth. It is better selection confidence and smaller, higher-conviction portfolios.
+
+The most promising follow-up is a focused energy/commodity-producer experiment. `BNO/XOP` has a clear economic relationship between crude oil exposure and oil producer equities, and it was the only selected pair with a positive walk-forward result in the latest MVP run. A natural next research branch is to build a smaller energy universe and walk-forward test all related oil, energy producer, oil services, exploration/production, and broad commodity pairs.
+
+## Limitations
 
 ```text
-MUB / VTEB
+yfinance daily data is research-grade, not execution-grade
+bid/ask spreads and slippage are simplified
+validation windows still have small trade counts
+ETF relationships can break quickly during regime changes
+the strategy is not production-ready yet
 ```
 
-It writes:
+## Next Steps
 
 ```text
-outputs/backtest_MUB_VTEB_trades.csv
-outputs/backtest_MUB_VTEB_daily.csv
-outputs/backtest_MUB_VTEB_summary.csv
-```
-
-Run the same backtest across all cointegration-filtered pairs with:
-
-```text
-python pairs_trading/src/pairs_research/batch_backtest_pairs.py
-```
-
-It writes:
-
-```text
-outputs/backtest_comparison.csv
-```
-
-Run robustness checks on the top test-set pairs with:
-
-```text
-python pairs_trading/src/pairs_research/parameter_sweep_pairs.py
-```
-
-It writes:
-
-```text
-outputs/parameter_sweep_comparison.csv
-outputs/parameter_sweep_summary.csv
-outputs/research_summary.md
+run a focused energy/commodity-producer experiment around BNO/XOP-like pairs
+walk-forward test all pairs in that smaller energy universe
+test top 1-3 high-conviction portfolios instead of forcing 5 pairs
+add entry confirmation before trading z-score extremes
+run more walk-forward folds on the 10-year dataset
+add richer ETF metadata such as AUM, issuer, fees, and benchmark
+add more realistic execution cost modeling
 ```

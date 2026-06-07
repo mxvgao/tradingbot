@@ -1,8 +1,13 @@
 .venv/
+.python_packages/
+.pycache_tmp/
+__pycache__/
+*.pyc
 data/etf_price_history.csv
 data/etf_universe_liquid.csv
 data/candidate_pairs.csv
 outputs/cointegration_scan.csv
+outputs/recent_opportunity_rankings.csv
 outputs/rolling_*.csv
 outputs/viability_*.csv
 outputs/rolling_viability_comparison.csv
@@ -10,3 +15,4 @@ outputs/backtest_*.csv
 outputs/backtest_comparison.csv
 outputs/parameter_sweep_*.csv
 outputs/research_summary.md
+outputs/portfolio_*.csv

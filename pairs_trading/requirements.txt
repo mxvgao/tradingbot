@@ -1,4 +1,6 @@
+hmmlearn
 matplotlib
 pandas
+requests
 statsmodels
 yfinance
