@@ -81,6 +81,7 @@ def run_pipeline(
     """Run universe -> data -> signals -> rolling -> backtest -> ranked results."""
     data_dir = base_dir / "data"
     output_dir = base_dir / "outputs"
+    report_dir = base_dir / "reports"
     universe_csv = data_dir / "etf_universe_seed.csv"
     price_csv = data_dir / "etf_price_history.csv"
 
@@ -169,6 +170,7 @@ def run_pipeline(
         price_history_csv=price_csv,
         backtest_comparison_csv=backtest_comparison_csv,
         output_dir=output_dir,
+        report_dir=report_dir,
     )
 
     print("Generating MVP report...")

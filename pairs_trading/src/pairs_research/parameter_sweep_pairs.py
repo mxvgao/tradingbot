@@ -230,17 +230,20 @@ def write_parameter_sweep_outputs(
     price_history_csv: str | Path,
     backtest_comparison_csv: str | Path,
     output_dir: str | Path,
+    report_dir: str | Path | None = None,
 ) -> tuple[Path, Path, Path]:
     """Run the sweep and write detailed, summary, and markdown outputs."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    report_dir = Path(report_dir) if report_dir is not None else output_dir.parent / "reports"
+    report_dir.mkdir(parents=True, exist_ok=True)
     sweep = run_parameter_sweep(price_history_csv, backtest_comparison_csv, output_dir)
     sweep_path = output_dir / "parameter_sweep_comparison.csv"
     sweep.to_csv(sweep_path, index=False)
 
     sweep_summary = summarize_sweep(sweep)
     summary_path = output_dir / "parameter_sweep_summary.csv"
-    research_path = output_dir / "research_summary.md"
+    research_path = report_dir / "research_summary.md"
     sweep_summary.to_csv(summary_path, index=False)
     write_research_summary(sweep_summary, research_path)
     return sweep_path, summary_path, research_path

@@ -54,8 +54,9 @@ outputs/portfolio_summary.csv
 outputs/walk_forward_selected_pairs.csv
 outputs/walk_forward_pair_results.csv
 outputs/walk_forward_summary.csv
-outputs/mvp_report.md
-outputs/charts/
+reports/mvp_report.md
+reports/research_summary.md
+reports/charts/
 ```
 
 ## Methodology

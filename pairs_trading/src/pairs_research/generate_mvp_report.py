@@ -39,9 +39,9 @@ def num(value: object, digits: int = 2) -> str:
         return "n/a"
 
 
-def ensure_chart_dir(output_dir: Path) -> Path:
+def ensure_chart_dir(report_dir: Path) -> Path:
     """Create and return the chart output directory."""
-    chart_dir = output_dir / "charts"
+    chart_dir = report_dir / "charts"
     chart_dir.mkdir(parents=True, exist_ok=True)
     return chart_dir
 
@@ -197,7 +197,8 @@ def build_report(base_dir: Path) -> tuple[str, list[str]]:
     setup_matplotlib()
     data_dir = base_dir / "data"
     output_dir = base_dir / "outputs"
-    chart_dir = ensure_chart_dir(output_dir)
+    report_dir = base_dir / "reports"
+    chart_dir = ensure_chart_dir(report_dir)
 
     universe = read_csv(data_dir / "etf_universe_seed.csv")
     liquid = read_csv(data_dir / "etf_universe_liquid.csv")
@@ -375,7 +376,7 @@ def write_mvp_report(base_dir: str | Path) -> Path:
     """Write MVP markdown report and charts."""
     base_path = Path(base_dir)
     report, _ = build_report(base_path)
-    output_path = base_path / "outputs" / "mvp_report.md"
+    output_path = base_path / "reports" / "mvp_report.md"
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(report, encoding="utf-8")
     return output_path
