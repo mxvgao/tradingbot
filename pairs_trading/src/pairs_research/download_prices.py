@@ -90,7 +90,7 @@ def write_price_history(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     written_path = write_price_history(
         universe_csv=base_dir / "data" / "etf_universe_seed.csv",
         output_csv=base_dir / "data" / "etf_price_history.csv",

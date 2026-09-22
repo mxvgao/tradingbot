@@ -4,7 +4,7 @@ This project is an ETF pairs-trading research engine. It builds a liquid ETF uni
 
 The MVP goal is not to claim a production-ready trading strategy. The goal is to show a credible quant research workflow that can find, test, reject, and explain ETF pair opportunities.
 
-## Current Finding
+## Legacy finding (not revalidated)
 
 The project found that ETF pair relationships are highly regime-dependent.
 
@@ -12,16 +12,18 @@ Full-sample 10-year cointegration is very selective, while recent validation win
 
 ## Quick Run
 
+First run `uv sync --frozen` from the repository root. See the [root README](../README.md) and [PRD](../docs/PRD.md) for setup, next-session execution, and test commands.
+
 Use the existing downloaded 10-year yfinance data:
 
 ```text
-python pairs_trading/src/pairs_research/run_pipeline.py --skip-download --skip-universe --walk-forward-max-folds 1 --walk-forward-latest --disable-hmm --recent-max-candidates 75
+uv run --frozen pairs-research --skip-download --skip-universe --walk-forward-max-folds 1 --walk-forward-latest --disable-hmm --recent-max-candidates 75
 ```
 
 Fresh 10-year run:
 
 ```text
-python pairs_trading/src/pairs_research/run_pipeline.py --price-period 10y --walk-forward-max-folds 1 --walk-forward-latest --disable-hmm --recent-max-candidates 75
+uv run --frozen pairs-research --price-period 10y --walk-forward-max-folds 1 --walk-forward-latest --disable-hmm --recent-max-candidates 75
 ```
 
 The fresh run downloads a large price file and can take a while.
@@ -60,6 +62,8 @@ reports/charts/
 ```
 
 ## Methodology
+
+Version 0.2.0 fixes quantities at signal close t and fills at t+1 close. Holding limits use trading sessions, all positions are marked daily and liquidated at each test boundary, and execution fill risk is reported separately. Saved outputs below predate this correction.
 
 Universe construction uses Nasdaq Trader ETF listings with heuristic ETF-name classification. The current default universe includes broad equity, sector, industry, factor, country, bond, credit, commodity, metals, and energy ETFs.
 
@@ -118,7 +122,7 @@ optional HMM regime filter
 
 The optional HMM uses spread change, z-score change, rolling spread volatility, absolute z-score, and hedge-ratio change to filter regimes. It is fit only on subtrain data and then applied to validation/test windows without lookahead.
 
-## Latest MVP Result
+## Legacy MVP result (same-close model)
 
 In the latest one-window 10-year run:
 

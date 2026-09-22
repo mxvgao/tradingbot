@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from backtest_pair import (
+from .backtest_pair import (
     BacktestConfig,
     annualized_return,
     annualized_volatility,
@@ -17,13 +17,13 @@ from backtest_pair import (
     run_backtest,
     sharpe_ratio,
 )
-from hmm_regime_filter import (
+from .hmm_regime_filter import (
     HMMRegimeConfig,
     add_regime_allowed,
     fit_predict_hmm_regimes,
     infer_allowed_states_from_trades,
 )
-from scan_cointegration import scan_pairs
+from .scan_cointegration import scan_pairs
 
 
 @dataclass(frozen=True)
@@ -58,7 +58,7 @@ class WalkForwardConfig:
     entry_z: float = 2.0
     exit_z: float = 0.5
     round_trip_cost_bps: float = 4.0
-    max_holding_days: int | None = None
+    max_holding_sessions: int | None = None
     stop_z: float | None = None
     strategy_grid: tuple[tuple[float, float, int | None, float | None], ...] = (
         (1.5, 0.5, 20, 3.0),
@@ -68,6 +68,17 @@ class WalkForwardConfig:
         (2.0, 1.0, 20, 3.0),
         (2.0, 1.0, 40, 3.0),
     )
+
+
+    def __post_init__(self):
+        if self.step_days < self.test_days:
+            raise ValueError("Overlapping test windows would double-count portfolio P&L")
+        if min(self.train_days, self.validation_days, self.test_days, self.step_days, self.max_pairs) < 1:
+            raise ValueError("Window lengths and max_pairs must be positive")
+        if self.validation_days >= self.train_days:
+            raise ValueError("Validation must be shorter than the training window")
+        if self.max_folds is not None and self.max_folds < 1:
+            raise ValueError("max_folds must be positive")
 
 
 def slice_prices(
@@ -109,7 +120,7 @@ def backtest_pair_on_prices(
     formation_days: int | None = None,
     entry_z: float | None = None,
     exit_z: float | None = None,
-    max_holding_days: int | None = None,
+    max_holding_sessions: int | None = None,
     stop_z: float | None = None,
     block_reentry_after_max_hold: bool = False,
     require_regime_allowed: bool = False,
@@ -125,7 +136,7 @@ def backtest_pair_on_prices(
         round_trip_cost_bps=config.round_trip_cost_bps,
         initial_capital=config.initial_capital,
         gross_notional_per_trade=gross_notional or config.total_gross_budget / config.max_pairs,
-        max_holding_days=max_holding_days if max_holding_days is not None else config.max_holding_days,
+        max_holding_sessions=max_holding_sessions if max_holding_sessions is not None else config.max_holding_sessions,
         stop_z=stop_z if stop_z is not None else config.stop_z,
         block_reentry_after_max_hold=block_reentry_after_max_hold,
         require_regime_allowed=require_regime_allowed,
@@ -158,7 +169,7 @@ def build_hmm_filtered_signals(
     subtrain_end: pd.Timestamp,
     entry_z: float,
     exit_z: float,
-    max_holding_days: int | None,
+    max_holding_sessions: int | None,
     stop_z: float | None,
 ) -> tuple[pd.DataFrame, set[int]]:
     """Fit HMM on subtrain signals and mark allowed regimes."""
@@ -171,7 +182,7 @@ def build_hmm_filtered_signals(
         round_trip_cost_bps=config.round_trip_cost_bps,
         initial_capital=config.initial_capital,
         gross_notional_per_trade=config.total_gross_budget / config.max_pairs,
-        max_holding_days=max_holding_days,
+        max_holding_sessions=max_holding_sessions,
         stop_z=stop_z,
         block_reentry_after_max_hold=True,
     )
@@ -249,7 +260,7 @@ def add_train_edge_metrics(trades: pd.DataFrame, summary: pd.DataFrame) -> pd.Da
     result["avg_net_pnl_bps"] = float(trades["net_pnl_bps"].mean())
     result["profit_factor"] = float(profit_factor)
     if "exit_reason" in trades:
-        result["max_hold_exit_pct"] = float(trades["exit_reason"].eq("max_holding_days").mean())
+        result["max_hold_exit_pct"] = float(trades["exit_reason"].eq("max_holding_sessions").mean())
     else:
         result["max_hold_exit_pct"] = 0.0
     return result
@@ -292,7 +303,7 @@ def evaluate_train_strategy_grid(
 ) -> dict[str, object] | None:
     """Find the best train-window rule that also passes validation."""
     candidates: list[dict[str, object]] = []
-    for entry_z, exit_z, max_holding_days, stop_z in config.strategy_grid:
+    for entry_z, exit_z, max_holding_sessions, stop_z in config.strategy_grid:
         precomputed_signals = None
         allowed_states: set[int] = set()
         require_regime_allowed = False
@@ -305,7 +316,7 @@ def evaluate_train_strategy_grid(
                 subtrain_end,
                 entry_z,
                 exit_z,
-                max_holding_days,
+                max_holding_sessions,
                 stop_z,
             )
             if not allowed_states:
@@ -320,7 +331,7 @@ def evaluate_train_strategy_grid(
             end_date=subtrain_end,
             entry_z=entry_z,
             exit_z=exit_z,
-            max_holding_days=max_holding_days,
+            max_holding_sessions=max_holding_sessions,
             stop_z=stop_z,
             block_reentry_after_max_hold=True,
             require_regime_allowed=require_regime_allowed,
@@ -342,7 +353,7 @@ def evaluate_train_strategy_grid(
             end_date=validation_end,
             entry_z=entry_z,
             exit_z=exit_z,
-            max_holding_days=max_holding_days,
+            max_holding_sessions=max_holding_sessions,
             stop_z=stop_z,
             block_reentry_after_max_hold=True,
             require_regime_allowed=require_regime_allowed,
@@ -368,7 +379,7 @@ def evaluate_train_strategy_grid(
             {
                 "selected_entry_z": entry_z,
                 "selected_exit_z": exit_z,
-                "selected_max_holding_days": max_holding_days,
+                "selected_max_holding_sessions": max_holding_sessions,
                 "selected_stop_z": stop_z,
                 "selected_hmm_states": "|".join(str(state) for state in sorted(allowed_states)),
                 "train_trades_per_year": train_trade_frequency(
@@ -482,6 +493,8 @@ def summarize_daily_portfolio(
         [
             {
                 "initial_capital": config.initial_capital,
+                "model_version": "0.2.0",
+                "execution_convention": "signal_close_t_fill_close_t_plus_1",
                 "selected_pairs": int(daily["active_pairs_possible"].max()),
                 "total_gross_budget": config.total_gross_budget,
                 "total_pnl_dollars": float(daily["cumulative_pnl"].iloc[-1]),
@@ -530,9 +543,11 @@ def run_walk_forward(
     if config.latest_folds_first:
         start_indices = list(reversed(start_indices))
 
+    if config.max_folds is not None:
+        start_indices = start_indices[:config.max_folds]
+    # Select recent folds if requested, but always account for them in time order.
+    start_indices.sort()
     for fold_id, start_idx in enumerate(start_indices, start=1):
-        if config.max_folds is not None and fold_id > config.max_folds:
-            break
         train_start = pd.Timestamp(dates[start_idx])
         train_end = pd.Timestamp(dates[start_idx + config.train_days - 1])
         validation_start = pd.Timestamp(dates[start_idx + config.train_days - config.validation_days])
@@ -576,6 +591,13 @@ def run_walk_forward(
         )
 
         if selected.empty:
+            cash_daily = pd.DataFrame({"date": dates[start_idx + config.train_days:start_idx + config.train_days + config.test_days]})
+            cash_daily["fold_id"] = fold_id
+            for column in ("net_daily_pnl", "gross_exposure", "active_pairs", "active_pairs_possible", "daily_return", "gross_exposure_pct"):
+                cash_daily[column] = 0.0
+            cash_daily["cumulative_pnl"] = portfolio_equity_offset
+            cash_daily["equity"] = config.initial_capital + portfolio_equity_offset
+            portfolio_daily_frames.append(cash_daily)
             continue
 
         selected = selected.copy()
@@ -600,10 +622,10 @@ def run_walk_forward(
                     subtrain_end,
                     entry_z=float(row.train_selected_entry_z),
                     exit_z=float(row.train_selected_exit_z),
-                    max_holding_days=(
+                    max_holding_sessions=(
                         None
-                        if pd.isna(row.train_selected_max_holding_days)
-                        else int(row.train_selected_max_holding_days)
+                        if pd.isna(row.train_selected_max_holding_sessions)
+                        else int(row.train_selected_max_holding_sessions)
                     ),
                     stop_z=(
                         None
@@ -621,10 +643,10 @@ def run_walk_forward(
                 gross_notional=per_pair_gross,
                 entry_z=float(row.train_selected_entry_z),
                 exit_z=float(row.train_selected_exit_z),
-                max_holding_days=(
+                max_holding_sessions=(
                     None
-                    if pd.isna(row.train_selected_max_holding_days)
-                    else int(row.train_selected_max_holding_days)
+                    if pd.isna(row.train_selected_max_holding_sessions)
+                    else int(row.train_selected_max_holding_sessions)
                 ),
                 stop_z=(
                     None
@@ -647,7 +669,7 @@ def run_walk_forward(
                     "allocated_gross_notional": per_pair_gross,
                     "entry_z": row.train_selected_entry_z,
                     "exit_z": row.train_selected_exit_z,
-                    "max_holding_days": row.train_selected_max_holding_days,
+                    "max_holding_sessions": row.train_selected_max_holding_sessions,
                     "stop_z": row.train_selected_stop_z,
                     "hmm_states": getattr(row, "train_selected_hmm_states", ""),
                     "test_start": test_start.date(),
@@ -680,7 +702,7 @@ def run_walk_forward(
         fold_daily["active_pairs_possible"] = int(selected.shape[0])
         fold_daily["cumulative_pnl"] = portfolio_equity_offset + fold_daily["net_daily_pnl"].cumsum()
         fold_daily["equity"] = config.initial_capital + fold_daily["cumulative_pnl"]
-        fold_daily["daily_return"] = fold_daily["net_daily_pnl"] / config.initial_capital
+        fold_daily["daily_return"] = fold_daily["net_daily_pnl"] / fold_daily["equity"].shift(1).fillna(config.initial_capital + portfolio_equity_offset)
         fold_daily["gross_exposure_pct"] = fold_daily["gross_exposure"] / config.initial_capital
         portfolio_equity_offset = float(fold_daily["cumulative_pnl"].iloc[-1])
         portfolio_daily_frames.append(fold_daily)
@@ -736,7 +758,7 @@ def write_walk_forward_outputs(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     paths = write_walk_forward_outputs(
         price_history_csv=base_dir / "data" / "etf_price_history.csv",
         candidate_pairs_csv=base_dir / "data" / "candidate_pairs.csv",

@@ -1,0 +1,13 @@
+{
+  "ticker_a": "BNO",
+  "ticker_b": "XOP",
+  "formation_days": 252,
+  "entry_z": 2.0,
+  "exit_z": 0.5,
+  "round_trip_cost_bps": 4.0,
+  "initial_capital": 100000,
+  "gross_notional_per_trade": 10000,
+  "max_holding_sessions": 20,
+  "stop_z": 4.0,
+  "block_reentry_after_max_hold": true
+}

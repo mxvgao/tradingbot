@@ -178,7 +178,7 @@ def write_cointegration_scan(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     written_path = write_cointegration_scan(
         candidate_pairs_csv=base_dir / "data" / "candidate_pairs.csv",
         price_history_csv=base_dir / "data" / "etf_price_history.csv",

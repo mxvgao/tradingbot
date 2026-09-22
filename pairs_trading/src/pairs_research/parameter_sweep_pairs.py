@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from backtest_pair import BacktestConfig, compute_walk_forward_signals, run_backtest
+from .backtest_pair import BacktestConfig, compute_walk_forward_signals, run_backtest
 
 
 TOP_PAIR_LIMIT = 5
@@ -112,7 +112,7 @@ def run_parameter_sweep(
                                     entry_z=entry_z,
                                     exit_z=exit_z,
                                     round_trip_cost_bps=cost_bps,
-                                    max_holding_days=max_hold,
+                                    max_holding_sessions=max_hold,
                                     stop_z=stop_z,
                                     require_rolling_pass=require_rolling_pass,
                                 )
@@ -250,7 +250,7 @@ def write_parameter_sweep_outputs(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     paths = write_parameter_sweep_outputs(
         price_history_csv=base_dir / "data" / "etf_price_history.csv",
         backtest_comparison_csv=base_dir / "outputs" / "backtest_comparison.csv",

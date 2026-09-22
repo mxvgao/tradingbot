@@ -8,10 +8,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-try:
-    from scan_cointegration import analyze_pair, load_price_matrix
-except ImportError:
-    from pairs_research.scan_cointegration import analyze_pair, load_price_matrix
+from .scan_cointegration import analyze_pair, load_price_matrix
 
 
 @dataclass(frozen=True)
@@ -186,7 +183,7 @@ def write_rolling_check(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     paths = write_rolling_check(
         price_history_csv=base_dir / "data" / "etf_price_history.csv",
         output_dir=base_dir / "outputs",

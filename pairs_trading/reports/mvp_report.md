@@ -1,3 +1,5 @@
+> Legacy result: generated before the 0.2.0 next-session execution correction. Performance figures have not been revalidated; regenerate with the locked environment.
+
 # ETF Pairs Trading MVP Report
 
 ## Executive Summary

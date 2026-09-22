@@ -2,17 +2,12 @@
 
 from __future__ import annotations
 
-import sys
 from dataclasses import dataclass
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
-
-
-LOCAL_PACKAGES = Path(__file__).resolve().parents[2] / ".python_packages"
-if LOCAL_PACKAGES.exists() and str(LOCAL_PACKAGES) not in sys.path:
-    sys.path.append(str(LOCAL_PACKAGES))
+from scipy.special import logsumexp
+from scipy.stats import multivariate_normal
 
 
 @dataclass(frozen=True)
@@ -60,7 +55,7 @@ def fit_predict_hmm_regimes(
     except ImportError as exc:
         raise ImportError(
             "hmmlearn is required for HMM regime filtering. "
-            "Install it with `python -m pip install hmmlearn`."
+            "Restore the locked environment with `uv sync --frozen`."
         ) from exc
 
     features = build_hmm_features(signals)
@@ -86,7 +81,7 @@ def fit_predict_hmm_regimes(
     )
     model.fit(train_x)
 
-    features["hmm_state"] = model.predict(all_x)
+    features["hmm_state"] = causal_hmm_states(model, all_x)
     return signals[["date"]].merge(
         features[["date", "hmm_state"]],
         on="date",
@@ -104,12 +99,12 @@ def infer_allowed_states_from_trades(
         return set()
 
     trade_states = trades.copy()
-    trade_states["entry_date"] = pd.to_datetime(trade_states["entry_date"])
+    trade_states["entry_signal_date"] = pd.to_datetime(trade_states["entry_signal_date"])
     regimes = regimes.copy()
     regimes["date"] = pd.to_datetime(regimes["date"])
     trade_states = trade_states.merge(
-        regimes.rename(columns={"date": "entry_date"}),
-        on="entry_date",
+        regimes.rename(columns={"date": "entry_signal_date"}),
+        on="entry_signal_date",
         how="left",
     ).dropna(subset=["hmm_state"])
     if trade_states.empty:
@@ -120,8 +115,7 @@ def infer_allowed_states_from_trades(
         avg_net_pnl_bps=("net_pnl_bps", "mean"),
     )
     allowed = state_stats[
-        state_stats["trades"].ge(config.min_state_trades)
-        & state_stats["avg_net_pnl_bps"].gt(0)
+        state_stats["trades"].ge(config.min_state_trades) & state_stats["avg_net_pnl_bps"].gt(0)
     ].index
     return {int(state) for state in allowed}
 
@@ -139,3 +133,24 @@ def add_regime_allowed(
     output = output.merge(regimes, on="date", how="left")
     output["regime_allowed"] = output["hmm_state"].isin(allowed_states).fillna(False)
     return output
+
+
+def causal_hmm_states(model, observations: np.ndarray) -> np.ndarray:
+    """Forward-filter a frozen HMM; never smooth using future observations."""
+    with np.errstate(divide="ignore"):
+        log_transition = np.log(model.transmat_)
+        log_probability = np.log(model.startprob_)
+    emissions = np.column_stack(
+        [
+            multivariate_normal.logpdf(observations, mean=mean, cov=cov)
+            for mean, cov in zip(model.means_, model.covars_)
+        ]
+    )
+    states = []
+    for idx, emission in enumerate(emissions):
+        if idx:
+            log_probability = logsumexp(log_probability[:, None] + log_transition, axis=0)
+        log_probability += emission
+        log_probability -= logsumexp(log_probability)
+        states.append(int(np.argmax(log_probability)))
+    return np.asarray(states, dtype=int)

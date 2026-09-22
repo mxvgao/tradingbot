@@ -1,0 +1,13 @@
+[project]
+name = "stochcontrol-experiment"
+version = "0.1.0"
+description = "Archived stochastic execution experiment, separate from ETF pairs research"
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy", "pandas", "yfinance"]
+
+[build-system]
+requires = ["setuptools==80.9.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

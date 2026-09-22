@@ -5,18 +5,18 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from backtest_pair import BacktestConfig
-from batch_backtest_pairs import write_batch_backtest_comparison
-from build_universe import write_universe
-from download_prices import write_price_history as write_yfinance_prices
-from filter_universe import write_filtered_outputs
-from generate_mvp_report import write_mvp_report
-from parameter_sweep_pairs import write_parameter_sweep_outputs
-from portfolio_backtest import write_portfolio_outputs
-from recent_opportunity_ranker import write_recent_opportunity_rankings
-from rolling_pair_check import RollingConfig, write_rolling_check
-from scan_cointegration import write_cointegration_scan
-from walk_forward_portfolio import WalkForwardConfig, write_walk_forward_outputs
+from .backtest_pair import BacktestConfig
+from .batch_backtest_pairs import write_batch_backtest_comparison
+from .build_universe import write_universe
+from .download_prices import write_price_history as write_yfinance_prices
+from .filter_universe import write_filtered_outputs
+from .generate_mvp_report import write_mvp_report
+from .parameter_sweep_pairs import write_parameter_sweep_outputs
+from .portfolio_backtest import write_portfolio_outputs
+from .recent_opportunity_ranker import write_recent_opportunity_rankings
+from .rolling_pair_check import RollingConfig, write_rolling_check
+from .scan_cointegration import write_cointegration_scan
+from .walk_forward_portfolio import WalkForwardConfig, write_walk_forward_outputs
 
 
 def parse_args() -> argparse.Namespace:
@@ -64,6 +64,8 @@ def parse_args() -> argparse.Namespace:
         default=75,
         help="Maximum recent cointegration candidates to rank by train/validation tradability.",
     )
+    parser.add_argument("--base-dir", type=Path, default=Path("pairs_trading"),
+                        help="Directory containing data/, outputs/ and reports/.")
     return parser.parse_args()
 
 
@@ -194,9 +196,9 @@ def run_pipeline(
     }
 
 
-if __name__ == "__main__":
+def main() -> None:
     args = parse_args()
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = args.base_dir
     outputs = run_pipeline(
         base_dir=base_dir,
         skip_download=args.skip_download,
@@ -211,3 +213,7 @@ if __name__ == "__main__":
     print("\nPipeline complete.")
     for name, path in outputs.items():
         print(f"{name}: {path}")
+
+
+if __name__ == "__main__":
+    main()

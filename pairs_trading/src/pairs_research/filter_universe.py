@@ -435,7 +435,7 @@ def write_filtered_outputs(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     price_history_path = base_dir / "data" / "etf_price_history.csv"
 
     if not price_history_path.exists():

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from backtest_pair import BacktestConfig, compute_walk_forward_signals
+from .backtest_pair import BacktestConfig, compute_walk_forward_signals
 
 
 def setup_matplotlib() -> None:
@@ -243,13 +243,15 @@ def build_report(base_dir: Path) -> tuple[str, list[str]]:
     lines = [
         "# ETF Pairs Trading MVP Report",
         "",
+        ("Execution contract: signal at completed close t, fixed-share fills at t+1 close, session-based holding limits, daily marks and explicit test-boundary liquidation. Full simultaneous fills are a benchmark; partial-fill risk is modeled separately." if walk.get("model_version") == "0.2.0" else "Legacy/unversioned results: these outputs have not been verified under the next-session execution contract. Regenerate the research outputs."),
+        "",
         "## Executive Summary",
         "",
         "This project is an ETF pairs-trading research engine. It builds a liquid ETF universe, generates economically related candidate pairs, tests cointegration, ranks recent opportunities by train/validation trading quality, and runs walk-forward out-of-sample checks.",
         "",
         "The current MVP does not claim a production-ready trading strategy. Its main finding is that ETF pair relationships are regime-dependent: full-sample cointegration is very selective, while recent validation winners can still fail in the next window. The pipeline is useful because it makes those failures visible instead of hiding them.",
         "",
-        "The most promising direction from the current run is not a broader model search. It is a focused follow-up on energy commodity/producer relationships, because BNO/XOP was the only selected pair with a positive walk-forward result and has a clear economic link between crude oil exposure and oil producer equities.",
+        "Strategy conclusions must be based on the tables from this run. Earlier BNO/XOP findings used the legacy execution model and are not carried forward.",
         "",
         "## Latest Run Snapshot",
         "",
@@ -383,6 +385,6 @@ def write_mvp_report(base_dir: str | Path) -> Path:
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     path = write_mvp_report(base_dir)
     print(f"Wrote {path}")

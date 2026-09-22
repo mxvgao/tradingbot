@@ -236,6 +236,6 @@ def write_large_universe(path: str | Path, max_per_subgroup: int = 60) -> Path:
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     written_path = write_large_universe(base_dir / "data" / "etf_universe_seed.csv")
     print(f"Wrote {written_path}")

@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from scan_cointegration import scan_pairs
-from walk_forward_portfolio import (
+from .scan_cointegration import scan_pairs
+from .walk_forward_portfolio import (
     WalkForwardConfig,
     evaluate_train_strategy_grid,
     slice_prices,
@@ -146,7 +146,7 @@ def write_recent_opportunity_rankings(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     written_path = write_recent_opportunity_rankings(
         price_history_csv=base_dir / "data" / "etf_price_history.csv",
         candidate_pairs_csv=base_dir / "data" / "candidate_pairs.csv",

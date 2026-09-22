@@ -1,3 +1,5 @@
+> Legacy result: generated before the 0.2.0 next-session execution correction. Performance figures have not been revalidated; regenerate with the locked environment.
+
 # Test-Set Research Summary
 
 This summarizes the current curated ETF test set after cointegration scanning, rolling checks, portfolio backtests, and parameter sweeps.

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from backtest_pair import BacktestConfig, write_backtest_outputs
+from .backtest_pair import BacktestConfig, write_backtest_outputs
 
 
 def run_batch_backtests(
@@ -31,7 +31,7 @@ def run_batch_backtests(
             round_trip_cost_bps=base_config.round_trip_cost_bps,
             initial_capital=base_config.initial_capital,
             gross_notional_per_trade=base_config.gross_notional_per_trade,
-            max_holding_days=base_config.max_holding_days,
+            max_holding_sessions=base_config.max_holding_sessions,
             stop_z=base_config.stop_z,
         )
         _, _, summary_path = write_backtest_outputs(
@@ -87,7 +87,7 @@ def write_batch_backtest_comparison(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     written_path = write_batch_backtest_comparison(
         price_history_csv=base_dir / "data" / "etf_price_history.csv",
         cointegration_scan_csv=base_dir / "outputs" / "cointegration_scan.csv",

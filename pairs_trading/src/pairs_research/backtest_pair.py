@@ -1,32 +1,85 @@
-"""Barebones walk-forward pairs trading backtest."""
+"""Causal next-session-close pairs benchmark with explicit boundary liquidation."""
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import statsmodels.api as sm
 
-from scan_cointegration import load_price_matrix
+from .scan_cointegration import load_price_matrix
+from .config import BacktestConfig
+from .models import Session, RunSpec
+from .strategy import observe_close
+from .engine import process_session
+from .ledger import MemoryLedger
 
 
-@dataclass(frozen=True)
-class BacktestConfig:
-    ticker_a: str = "SCHQ"
-    ticker_b: str = "SPTL"
-    formation_days: int = 504
-    entry_z: float = 2.0
-    exit_z: float = 0.5
-    round_trip_cost_bps: float = 4.0
-    initial_capital: float = 100_000
-    gross_notional_per_trade: float = 10_000
-    max_holding_days: int | None = None
-    stop_z: float | None = None
-    require_rolling_pass: bool = False
-    require_regime_allowed: bool = False
-    block_reentry_after_max_hold: bool = False
+SIGNAL_COLUMNS = [
+    "date",
+    "ticker_a_price",
+    "ticker_b_price",
+    "spread",
+    "zscore",
+    "hedge_ratio",
+    "intercept",
+    "formation_spread_mean",
+    "formation_spread_std",
+]
+TRADE_COLUMNS = [
+    "entry_signal_date",
+    "entry_date",
+    "entry_session",
+    "direction",
+    "entry_z",
+    "entry_spread",
+    "entry_hedge_ratio",
+    "entry_start_equity",
+    "entry_equity",
+    "entry_ticker_a_price",
+    "entry_ticker_b_price",
+    "shares_a",
+    "shares_b",
+    "entry_gross_notional",
+    "entry_cost_dollars",
+    "exit_signal_date",
+    "exit_date",
+    "exit_reason",
+    "exit_z",
+    "exit_spread",
+    "sessions_held",
+    "days_held",
+    "gross_pnl_dollars",
+    "gross_pnl_bps",
+    "cost_bps",
+    "net_pnl_bps",
+    "pnl_dollars",
+    "return_on_gross_notional",
+    "exit_ticker_a_price",
+    "exit_ticker_b_price",
+    "exit_cost_dollars",
+]
+DAILY_COLUMNS = [
+    "date",
+    "zscore",
+    "spread",
+    "hedge_ratio",
+    "position",
+    "action",
+    "executed_signal_date",
+    "pending_order",
+    "rolling_pass",
+    "regime_allowed",
+    "daily_pnl",
+    "trading_cost",
+    "net_daily_pnl",
+    "realized_pnl",
+    "unrealized_pnl",
+    "cumulative_pnl",
+    "equity",
+    "daily_return",
+    "gross_exposure",
+]
 
 
 def compute_walk_forward_signals(
@@ -34,290 +87,143 @@ def compute_walk_forward_signals(
     config: BacktestConfig,
 ) -> pd.DataFrame:
     """Estimate hedge ratio and z-score each day using prior data only."""
-    price_matrix = load_price_matrix(price_history)
+    dates = pd.to_datetime(price_history["date"])
+    if dates.isna().any():
+        raise ValueError("Price history contains invalid session dates")
+    history = price_history.copy()
+    history["date"] = dates
+    if history.duplicated(["date", "ticker"]).any():
+        raise ValueError("Price history contains duplicate ticker/session observations")
+    # pivot_table drops entirely missing rows; retain the supplied session grid.
+    price_matrix = load_price_matrix(history).reindex(
+        pd.DatetimeIndex(dates.unique()).sort_values()
+    )
     ticker_a = config.ticker_a.upper()
     ticker_b = config.ticker_b.upper()
-    pair_prices = price_matrix[[ticker_a, ticker_b]].dropna()
+    pair_prices = price_matrix[[ticker_a, ticker_b]]
+    # Allow different listing dates, but never compress a missing session inside
+    # the pair's common history into an apparently consecutive observation.
+    valid = pair_prices.notna().all(axis=1)
+    if not valid.any():
+        return pd.DataFrame(columns=SIGNAL_COLUMNS)
+    pair_prices = pair_prices.loc[valid[valid].index[0] :]
+    values = pair_prices.to_numpy(dtype=float)
+    if not np.isfinite(values).all() or (values <= 0).any():
+        raise ValueError("Missing or invalid pair prices inside the common session history")
 
-    rows: list[dict[str, object]] = []
-    for idx in range(config.formation_days, len(pair_prices)):
-        formation_prices = pair_prices.iloc[idx - config.formation_days : idx]
-        current_date = pair_prices.index[idx]
-        current_prices = pair_prices.iloc[idx]
-
-        formation_log = np.log(formation_prices[[ticker_a, ticker_b]])
-        model = sm.OLS(
-            formation_log[ticker_a],
-            sm.add_constant(formation_log[ticker_b]),
-        ).fit()
-        intercept = float(model.params["const"])
-        hedge_ratio = float(model.params[ticker_b])
-        formation_spread = (
-            formation_log[ticker_a]
-            - intercept
-            - hedge_ratio * formation_log[ticker_b]
+    rows = []
+    history = []
+    for date, prices in pair_prices.iterrows():
+        history.append(
+            Session(
+                date=str(pd.Timestamp(date).date()),
+                price_a=float(prices[ticker_a]),
+                price_b=float(prices[ticker_b]),
+            )
         )
-        current_spread = (
-            np.log(current_prices[ticker_a])
-            - intercept
-            - hedge_ratio * np.log(current_prices[ticker_b])
-        )
-        zscore = float(
-            (current_spread - formation_spread.mean()) / formation_spread.std()
-        )
-
-        rows.append(
-            {
-                "date": current_date,
-                "ticker_a_price": float(current_prices[ticker_a]),
-                "ticker_b_price": float(current_prices[ticker_b]),
-                "spread": float(current_spread),
-                "zscore": zscore,
-                "hedge_ratio": hedge_ratio,
-                "intercept": intercept,
-                "formation_spread_mean": float(formation_spread.mean()),
-                "formation_spread_std": float(formation_spread.std()),
-            }
-        )
-
-    return pd.DataFrame(rows)
+        history = history[-(config.formation_days + 1) :]
+        observation = observe_close(history, config)
+        if observation.ready:
+            rows.append(observation.as_signal_row())
+    return pd.DataFrame(rows, columns=SIGNAL_COLUMNS)
 
 
 def run_backtest(
     signals: pd.DataFrame,
     config: BacktestConfig,
+    *,
+    liquidate_at_end: bool = True,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Run a simple z-score entry/exit strategy on walk-forward signals."""
-    position = 0
-    open_trade: dict[str, object] | None = None
-    trades: list[dict[str, object]] = []
-    daily_rows: list[dict[str, object]] = []
-    equity = config.initial_capital
-    cumulative_pnl = 0.0
-    prior_row = None
-    blocked_reentry_direction: int | None = None
+    """Batch adapter for the same incremental workflow used by SQLite replay.
 
-    for row in signals.itertuples(index=False):
-        date = row.date
-        zscore = float(row.zscore)
-        spread = float(row.spread)
-        action = "hold"
-        daily_pnl = 0.0
-        trading_cost = 0.0
-        rolling_pass = bool(getattr(row, "rolling_pass", True))
-        regime_allowed = bool(getattr(row, "regime_allowed", True))
-        can_enter = (
-            ((not config.require_rolling_pass) or rolling_pass)
-            and ((not config.require_regime_allowed) or regime_allowed)
-        )
-        if blocked_reentry_direction is not None and abs(zscore) <= config.exit_z:
-            blocked_reentry_direction = None
-
-        if open_trade is not None and prior_row is not None:
-            shares_a = float(open_trade["shares_a"])
-            shares_b = float(open_trade["shares_b"])
-            daily_pnl = (
-                shares_a * (float(row.ticker_a_price) - float(prior_row.ticker_a_price))
-                + shares_b * (float(row.ticker_b_price) - float(prior_row.ticker_b_price))
-            )
-            equity += daily_pnl
-            cumulative_pnl += daily_pnl
-
-        if position == 0:
-            if (
-                can_enter
-                and zscore >= config.entry_z
-                and blocked_reentry_direction != -1
-            ):
-                position = -1
-                action = "short_spread_entry"
-                hedge_ratio = float(row.hedge_ratio)
-                base_notional = config.gross_notional_per_trade / (1 + abs(hedge_ratio))
-                leg_a_notional = -base_notional
-                leg_b_notional = hedge_ratio * base_notional
-                entry_start_equity = equity
-                trading_cost = config.gross_notional_per_trade * (
-                    config.round_trip_cost_bps / 2
-                ) / 10_000
-                equity -= trading_cost
-                cumulative_pnl -= trading_cost
-                open_trade = {
-                    "entry_date": date,
-                    "direction": "short_spread",
-                    "entry_z": zscore,
-                    "entry_spread": spread,
-                    "entry_hedge_ratio": float(row.hedge_ratio),
-                    "entry_equity": equity,
-                    "entry_start_equity": entry_start_equity,
-                    "entry_ticker_a_price": float(row.ticker_a_price),
-                    "entry_ticker_b_price": float(row.ticker_b_price),
-                    "shares_a": leg_a_notional / float(row.ticker_a_price),
-                    "shares_b": leg_b_notional / float(row.ticker_b_price),
-                    "entry_cost_dollars": trading_cost,
-                }
-            elif (
-                can_enter
-                and zscore <= -config.entry_z
-                and blocked_reentry_direction != 1
-            ):
-                position = 1
-                action = "long_spread_entry"
-                hedge_ratio = float(row.hedge_ratio)
-                base_notional = config.gross_notional_per_trade / (1 + abs(hedge_ratio))
-                leg_a_notional = base_notional
-                leg_b_notional = -hedge_ratio * base_notional
-                entry_start_equity = equity
-                trading_cost = config.gross_notional_per_trade * (
-                    config.round_trip_cost_bps / 2
-                ) / 10_000
-                equity -= trading_cost
-                cumulative_pnl -= trading_cost
-                open_trade = {
-                    "entry_date": date,
-                    "direction": "long_spread",
-                    "entry_z": zscore,
-                    "entry_spread": spread,
-                    "entry_hedge_ratio": float(row.hedge_ratio),
-                    "entry_equity": equity,
-                    "entry_start_equity": entry_start_equity,
-                    "entry_ticker_a_price": float(row.ticker_a_price),
-                    "entry_ticker_b_price": float(row.ticker_b_price),
-                    "shares_a": leg_a_notional / float(row.ticker_a_price),
-                    "shares_b": leg_b_notional / float(row.ticker_b_price),
-                    "entry_cost_dollars": trading_cost,
-                }
-        elif open_trade is not None:
-            days_held = (pd.Timestamp(date) - pd.Timestamp(open_trade["entry_date"])).days
-            exit_reason = None
-            if position == 1 and zscore >= -config.exit_z:
-                exit_reason = "mean_reversion"
-            elif position == -1 and zscore <= config.exit_z:
-                exit_reason = "mean_reversion"
-            elif config.max_holding_days is not None and days_held >= config.max_holding_days:
-                exit_reason = "max_holding_days"
-            elif config.stop_z is not None and abs(zscore) >= config.stop_z:
-                exit_reason = "stop_z"
-
-            if exit_reason is not None:
-                exit_cost = config.gross_notional_per_trade * (
-                    config.round_trip_cost_bps / 2
-                ) / 10_000
-                equity -= exit_cost
-                cumulative_pnl -= exit_cost
-                trading_cost += exit_cost
-                trade_pnl_dollars = (
-                    equity - float(open_trade["entry_start_equity"])
-                )
-                net_pnl_bps = (
-                    trade_pnl_dollars / config.gross_notional_per_trade
-                ) * 10_000
-                gross_pnl_bps = net_pnl_bps + config.round_trip_cost_bps
-
-                action = f"{open_trade['direction']}_exit"
-                trades.append(
-                    {
-                        **open_trade,
-                        "exit_date": date,
-                        "exit_reason": exit_reason,
-                        "exit_z": zscore,
-                        "exit_spread": spread,
-                        "days_held": days_held,
-                        "gross_pnl_bps": gross_pnl_bps,
-                        "cost_bps": config.round_trip_cost_bps,
-                        "net_pnl_bps": net_pnl_bps,
-                        "pnl_dollars": trade_pnl_dollars,
-                        "return_on_gross_notional": trade_pnl_dollars / config.gross_notional_per_trade,
-                        "exit_ticker_a_price": float(row.ticker_a_price),
-                        "exit_ticker_b_price": float(row.ticker_b_price),
-                        "exit_cost_dollars": exit_cost,
-                    }
-                )
-                if (
-                    config.block_reentry_after_max_hold
-                    and exit_reason == "max_holding_days"
-                    and abs(zscore) > config.exit_z
-                ):
-                    blocked_reentry_direction = position
-                position = 0
-                open_trade = None
-
-        daily_rows.append(
-            {
-                "date": date,
-                "zscore": zscore,
-                "spread": spread,
-                "hedge_ratio": float(row.hedge_ratio),
-                "position": position,
-                "action": action,
-                "rolling_pass": rolling_pass,
-                "regime_allowed": regime_allowed,
-                "daily_pnl": daily_pnl,
-                "trading_cost": trading_cost,
-                "net_daily_pnl": daily_pnl - trading_cost,
-                "cumulative_pnl": cumulative_pnl,
-                "equity": equity,
-                "daily_return": (daily_pnl - trading_cost) / config.initial_capital,
-                "gross_exposure": config.gross_notional_per_trade if position != 0 else 0.0,
-            }
-        )
-        prior_row = row
-
-    trades_df = pd.DataFrame(trades)
-    daily_df = pd.DataFrame(daily_rows)
-    summary_df = summarize_backtest(trades_df, daily_df, config)
-    return trades_df, daily_df, summary_df
+    Historical callers retain explicit terminal liquidation by default. Use
+    liquidate_at_end=False to retain final marked positions and pending orders.
+    """
+    frame = validate_signals(signals)
+    terminal = str(frame.date.iloc[-1].date()) if liquidate_at_end and len(frame) else None
+    ledger = MemoryLedger(
+        RunSpec("batch", config, input_kind="signals", liquidation_session=terminal)
+    )
+    for row in frame.to_dict("records"):
+        process_session(ledger, Session.from_signal_row(row))
+    trades_df = pd.DataFrame(ledger.trades, columns=TRADE_COLUMNS)
+    daily_df = pd.DataFrame(ledger.daily, columns=DAILY_COLUMNS)
+    for column in ("entry_signal_date", "entry_date", "exit_signal_date", "exit_date"):
+        trades_df[column] = pd.to_datetime(trades_df[column])
+    for column in ("date", "executed_signal_date"):
+        daily_df[column] = pd.to_datetime(daily_df[column])
+    return trades_df, daily_df, summarize_backtest(trades_df, daily_df, config)
 
 
-def summarize_backtest(
-    trades: pd.DataFrame,
-    daily: pd.DataFrame,
-    config: BacktestConfig,
-) -> pd.DataFrame:
-    """Create one summary row for the backtest."""
-    if trades.empty:
-        return pd.DataFrame(
-            [
-                {
-                    "ticker_a": config.ticker_a.upper(),
-                    "ticker_b": config.ticker_b.upper(),
-                    "completed_trades": 0,
-                    "total_net_pnl_bps": 0.0,
-                }
-            ]
-        )
+def validate_signals(signals: pd.DataFrame) -> pd.DataFrame:
+    if signals.empty:
+        return signals.copy()
+    required = {"date", "ticker_a_price", "ticker_b_price", "zscore", "spread", "hedge_ratio"}
+    if missing := required.difference(signals.columns):
+        raise ValueError(f"Missing signal columns: {sorted(missing)}")
+    frame = signals.copy()
+    frame["date"] = pd.to_datetime(frame["date"])
+    dates = frame["date"]
+    if dates.isna().any() or dates.duplicated().any() or not dates.is_monotonic_increasing:
+        raise ValueError("Signal dates must be unique, valid and strictly increasing")
+    prices = frame[["ticker_a_price", "ticker_b_price"]].to_numpy(dtype=float)
+    if not np.isfinite(prices).all() or (prices <= 0).any():
+        raise ValueError("Both legs need finite positive prices on every supplied session")
+    return frame
 
+
+def summarize_backtest(trades, daily, config) -> pd.DataFrame:
+    """Consistent summary schema, including empty and no-trade windows."""
+    has_trades, has_days = not trades.empty, not daily.empty
+    returns = daily["daily_return"] if has_days else pd.Series(dtype=float)
+    equity = (
+        pd.concat([pd.Series([config.initial_capital]), daily["equity"]], ignore_index=True)
+        if has_days
+        else pd.Series([config.initial_capital])
+    )
     summary = {
         "ticker_a": config.ticker_a.upper(),
         "ticker_b": config.ticker_b.upper(),
+        "execution_convention": "signal_close_t_fill_close_t_plus_1",
+        "model_version": "0.2.0",
+        "holding_period_unit": "trading_sessions",
         "formation_days": config.formation_days,
         "entry_z": config.entry_z,
         "exit_z": config.exit_z,
         "round_trip_cost_bps": config.round_trip_cost_bps,
         "initial_capital": config.initial_capital,
         "gross_notional_per_trade": config.gross_notional_per_trade,
-        "max_holding_days": config.max_holding_days,
+        "max_holding_sessions": config.max_holding_sessions,
         "stop_z": config.stop_z,
         "require_rolling_pass": config.require_rolling_pass,
         "require_regime_allowed": config.require_regime_allowed,
-        "completed_trades": int(len(trades)),
-        "win_rate": float(trades["net_pnl_bps"].gt(0).mean()),
-        "avg_days_held": float(trades["days_held"].mean()),
-        "median_days_held": float(trades["days_held"].median()),
-        "avg_gross_pnl_bps": float(trades["gross_pnl_bps"].mean()),
-        "avg_net_pnl_bps": float(trades["net_pnl_bps"].mean()),
-        "total_net_pnl_bps": float(trades["net_pnl_bps"].sum()),
-        "worst_net_pnl_bps": float(trades["net_pnl_bps"].min()),
-        "best_net_pnl_bps": float(trades["net_pnl_bps"].max()),
-        "total_pnl_dollars": float(daily["cumulative_pnl"].iloc[-1]),
-        "total_return": float(daily["equity"].iloc[-1] / config.initial_capital - 1),
-        "annualized_return": annualized_return(daily["equity"]),
-        "annualized_volatility": annualized_volatility(daily["daily_return"]),
-        "sharpe": sharpe_ratio(daily["daily_return"]),
-        "max_drawdown": max_drawdown(daily["equity"]),
-        "exposure_pct": float(daily["position"].ne(0).mean()),
-        "first_trade_date": trades["entry_date"].min(),
-        "last_trade_date": trades["entry_date"].max(),
+        "completed_trades": len(trades),
+        "win_rate": float(trades["net_pnl_bps"].gt(0).mean()) if has_trades else 0.0,
+        "total_pnl_dollars": float(equity.iloc[-1] - config.initial_capital),
+        "total_return": float(equity.iloc[-1] / config.initial_capital - 1),
+        "annualized_return": float(
+            (equity.iloc[-1] / config.initial_capital) ** (252 / len(daily)) - 1
+        )
+        if has_days and equity.iloc[-1] > 0
+        else 0.0,
+        "annualized_volatility": annualized_volatility(returns),
+        "sharpe": sharpe_ratio(returns),
+        "max_drawdown": max_drawdown(equity),
+        "exposure_pct": float(daily["position"].ne(0).mean()) if has_days else 0.0,
+        "first_trade_date": trades["entry_date"].min() if has_trades else pd.NaT,
+        "last_trade_date": trades["entry_date"].max() if has_trades else pd.NaT,
     }
+    for name, column, operation in [
+        ("avg_days_held", "sessions_held", "mean"),
+        ("median_days_held", "sessions_held", "median"),
+        ("avg_sessions_held", "sessions_held", "mean"),
+        ("avg_gross_pnl_bps", "gross_pnl_bps", "mean"),
+        ("avg_net_pnl_bps", "net_pnl_bps", "mean"),
+        ("total_net_pnl_bps", "net_pnl_bps", "sum"),
+        ("worst_net_pnl_bps", "net_pnl_bps", "min"),
+        ("best_net_pnl_bps", "net_pnl_bps", "max"),
+    ]:
+        summary[name] = float(getattr(trades[column], operation)()) if has_trades else 0.0
     return pd.DataFrame([summary])
 
 
@@ -332,7 +238,7 @@ def annualized_return(equity: pd.Series) -> float:
 
 def annualized_volatility(daily_returns: pd.Series) -> float:
     """Annualized volatility from daily returns."""
-    return float(daily_returns.std() * np.sqrt(252))
+    return float(daily_returns.std() * np.sqrt(252)) if len(daily_returns) > 1 else 0.0
 
 
 def sharpe_ratio(daily_returns: pd.Series) -> float:
@@ -374,7 +280,7 @@ def write_backtest_outputs(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     paths = write_backtest_outputs(
         price_history_csv=base_dir / "data" / "etf_price_history.csv",
         output_dir=base_dir / "outputs",

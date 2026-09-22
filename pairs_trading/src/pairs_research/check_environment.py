@@ -1,31 +1,36 @@
-"""Print the Python environment and package availability for this project."""
+"""Verify the active interpreter and actual imports, not just package discovery."""
 
-from __future__ import annotations
-
-import importlib.util
-import site
+from importlib import import_module
+from importlib.metadata import version
 import sys
 
-
-PACKAGES = ("pandas", "yfinance", "statsmodels", "matplotlib")
+PACKAGES = (
+    "numpy",
+    "pandas",
+    "statsmodels",
+    "yfinance",
+    "hmmlearn",
+    "matplotlib",
+    "requests",
+    "scipy",
+)
 
 
 def main() -> None:
     print(f"Python executable: {sys.executable}")
-    print(f"Python version: {sys.version}")
-    print("\nSite packages:")
-    for path in site.getsitepackages():
-        print(f"  {path}")
-
-    user_site = site.getusersitepackages()
-    print(f"\nUser site packages:\n  {user_site}")
-
-    print("\nPackage availability:")
+    print(f"Python version: {sys.version.split()[0]}")
+    failures = []
+    if sys.version_info[:2] != (3, 12):
+        failures.append("Python 3.12 is required; run uv sync --frozen")
     for package in PACKAGES:
-        spec = importlib.util.find_spec(package)
-        status = "found" if spec else "missing"
-        location = spec.origin if spec else ""
-        print(f"  {package}: {status} {location}")
+        try:
+            import_module(package)
+            print(f"  {package}: {version(package)}")
+        except Exception as exc:
+            failures.append(f"{package}: {exc}")
+    if failures:
+        raise SystemExit("Environment check failed:\n" + "\n".join(failures))
+    print("Environment check passed.")
 
 
 if __name__ == "__main__":

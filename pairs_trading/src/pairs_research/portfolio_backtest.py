@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from backtest_pair import annualized_return, annualized_volatility, max_drawdown, sharpe_ratio
+from .backtest_pair import annualized_return, annualized_volatility, max_drawdown, sharpe_ratio
 
 
 @dataclass(frozen=True)
@@ -172,7 +172,7 @@ def build_portfolio_daily(
     )
     portfolio["cumulative_pnl"] = portfolio["net_daily_pnl"].cumsum()
     portfolio["equity"] = config.initial_capital + portfolio["cumulative_pnl"]
-    portfolio["daily_return"] = portfolio["net_daily_pnl"] / config.initial_capital
+    portfolio["daily_return"] = portfolio["net_daily_pnl"] / portfolio["equity"].shift(1).fillna(config.initial_capital)
     portfolio["gross_exposure_pct"] = portfolio["gross_exposure"] / config.initial_capital
     return portfolio
 
@@ -190,6 +190,8 @@ def summarize_portfolio(
 
     summary = {
         "initial_capital": config.initial_capital,
+        "model_version": "0.2.0",
+        "execution_convention": "signal_close_t_fill_close_t_plus_1",
         "selected_pairs": int(len(selected_pairs)),
         "allocation_method": config.allocation_method,
         "total_gross_budget": config.total_gross_budget,
@@ -233,7 +235,7 @@ def write_portfolio_outputs(
 
 
 if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parents[2]
+    base_dir = Path.cwd() / "pairs_trading"
     paths = write_portfolio_outputs(
         backtest_comparison_csv=base_dir / "outputs" / "backtest_comparison.csv",
         output_dir=base_dir / "outputs",
