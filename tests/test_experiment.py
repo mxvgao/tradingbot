@@ -81,7 +81,7 @@ def test_repeated_experiment_has_identical_artifacts_and_accounting(small_experi
     )
     assert not trades.empty
     assert (trades.entry_date > trades.entry_signal_date).all()
-    ordinary = trades[trades.exit_reason != "end_of_data"]
+    ordinary = trades[trades.exit_reason != "test_boundary"]
     assert (ordinary.exit_date > ordinary.exit_signal_date).all()
     assert daily.iloc[-1].position == 0 and daily.iloc[-1].gross_exposure == 0
     assert daily.net_daily_pnl.sum() == pytest.approx(metrics.iloc[0].total_pnl_dollars)

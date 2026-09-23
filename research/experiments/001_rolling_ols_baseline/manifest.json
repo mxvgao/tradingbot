@@ -1,0 +1,177 @@
+{
+  "artifacts": {
+    "report.md": "8259e4d815e211b6972f6b75a0dcf269b9c436a5f0946d55f6c89e80bdd0e4f3",
+    "results/selected_parameters.csv": "9434696203b461a6b5062b2beb769de6687b3f4f052a9c51ce3b28fdada519d9",
+    "results/test_daily.csv": "d9f54c81eda64ac077cbb214338e72e82c6be28a8dbb1dc7d715d910f310d6a5",
+    "results/test_metrics.csv": "a5d9154ee98cc96723d413f8b69cbb04746d6b00e6711e880176375cffd5b9a9",
+    "results/test_results.png": "8f428b611cdcaa744147becc1ba66bb2849967abe615d4f89bca05bff3493c07",
+    "results/test_trades.csv": "8664c25a2c79e8800a179e1f29ce0cb849eecc237d74458f73dc220335f1fc5a",
+    "results/validation_grid.csv": "c3d0bc43fd02740cafb47f99e1ce69ca0f1f6d9e52135179275ebfebcfb52bcc"
+  },
+  "baseline_commit": "287c41d258e79d15476aa25192a70bd5a1078855",
+  "baseline_tag": "research-engine-v1",
+  "config_sha256": "dda4c1a4b58353ac80ed8dbe0e4860762b6c65b3014ad703bb959777fb1aa57b",
+  "configuration": {
+    "baseline_tag": "research-engine-v1",
+    "data": {
+      "download_date": "2026-09-23",
+      "download_parameters": {
+        "auto_adjust": false,
+        "end_exclusive": "2026-01-01",
+        "start": "2022-01-03",
+        "threads": false
+      },
+      "end": "2025-12-31",
+      "path": "data/energy_adjusted_close.csv",
+      "price_field": "Adj Close",
+      "provider": "yfinance",
+      "sessions": 1003,
+      "sha256": "a65bcaefa08f7109ecc2f165b2087c9407763a98b74ed337146d243eb0d3ec3a",
+      "start": "2022-01-03"
+    },
+    "execution": {
+      "convention": "signal_close_t_fill_close_t_plus_1",
+      "fill_model": "simultaneous_complete_pair",
+      "liquidate_at_end": true,
+      "price_basis": "adjusted_research_units",
+      "sizing": "fixed_signal_time_fractional_shares",
+      "start_each_window_flat": true
+    },
+    "experiment_id": "001_rolling_ols_baseline",
+    "fixed_parameters": {
+      "block_reentry_after_max_hold": false,
+      "exit_z": 0.5,
+      "gross_notional_per_trade": 10000,
+      "initial_capital": 100000,
+      "max_holding_sessions": 20,
+      "require_regime_allowed": false,
+      "require_rolling_pass": false,
+      "round_trip_cost_bps": 4.0,
+      "stop_z": 3.0
+    },
+    "limitations": [
+      "Retrospective fixed universe, not point-in-time membership.",
+      "Held-out for this parameter selection, not a pristine unseen market sample; earlier project work inspected overlapping dates.",
+      "Downloaded adjusted history can include later corporate-action revisions.",
+      "No cointegration or HMM filter; all unordered universe pairs are reported.",
+      "Simple fixed costs omit borrow, financing and variable slippage.",
+      "Pair tests are independent; overlapping ticker exposures are not a tradeable portfolio.",
+      "One validation/test split; multiple comparisons and regime sensitivity remain."
+    ],
+    "model": "rolling_ols_log_prices",
+    "parameter_grid": {
+      "entry_z": [
+        1.5,
+        2.0
+      ],
+      "formation_days": [
+        126,
+        252
+      ]
+    },
+    "random_seeds": {
+      "numpy": 0,
+      "python": 0
+    },
+    "schema_version": 1,
+    "selection": {
+      "direction": "maximize",
+      "metric": "total_return",
+      "minimum_validation_trades": 0,
+      "scope": "per_pair",
+      "tie_break": "canonical_parameter_json_ascending"
+    },
+    "universe": {
+      "path": "../../universes/energy_etfs.csv",
+      "sha256": "0aeabed3263be6232bf6d849ddd0b6f0d20102c5b627053466204db54f36b6bc"
+    },
+    "windows": {
+      "formation": {
+        "end": "2023-12-29",
+        "start": "2022-01-03"
+      },
+      "test": {
+        "end": "2025-12-31",
+        "start": "2025-01-02"
+      },
+      "validation": {
+        "end": "2024-12-31",
+        "start": "2024-01-02"
+      }
+    }
+  },
+  "dependencies": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "statsmodels": "0.14.6"
+  },
+  "engine_version": "session-engine-v1",
+  "experiment_id": "001_rolling_ols_baseline",
+  "git_commit": "2dda56805903bc23c58f25e34db0fede5bba4285",
+  "manifest_version": 1,
+  "pair_count": 15,
+  "parameter_combinations_per_pair": 4,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python_version": "3.12.12",
+  "relevant_inputs_clean": true,
+  "source_sha256": {
+    "pairs_trading/src/pairs_research/__init__.py": "24a6da9a81210d490d7d873561ef3aaafbcd981b62418729a57a78bfd06e88d7",
+    "pairs_trading/src/pairs_research/alpaca_readonly.py": "88a3afd8f4708e4c695079285d8c86ebcdd81d600a2503c4169cd90bf3a2dbbf",
+    "pairs_trading/src/pairs_research/backtest_pair.py": "d2d5b7c57c77c268def4bf578a017fba700a1440311638bcd1c1edce26123eca",
+    "pairs_trading/src/pairs_research/batch_backtest_pairs.py": "967dc3ed8392ea233cd2c0a4aaeb4b31446bcd33b4c796625bbcb613d64ad468",
+    "pairs_trading/src/pairs_research/build_large_universe.py": "fa462735f44f11c5d05db6fe62faac7903ef5500c096275db33dde76ddd5690c",
+    "pairs_trading/src/pairs_research/build_universe.py": "463d586921cb4179a1c27166ff461e9bda4886ea531f0060ffbb7d6a4e2b4e63",
+    "pairs_trading/src/pairs_research/check_environment.py": "bd379ead187346291a8f55ea3d617e9e5031cb0e1285e8f21c7edc9e8e099c9b",
+    "pairs_trading/src/pairs_research/config.py": "64d857e09bd6660ed0f1031b4095c418333b40f0f4f730fdc0a313dbecd4d70a",
+    "pairs_trading/src/pairs_research/download_prices.py": "64661625f6039637551e04728eea3c3d19f24da1d2211d2921265449372172ca",
+    "pairs_trading/src/pairs_research/download_prices_alpaca.py": "0c4dfa9cecaceceb237050a714d06b776e82a92fdf1c913f29f3d81d135f7975",
+    "pairs_trading/src/pairs_research/dry_run.py": "fc3c1902b2b72ccb8089cfbdc6d5277322537656cf08aa02fa4827746f8bd15b",
+    "pairs_trading/src/pairs_research/engine.py": "6395c15b89b62fb6b6222db08d71289b16aea05e68fbeefccaf726e0d3052907",
+    "pairs_trading/src/pairs_research/execution.py": "50f523044a184258a3c3003c4e477fe94955c25a71182564a1194690ba9459b1",
+    "pairs_trading/src/pairs_research/experiment.py": "f30992071f51bb6273846e9e733702ba112b67b87aea3a3574e7cfc3b472a08d",
+    "pairs_trading/src/pairs_research/filter_universe.py": "22ff7db5a6d9bd505bc3c295fe00eb00c6d47bb0570f2353d435401bfff82615",
+    "pairs_trading/src/pairs_research/generate_mvp_report.py": "3d5c0d9a22398beb3228f10ea11ed1813f00751e664ee683ff60ab2964b18668",
+    "pairs_trading/src/pairs_research/hmm_regime_filter.py": "9d0c0cb99efe9fefaffa78d0457e51bca9459f9c536a36049e72ef1ed4b629fa",
+    "pairs_trading/src/pairs_research/ledger.py": "1ef9d3bbe879ca37dfb0a5c14d886478fbb7250601c9aa5be068f7c149833378",
+    "pairs_trading/src/pairs_research/models.py": "790a479e5329c9d279165c13f61a51e4d34a612a649f071f71d9593ba8897241",
+    "pairs_trading/src/pairs_research/parameter_sweep_pairs.py": "c8a41444a8061d2645b264975eade777e83413ad31dae9bf5610aaf19c7fe664",
+    "pairs_trading/src/pairs_research/portfolio_backtest.py": "400f22ff863306b66d86abe0471224c3f554da16ec9d2646aba9b337897cca05",
+    "pairs_trading/src/pairs_research/recent_opportunity_ranker.py": "de5ce271c27fdb106a3536e6a6d009e2c493445340d9174d4d135e3cdf8c6718",
+    "pairs_trading/src/pairs_research/replay.py": "bdf73b88c231ac7c14bb03d01bf4bd9c7d5a3c806ebfd872a2e471c64d79e6aa",
+    "pairs_trading/src/pairs_research/rolling_pair_check.py": "db4095c3f01d2980c18337c2b7c2643a61f60f9774cbd973c7dce5b80e2d4b20",
+    "pairs_trading/src/pairs_research/run_pipeline.py": "55f263cacd7086365d80f0066a089c479c150722d98dc6b60dd06762eda5131f",
+    "pairs_trading/src/pairs_research/scan_cointegration.py": "eef7a5c89eff98d969600ea5bea2e99d00898632a4d2004090dc2eb5ba2729f7",
+    "pairs_trading/src/pairs_research/strategy.py": "e91c7412d7b9dcd58bd9c68c31e33652c25e1defa757e25603c6b1592df7e2b6",
+    "pairs_trading/src/pairs_research/walk_forward_portfolio.py": "332441f4f1fec6a07fd2ddd85848a37f0e153dd5829dcb901d12141d573bed75"
+  },
+  "strategy_version": "next-close-zscore-v1",
+  "uncommitted_paths": [],
+  "universe": [
+    "BNO",
+    "OIH",
+    "USO",
+    "XES",
+    "XLE",
+    "XOP"
+  ],
+  "uv_lock_sha256": "89bb82605f8c19b00e2c711b686eb0194a30a9a0bf92f57b4778d29fddb30c03",
+  "windows": {
+    "formation": {
+      "end": "2023-12-29",
+      "sessions": 501,
+      "start": "2022-01-03"
+    },
+    "test": {
+      "end": "2025-12-31",
+      "sessions": 250,
+      "start": "2025-01-02"
+    },
+    "validation": {
+      "end": "2024-12-31",
+      "sessions": 252,
+      "start": "2024-01-02"
+    }
+  }
+}
