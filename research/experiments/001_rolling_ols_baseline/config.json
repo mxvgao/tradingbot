@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "experiment_id": "001_rolling_ols_baseline",
+  "baseline_tag": "research-engine-v1",
+  "model": "rolling_ols_log_prices",
+  "universe": {
+    "path": "../../universes/energy_etfs.csv",
+    "sha256": "0aeabed3263be6232bf6d849ddd0b6f0d20102c5b627053466204db54f36b6bc"
+  },
+  "data": {
+    "path": "data/energy_adjusted_close.csv",
+    "sha256": "a65bcaefa08f7109ecc2f165b2087c9407763a98b74ed337146d243eb0d3ec3a",
+    "provider": "yfinance",
+    "price_field": "Adj Close",
+    "download_date": "2026-09-23",
+    "download_parameters": {
+      "start": "2022-01-03",
+      "end_exclusive": "2026-01-01",
+      "auto_adjust": false,
+      "threads": false
+    },
+    "start": "2022-01-03",
+    "end": "2025-12-31",
+    "sessions": 1003
+  },
+  "windows": {
+    "formation": {
+      "start": "2022-01-03",
+      "end": "2023-12-29"
+    },
+    "validation": {
+      "start": "2024-01-02",
+      "end": "2024-12-31"
+    },
+    "test": {
+      "start": "2025-01-02",
+      "end": "2025-12-31"
+    }
+  },
+  "parameter_grid": {
+    "formation_days": [
+      126,
+      252
+    ],
+    "entry_z": [
+      1.5,
+      2.0
+    ]
+  },
+  "fixed_parameters": {
+    "exit_z": 0.5,
+    "max_holding_sessions": 20,
+    "stop_z": 3.0,
+    "initial_capital": 100000,
+    "gross_notional_per_trade": 10000,
+    "round_trip_cost_bps": 4.0,
+    "require_regime_allowed": false,
+    "require_rolling_pass": false,
+    "block_reentry_after_max_hold": false
+  },
+  "selection": {
+    "metric": "total_return",
+    "direction": "maximize",
+    "scope": "per_pair",
+    "tie_break": "canonical_parameter_json_ascending",
+    "minimum_validation_trades": 0
+  },
+  "random_seeds": {
+    "python": 0,
+    "numpy": 0
+  },
+  "execution": {
+    "convention": "signal_close_t_fill_close_t_plus_1",
+    "liquidate_at_end": true,
+    "start_each_window_flat": true,
+    "sizing": "fixed_signal_time_fractional_shares",
+    "price_basis": "adjusted_research_units",
+    "fill_model": "simultaneous_complete_pair"
+  },
+  "limitations": [
+    "Retrospective fixed universe, not point-in-time membership.",
+    "Held-out for this parameter selection, not a pristine unseen market sample; earlier project work inspected overlapping dates.",
+    "Downloaded adjusted history can include later corporate-action revisions.",
+    "No cointegration or HMM filter; all unordered universe pairs are reported.",
+    "Simple fixed costs omit borrow, financing and variable slippage.",
+    "Pair tests are independent; overlapping ticker exposures are not a tradeable portfolio.",
+    "One validation/test split; multiple comparisons and regime sensitivity remain."
+  ]
+}

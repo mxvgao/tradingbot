@@ -1,0 +1,7 @@
+ticker,category,description
+BNO,oil_futures,Brent oil futures exposure
+OIH,oil_services,Oil services equities
+USO,oil_futures,WTI oil futures exposure
+XES,oil_services,Oil and gas equipment and services equities
+XLE,energy_equities,Broad US energy equities
+XOP,energy_equities,Oil and gas exploration and production equities

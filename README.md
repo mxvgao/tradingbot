@@ -123,3 +123,13 @@ partial fills and broker order submission remain future work. The separate
 `execution.replay_fills` remains the partial-fill and legging-risk model. A
 read-only adapter is documented in [docs/alpaca-dry-run.md](docs/alpaca-dry-run.md);
 no external order submission is implemented.
+
+## Frozen research baseline
+
+The replay foundation is tagged `research-engine-v1` and passed its original 81 tests from an isolated checkout. Run the reproducible rolling-OLS experiment with:
+
+```sh
+uv run --frozen pairs-experiment --config research/experiments/001_rolling_ols_baseline/config.json
+```
+
+The [research guide](research/README.md) documents frozen prices/universe, validation-only parameter selection, held-out test windows, costs and the provenance manifest. [Experiment 001](research/experiments/001_rolling_ols_baseline/report.md) contains all pair results and figures. Source/config/input changes must be committed before an official run; no download or broker connection occurs.

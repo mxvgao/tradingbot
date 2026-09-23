@@ -180,3 +180,12 @@ Paper submission remains deferred. Offline validation does not satisfy the succe
 ## Next milestone — reproducible baseline research, 2026-09-23
 
 Freeze and tag the 81-test replay foundation as `research-engine-v1`. Keep later infrastructure and model experiments in separate commits. Add a frozen energy ETF universe and rolling-OLS experiment with an executable configuration, committed input snapshot, git/source/dependency provenance, explicit formation/validation/test windows, parameter grid, costs, seeds, execution convention, metrics and figures. Choose parameters using validation only; report the held-out test without retuning. Do not add more bot infrastructure in this milestone.
+
+### Research harness implementation — 2026-09-23
+
+- The annotated `research-engine-v1` tag points to `287c41d`, verified from an isolated committed checkout with all 81 foundation tests passing. Existing offline adapter work was checkpointed separately as `9abb6ba`.
+- `pairs-experiment --config ...` loads checksum-pinned data/universe and runs the existing rolling OLS and `run_backtest → process_session` implementation. No alternative strategy/accounting path or broker calls are introduced.
+- Experiment 001 freezes six energy ETFs, all 15 unordered pairs, four grid combinations, 2022–2023 initial formation, 2024 validation, and 2025 test. Validation alone selects per-pair parameters, with a declared deterministic tie break; zero-trade and losing pairs remain visible.
+- The manifest records Git/baseline commits, source and lock hashes, runtime versions, snapshot checksums/date range, universe, complete model/grid/cost/seed/execution configuration, window session counts, and output checksums. The committed price subset permits offline reproduction.
+- Acceptance checks cover identical repeat artifacts, changing future test prices without changing validation/selection, next-session fills and terminal cash/P&L reconciliation, checksum failure, missing legs/sessions, invalid window order, insufficient formation history, and deterministic no-trade ties. Source/config/input mutations are rejected for official runs; development overrides are explicitly labeled.
+- The [research guide](../research/README.md) records the protocol and limitations. These retrospective, independently capitalized pair tests are not production portfolio performance or untouched prospective validation. No further bot infrastructure is added by this milestone.
