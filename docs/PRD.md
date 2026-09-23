@@ -168,3 +168,15 @@ transaction must have no external side effects.
   command pauses, resumes, liquidates and replays idempotently against SQLite.
 - README and example configuration document setup and replay operations. CI
   includes the replay CLI in its installed-wheel check. No broker is connected.
+
+## Historical rerun and offline daily adapter — 2026-09-22
+
+The replay foundation was checkpointed separately in `287c41d`. The broad-universe pipeline was rerun using that shared economic transition (with an equivalent state-copy optimization). One latest complete test fold returned −1.70%; the [dated record](../pairs_trading/reports/historical_rerun_2026-09-22.md) documents inputs, checksums and limits. Earlier implementation-record statements about missing data/report regeneration describe the initial phase and are superseded by this rerun.
+
+A read-only Alpaca adapter and transactional outbox now exist; no account-connected validation or order submission occurred. The [adapter contract](alpaca-dry-run.md) documents the command, report, failures and operational gates. Tests cover duplicate/restart behavior, exact engine quantities, long/short and exit proposals, missing/stale data, account/position/order conflicts, auction cutoff, fractional-share rejection, and rollback of both engine and outbox on database faults. Run metadata pins the broker/account/data policy separately from the research configuration. All network reads precede the transaction; fixed GET-only paper/data endpoints cannot submit orders.
+
+Paper submission remains deferred. Offline validation does not satisfy the successful actual dry-run gate. Existing simultaneous strategy fills remain a benchmark; broker fill reconciliation and legging accounting must precede any worker.
+
+## Next milestone — reproducible baseline research, 2026-09-23
+
+Freeze and tag the 81-test replay foundation as `research-engine-v1`. Keep later infrastructure and model experiments in separate commits. Add a frozen energy ETF universe and rolling-OLS experiment with an executable configuration, committed input snapshot, git/source/dependency provenance, explicit formation/validation/test windows, parameter grid, costs, seeds, execution convention, metrics and figures. Choose parameters using validation only; report the held-out test without retuning. Do not add more bot infrastructure in this milestone.

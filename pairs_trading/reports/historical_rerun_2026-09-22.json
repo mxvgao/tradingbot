@@ -1,0 +1,37 @@
+{
+  "command": "pairs-research --skip-universe --skip-download --price-period 10y --walk-forward-max-folds 1 --walk-forward-latest --disable-hmm --recent-max-candidates 75",
+  "data_range": [
+    "2016-09-22",
+    "2026-09-21"
+  ],
+  "data_source": "yfinance 10y download, Adj Close with auto_adjust=False",
+  "engine_version": "session-engine-v1",
+  "execution_convention": "signal_close_t_fill_close_t_plus_1",
+  "folds": 1,
+  "foundation_commit": "287c41d",
+  "hmm_enabled": false,
+  "price_input_committed": false,
+  "run_date": "2026-09-22",
+  "sha256": {
+    "pairs_trading/data/etf_price_history.csv": "ce30fbed31f40b10059a896a7a60c341c0f838a63a1ef934579a70a26ed32cbf",
+    "pairs_trading/data/etf_universe_seed.csv": "497808248fd4240bd18bb524b8c67e1d86759d040b7fb8d46d4d91ffe8751766",
+    "pairs_trading/outputs/walk_forward_folds.csv": "8fe2d9dce68ef673e514647df04df39b5ef5cd8ecf0b3d2e23a8c8d5f0502b9f",
+    "pairs_trading/outputs/walk_forward_pair_results.csv": "55091830c5589fc4641f51fb8314b15a04e919513f29229d7a10b860b62c347e",
+    "pairs_trading/outputs/walk_forward_portfolio_daily.csv": "c97e051cf95ced1c705d2e8e4fd20fcb005daeb4ee87cf0255a4a8c90be9edf7",
+    "pairs_trading/outputs/walk_forward_selected_pairs.csv": "14683c0119ccdc9e5f3de6eab6456f95022a9452f9bbf1b4dc71638ee17506ec",
+    "pairs_trading/outputs/walk_forward_summary.csv": "db542f0512f70e89afd15e29fbd04d9d86ff5c7ca2bdefa3f792f3e424b850c6",
+    "pairs_trading/reports/historical_snapshot_2026-09-22/backtest_comparison.csv": "11aaae7cdc83d458bb1c509e8d37c968e817ec5d84cdb89d881747e634a139f6",
+    "pairs_trading/reports/historical_snapshot_2026-09-22/cointegration_scan.csv": "97b627d64104c1b76818431c04cb34366f8b4b86464f472a5ea9922f8be6a93b",
+    "pairs_trading/reports/historical_snapshot_2026-09-22/parameter_sweep_summary.csv": "ce87c2281ae1076a4e167931d99b7c69c6991f03cdef87ec91b53e6a2123bd5f",
+    "pairs_trading/reports/historical_snapshot_2026-09-22/portfolio_summary.csv": "2536a05e065613fbc93db9837a0a929dd8dd9cf21059764a799fb0fb5d6d8267",
+    "pairs_trading/reports/historical_snapshot_2026-09-22/recent_opportunity_rankings.csv": "7510115e39fdeb7e02de60f08f91eb9864681692662fe985082a5f473cd4c02c",
+    "pairs_trading/src/pairs_research/engine.py": "6395c15b89b62fb6b6222db08d71289b16aea05e68fbeefccaf726e0d3052907",
+    "pairs_trading/src/pairs_research/strategy.py": "e91c7412d7b9dcd58bd9c68c31e33652c25e1defa757e25603c6b1592df7e2b6",
+    "uv.lock": "89bb82605f8c19b00e2c711b686eb0194a30a9a0bf92f57b4778d29fddb30c03"
+  },
+  "test_range": [
+    "2025-10-01",
+    "2026-04-01"
+  ],
+  "universe": "saved seed, not point-in-time"
+}

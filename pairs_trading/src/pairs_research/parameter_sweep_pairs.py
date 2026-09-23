@@ -218,7 +218,7 @@ def write_research_summary(
                 "",
                 "Caveats: this is still a simple daily-data backtest with rough costs, fixed gross notional, no borrow constraints, and no intraday execution modeling.",
                 "",
-                "Next action: promote robust pairs into a multi-pair portfolio test and compare against higher transaction-cost assumptions.",
+                "Next action: validate read-only paper-account reconciliation over several actual dry runs, then implement a separate submission worker and paper trade for several weeks before adding models. These in-sample sweeps are not independent profitability evidence.",
             ]
         )
 

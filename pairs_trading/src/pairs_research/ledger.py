@@ -156,12 +156,19 @@ class SQLiteLedger:
 
     @contextmanager
     def transaction(self):
-        self.connection.execute("BEGIN IMMEDIATE")
+        # Allows an adapter to include session processing and outbox writes in
+        # one outer transaction without giving the engine external side effects.
+        nested = self.connection.in_transaction
+        self.connection.execute("SAVEPOINT session_workflow" if nested else "BEGIN IMMEDIATE")
         try:
             yield
-            self.connection.execute("COMMIT")
+            self.connection.execute("RELEASE session_workflow" if nested else "COMMIT")
         except BaseException:
-            self.connection.execute("ROLLBACK")
+            if nested:
+                self.connection.execute("ROLLBACK TO session_workflow")
+                self.connection.execute("RELEASE session_workflow")
+            else:
+                self.connection.execute("ROLLBACK")
             raise
 
     def has_session(self, session: str) -> bool:

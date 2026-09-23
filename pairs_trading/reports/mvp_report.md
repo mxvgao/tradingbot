@@ -1,6 +1,6 @@
-> Legacy result: generated before the 0.2.0 next-session execution correction. Performance figures have not been revalidated; regenerate with the locked environment.
-
 # ETF Pairs Trading MVP Report
+
+Execution contract: signal at completed close t, fixed-share fills at t+1 close, session-based holding limits, daily marks and explicit test-boundary liquidation. Full simultaneous fills are a benchmark; partial-fill risk is modeled separately.
 
 ## Executive Summary
 
@@ -8,60 +8,51 @@ This project is an ETF pairs-trading research engine. It builds a liquid ETF uni
 
 The current MVP does not claim a production-ready trading strategy. Its main finding is that ETF pair relationships are regime-dependent: full-sample cointegration is very selective, while recent validation winners can still fail in the next window. The pipeline is useful because it makes those failures visible instead of hiding them.
 
-The most promising direction from the current run is not a broader model search. It is a focused follow-up on energy commodity/producer relationships, because BNO/XOP was the only selected pair with a positive walk-forward result and has a clear economic link between crude oil exposure and oil producer equities.
+Strategy conclusions must be based on the tables from this run. Earlier saved findings used the legacy execution model and are not carried forward.
 
 ## Latest Run Snapshot
 
 - Universe ETFs: 1,666
-- Liquid ETFs: 211
-- Candidate pairs: 791
-- Full-sample cointegration pass count: 7
-- Recent opportunity rows: 8
-- Latest walk-forward return: -0.82%
-- Latest walk-forward Sharpe: -0.81
-- Latest walk-forward max drawdown: -0.95%
-- Full-history portfolio return: 3.61%
-- Full-history portfolio Sharpe: 1.00
+- Liquid ETFs: 162
+- Candidate pairs: 459
+- Full-sample cointegration pass count: 2
+- Recent opportunity rows: 5
+- Latest walk-forward return: -1.70%
+- Latest walk-forward Sharpe: -0.77
+- Latest walk-forward max drawdown: -3.44%
+- Full-history portfolio return: 2.60%
+- Full-history portfolio Sharpe: 0.46
 
 ## Top Recent Opportunities
 
 | ticker_a | ticker_b | candidate_tier | group | recent_tradability_score | recent_validation_completed_trades | recent_validation_total_return | recent_validation_sharpe | recent_validation_avg_net_pnl_bps |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| BNO | XOP | same_subgroup | energy | 6.71 | 3 | 0.93% | 2.17 | 334.53 |
-| DBO | XES | same_subgroup | energy | 5.67 | 4 | 0.96% | 2.05 | 240.91 |
-| FCG | USO | same_subgroup | energy | 5.64 | 3 | 0.59% | 2.37 | 238.95 |
-| GSIE | IAU | same_subgroup | metals | 4.23 | 3 | 0.55% | 1.76 | 181.79 |
-| HYD | HYMB | same_subgroup | municipal | 1.92 | 6 | 0.04% | 1.22 | 6.68 |
-| RSPT | XLK | same_subgroup | sector | 1.84 | 3 | 0.13% | 1.16 | 42.72 |
-| DBO | IEZ | same_subgroup | energy | 1.39 | 4 | 0.19% | 0.49 | 47.63 |
-| DBO | OIH | same_subgroup | energy | 0.56 | 4 | 0.06% | 0.13 | 14.90 |
+| EFA | EWU | country_region | single_country__international_equity | 3.25 | 7 | 0.18% | 2.12 | 25.33 |
+| GDX | GSIE | same_subgroup | metals | 2.89 | 3 | 0.38% | 1.01 | 125.45 |
+| FCG | USO | same_subgroup | energy | 2.56 | 3 | 0.38% | 0.68 | 125.54 |
+| HYD | HYMB | same_subgroup | municipal | 0.94 | 3 | 0.03% | 0.71 | 8.34 |
+| SPLV | USMV | same_subgroup | factor | 0.94 | 5 | 0.04% | 0.42 | 8.85 |
 
 ## Latest Walk-Forward Selected Pairs
 
 | ticker_a | ticker_b | group | candidate_tier | validation_tradability_score | train_validation_total_return | train_validation_sharpe |
 | --- | --- | --- | --- | --- | --- | --- |
-| USO | XES | energy | same_subgroup | 5.89 | 0.84% | 2.11 |
-| BNO | XOP | energy | same_subgroup | 4.28 | 0.61% | 1.52 |
-| IHF | PPH | sector__industry | sector_industry | 2.05 | 0.30% | 0.61 |
-| SIL | SIVR | metals | same_subgroup | 1.66 | 0.21% | 0.66 |
-| CEF | IAU | metals | same_subgroup | 0.54 | 0.03% | 0.19 |
+| USO | XOP | energy | same_subgroup | 5.90 | 0.91% | 1.70 |
+| HYD | HYMB | municipal | same_subgroup | 2.15 | 0.06% | 1.13 |
 
 ## Latest Test Results By Pair
 
 | ticker_a | ticker_b | group | completed_trades | total_return | sharpe | max_drawdown |
 | --- | --- | --- | --- | --- | --- | --- |
-| BNO | XOP | energy | 3 | 0.95% | 2.18 | -0.32% |
-| IHF | PPH | sector__industry | 1 | -0.04% | -0.16 | -0.33% |
-| CEF | IAU | metals | 2 | -0.33% | -2.21 | -0.39% |
-| USO | XES | energy | 5 | -0.68% | -1.10 | -0.94% |
-| SIL | SIVR | metals | 6 | -0.71% | -2.35 | -0.75% |
+| HYD | HYMB | municipal | 3 | 0.02% | 0.20 | -0.13% |
+| USO | XOP | energy | 7 | -1.72% | -0.79 | -3.41% |
 
 ## Best Current Test Pair
 
-- Pair: BNO/XOP
-- Test return: 0.95%
-- Test Sharpe: 2.18
-- Max drawdown: -0.32%
+- Pair: HYD/HYMB
+- Test return: 0.02%
+- Test Sharpe: 0.20
+- Max drawdown: -0.13%
 
 ## Charts
 
@@ -85,24 +76,18 @@ The most promising direction from the current run is not a broader model search.
 
 ## Key Finding
 
-The research funnel found some promising individual relationships, especially in energy producer/commodity-style pairs such as BNO/XOP. However, forcing a broader portfolio can dilute those winners with weaker pairs. The next research step is to improve selection confidence, likely by choosing fewer higher-conviction pairs and adding entry confirmation so the strategy avoids fading spreads that are still trending.
-
-A practical next research branch is an energy-focused experiment: build a smaller universe of oil, broad commodity, energy producer, oil services, and exploration/production ETFs; walk-forward test all economically related pairs in that subset; and evaluate whether BNO/XOP is an isolated winner or part of a repeatable theme.
+The selected walk-forward test returned -1.70%, with Sharpe -0.77 and maximum drawdown -3.44%. This sample does not establish durable profitability; the selected pairs and results above describe only this run.
 
 ## MVP Limitations
 
 - yfinance daily data is suitable for research, not live execution.
 - Bid/ask spreads, intraday fills, financing, borrow constraints, and taxes are simplified.
 - Validation windows still have small trade counts.
-- HMM filtering reduces bad trades but can become too selective.
-- Current profitability is not robust enough for production trading.
+- HMM is optional; disabled runs provide no evidence about its effectiveness.
+- Limited walk-forward coverage and a present-day universe do not establish production profitability; see historical_rerun_2026-09-22.md for this snapshot’s scope and provenance.
 
 ## Suggested Next Steps
 
-1. Run a focused energy/commodity-producer experiment around BNO/XOP-like relationships.
-2. Walk-forward test all pairs in that smaller energy universe instead of relying only on the broad ETF selector.
-3. Test smaller portfolios, such as top 1-3 high-conviction pairs, instead of forcing 5.
-4. Add entry confirmation: wait for z-score to start reverting before entering.
-5. Run more rolling folds on the 10-year dataset.
-6. Improve pair metadata with richer ETF categories, AUM, fees, and issuer data.
-7. Add realistic slippage and bid/ask cost modeling before any live trading.
+1. Validate the daily read-only Alpaca reconciliation and transactional outbox over several actual paper-account dry runs.
+2. Resolve share sizing, closing-auction eligibility, corporate actions and actual-fill accounting before adding a separate paper submission worker.
+3. Paper trade for several weeks before adding more modeling. Offline fixtures do not satisfy this operating gate.

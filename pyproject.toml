@@ -19,6 +19,7 @@ dependencies = [
 dev = ["pytest>=8.3,<9", "ruff>=0.11,<0.12"]
 
 [project.scripts]
+pairs-alpaca-dry-run = "pairs_research.dry_run:main"
 pairs-replay = "pairs_research.replay:main"
 pairs-research = "pairs_research.run_pipeline:main"
 pairs-check-environment = "pairs_research.check_environment:main"

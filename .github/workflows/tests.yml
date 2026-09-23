@@ -22,3 +22,4 @@ jobs:
           /tmp/pairs-wheel/bin/python -c "import pairs_research; import importlib.util; assert importlib.util.find_spec('stochcontrol') is None"
           /tmp/pairs-wheel/bin/pairs-research --help
           /tmp/pairs-wheel/bin/pairs-replay --help
+          /tmp/pairs-wheel/bin/pairs-alpaca-dry-run --help

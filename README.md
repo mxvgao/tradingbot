@@ -66,8 +66,7 @@ parameters, and attributes trades to the regime on the decision date.
 - `tests`: deterministic offline regression and integration checks.
 - `experiments/stochcontrol`: isolated older execution experiment, scripts and results.
 
-Previously saved performance reports are legacy same-close results and must be
-regenerated before comparing strategies. Tests validate mechanics, not profits.
+Historical outputs were regenerated under the shared engine; see the [dated rerun](pairs_trading/reports/historical_rerun_2026-09-22.md). Tests validate mechanics, not profits.
 
 ## Resumable replay
 
@@ -120,6 +119,7 @@ use a new run ID for corrected historical data.
 
 The current engine uses complete simultaneous pair fills. A fill source can
 supply other complete-fill prices/fees through the same workflow; asynchronous
-partial fills, broker order submission, reconciliation and an outbox are still
-paper-adapter work. The separate `execution.replay_fills` remains the partial-fill
-and legging-risk model. No paper or live broker command is enabled here.
+partial fills and broker order submission remain future work. The separate
+`execution.replay_fills` remains the partial-fill and legging-risk model. A
+read-only adapter is documented in [docs/alpaca-dry-run.md](docs/alpaca-dry-run.md);
+no external order submission is implemented.

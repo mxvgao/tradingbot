@@ -4,11 +4,9 @@ This project is an ETF pairs-trading research engine. It builds a liquid ETF uni
 
 The MVP goal is not to claim a production-ready trading strategy. The goal is to show a credible quant research workflow that can find, test, reject, and explain ETF pair opportunities.
 
-## Legacy finding (not revalidated)
+## Current reference run
 
-The project found that ETF pair relationships are highly regime-dependent.
-
-Full-sample 10-year cointegration is very selective, while recent validation winners can still fail in the next walk-forward test window. The strongest current individual result is `BNO/XOP`, but broader selected portfolios are not yet robust enough for production trading.
+The shared-engine historical rerun returned −1.70% in one test fold. See the [dated provenance record](reports/historical_rerun_2026-09-22.md) and [current report](reports/mvp_report.md). Earlier same-close findings are not evidence for this engine.
 
 ## Quick Run
 
@@ -63,7 +61,7 @@ reports/charts/
 
 ## Methodology
 
-Version 0.2.0 fixes quantities at signal close t and fills at t+1 close. Holding limits use trading sessions, all positions are marked daily and liquidated at each test boundary, and execution fill risk is reported separately. Saved outputs below predate this correction.
+Version 0.2.0 fixes quantities at signal close t and fills at t+1 close. Holding limits use trading sessions, all positions are marked daily and liquidated at each test boundary, and execution fill risk is reported separately. Current outputs were regenerated on 2026-09-22; legacy pair-count sensitivity is archived separately.
 
 Universe construction uses Nasdaq Trader ETF listings with heuristic ETF-name classification. The current default universe includes broad equity, sector, industry, factor, country, bond, credit, commodity, metals, and energy ETFs.
 
@@ -122,31 +120,6 @@ optional HMM regime filter
 
 The optional HMM uses spread change, z-score change, rolling spread volatility, absolute z-score, and hedge-ratio change to filter regimes. It is fit only on subtrain data and then applied to validation/test windows without lookahead.
 
-## Legacy MVP result (same-close model)
-
-In the latest one-window 10-year run:
-
-```text
-Universe ETFs:             1,666
-Candidate pairs:           791
-Full-sample coint passed:  7
-Recent opportunity rows:   8
-Latest walk-forward return: negative
-Best selected test pair:   BNO/XOP
-```
-
-The best current individual pair result:
-
-```text
-BNO/XOP
-test return: about +0.95%
-test Sharpe: about 2.18
-```
-
-The selected portfolio was dragged down by weaker pairs, which suggests the next improvement is not more breadth. It is better selection confidence and smaller, higher-conviction portfolios.
-
-The most promising follow-up is a focused energy/commodity-producer experiment. `BNO/XOP` has a clear economic relationship between crude oil exposure and oil producer equities, and it was the only selected pair with a positive walk-forward result in the latest MVP run. A natural next research branch is to build a smaller energy universe and walk-forward test all related oil, energy producer, oil services, exploration/production, and broad commodity pairs.
-
 ## Limitations
 
 ```text
@@ -157,14 +130,6 @@ ETF relationships can break quickly during regime changes
 the strategy is not production-ready yet
 ```
 
-## Next Steps
+## Next milestone
 
-```text
-run a focused energy/commodity-producer experiment around BNO/XOP-like pairs
-walk-forward test all pairs in that smaller energy universe
-test top 1-3 high-conviction portfolios instead of forcing 5 pairs
-add entry confirmation before trading z-score extremes
-run more walk-forward folds on the 10-year dataset
-add richer ETF metadata such as AUM, issuer, fees, and benchmark
-add more realistic execution cost modeling
-```
+Freeze the research-engine baseline and build a reproducible rolling-OLS experiment with frozen data, an explicit parameter grid, held-out windows, costs and a provenance manifest. More bot infrastructure is deferred.

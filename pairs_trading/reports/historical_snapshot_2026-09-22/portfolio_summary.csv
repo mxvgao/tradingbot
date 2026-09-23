@@ -1,0 +1,2 @@
+initial_capital,model_version,execution_convention,selected_pairs,allocation_method,total_gross_budget,max_pairs_per_group,total_pnl_dollars,total_return,annualized_return,annualized_volatility,sharpe,max_drawdown,avg_active_pairs,max_active_pairs,avg_gross_exposure_pct,max_gross_exposure_pct,active_day_pct
+100000,0.2.0,signal_close_t_fill_close_t_plus_1,2,vol_target,50000,2,2597.9201312986106,0.025979201312986033,0.0032238926112264643,0.007037816691685584,0.4608595713608884,-0.010127553848998327,0.6593625498007968,2,0.09850670583619914,0.3503446444616992,0.5313745019920318

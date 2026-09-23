@@ -1,6 +1,6 @@
 """One incremental session workflow for memory backtests and durable replay."""
 
-from copy import deepcopy
+from copy import copy
 import math
 from typing import Protocol
 
@@ -212,7 +212,12 @@ def process_session(
     with ledger.transaction():
         if ledger.has_session(session.date):
             return None
-        state = deepcopy(ledger.load_state())
+        state = copy(ledger.load_state())
+        # Sessions/orders are frozen values; only the flat trade dictionary is
+        # mutable. Preserve transaction isolation without copying the complete
+        # formation window on every precomputed backtest step.
+        if state.open_trade is not None:
+            state.open_trade = state.open_trade.copy()
         if (
             state.last_processed_session is not None
             and session.date <= state.last_processed_session
@@ -262,7 +267,9 @@ def process_session(
             )
             executed_signal_date = None if boundary else pending.signal_session
             orders.append((pending, "filled"))
-        decision = generate_target(history, state, spec.config)
+        decision = generate_target(
+            history if spec.input_kind == "prices" else [session], state, spec.config
+        )
         state.blocked_direction = decision.blocked_direction
         if not boundary:
             state.pending = plan_order(decision, state, spec)
